@@ -14,12 +14,25 @@
               "type": "markdown",
               "state": {
                 "file": "Wave Equation/Numericaly Solving the Wave Equation.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a3f0534bde5b3a42",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Wave Equation/Wave Equation Solver Class.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "73a17ba208847a89",
@@ -85,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Wave Equation/Numericaly Solving the Wave Equation.md",
+                "file": "Wave Equation/Wave Equation Solver Class.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Wave Equation/Numericaly Solving the Wave Equation.md",
+                "file": "Wave Equation/Wave Equation Solver Class.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Wave Equation/Numericaly Solving the Wave Equation.md"
+                "file": "Wave Equation/Wave Equation Solver Class.md"
               }
             }
           }
@@ -136,11 +150,10 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "3e305184d206b35c",
+  "active": "a3f0534bde5b3a42",
   "lastOpenFiles": [
-    "Wave Equation/Numericaly Solving the Wave Equation.md"
+    "Wave Equation/Numericaly Solving the Wave Equation.md",
+    "Wave Equation/Wave Equation Solver Class.md",
+    "Numericaly.md"
   ]
 }
