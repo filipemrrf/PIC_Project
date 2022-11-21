@@ -2,7 +2,12 @@ Our objective is to numerically solve the wave equation with Cauchy boundary con
 $$\frac{\partial^2 u(t,x)}{\partial t^2} = c^2 \frac{\partial^2 u(t,x)}{\partial x^2}$$
 $$u(0,x)=f(x)$$
 $$\frac{\partial u(0,x)}{\partial t}=g(x)$$
-To do that, we will use the finite difference technique.
+To do that, we will separate the 2nd order PDE into a system of 2 1st order ODE's in order to time and use the finite difference technique for the position. We will also be solving it in a circle, which means that in a data vector v of size n, v\[0\] = v\[n-1\].
+
+
+Doing the separation of the wave equation into a system of ODE's we get
+$$\frac{\partial^2 u(t,x)}{\partial t^2} = c^2 \frac{\partial^2 u(t,x)}{\partial x^2} \Leftrightarrow$$
+$$\Leftrightarrow \left\{ \begin{array}{@{}l@{}} \frac{\partial u(t,x)}{\partial t} = \Pi (t,x) \\ \frac{\partial \Pi (t,x)}{\partial t} = c^2\frac{\partial^2 u(t,x)}{\partial x^2}\end{array} \right.\, $$
 
 
 Using the Tayor series to approximate small displacements in $x$ while keeping time contant, we get
@@ -12,18 +17,9 @@ By adding both expressions, we get
 $$u(t,x+\Delta x)+u(t,x-\Delta x) = 2u(t,x)+\frac{\partial^2u(t,x)}{\partial x^2}\Delta x^2 +O(\Delta x^4)\Leftrightarrow$$
 $$\Leftrightarrow \frac{\partial^2u(t,x)}{\partial x^2} \approx \frac{u(t,x+\Delta x)-2u(t,x)+u(t,x-\Delta x)}{\Delta x^2}$$
 
-Doing the same procedure for the time derivative (keeping the position constant), we get
-$$\frac{\partial^2u(t,x)}{\partial t^2} \approx \frac{u(t+\Delta t,x)-2u(t,x)+u(t-\Delta t,x)}{\Delta t^2}$$
 
-This way, we can write an approximation to the wave equation as
-$$\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}$$
-$$\frac{u(t+\Delta t,x)-2u(t,x)+u(t-\Delta t,x)}{\Delta t^2} = c^2 \frac{u(t,x+\Delta x)-2u(t,x)+u(t,x-\Delta x)}{\Delta x^2} \Leftrightarrow$$
-$$\Leftrightarrow u(t+\Delta t,x) = 2u(t,x)-u(t-\Delta t,x)+c^2\frac{\Delta t^2}{\Delta x^2}(u(t, x+\Delta x)-2u(t,x)+u(t, x-\Delta x))$$
+Substituting this into the ODE system, we get
+$$\left\{ \begin{array}{@{}l@{}} \frac{d u(t,x)}{d t} = \Pi (t,x) \\ \frac{d \Pi (t,x)}{d t} = \left( \frac{c}{\Delta x} \right)^2 \left( u(t,x+\Delta x)-2u(t,x)+u(t,x-\Delta x) \right) \end{array} \right.\, $$
 
 
-To solve the equation, we also need to discretize the boundary contition for the derivative. By expanding the first derivatives in a Taylor series
-$$u(t+\Delta t,x) = u(t,x) + \frac{\partial u(t,x)}{\partial t}\Delta t+O(\Delta t^2)\Leftrightarrow$$
-$$\Leftrightarrow \frac{\partial u(t,x)}{\partial t} \approx \frac{u(t+\Delta t,x)-u(t,x)}{\Delta t}$$
-By setting the boundary condition $\frac{\partial u(0,x)}{\partial t} = g(x)$, we get
-$$g(x) \approx \frac{u(\Delta t,x)-u(0,x)}{\Delta t} \Leftrightarrow $$
-$$\Leftrightarrow u(\Delta t,x) \approx u(0,x)+g(x)\Delta t$$
+Now, we can use the [[Runge-Kutta method]] to solve the ODE system.
