@@ -26,11 +26,11 @@ class ODE_System{
 
 		std::vector<std::vector<std::vector<double>>> Get_Sol();
 
-		//Solves the system of equations using Runge-Kutta 4 (to be defined by the parent class)
-        virtual std::vector<std::vector<std::vector<double>>> rk4(double tmax);
+		//Solves the system of equations (to be defined by the parent class)
+        virtual void Solve(double tmax){};
 
 		//Saves the solution to a file (to be defined by the parent class)
-		virtual void Save_Sol(std::string filename);
+		virtual void Save_Sol(std::string filename){};
 
 		~ODE_System();
 
