@@ -1,9 +1,9 @@
 /**
  * @file Wave_Equation.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
- * @brief Wave_Equation class declaration - This class solves the wave equation with the given parameters
- * @version 0.3
- * @date 2022-11-30
+ * @brief Wave_Equation solver and output saver declaration
+ * @version 0.4
+ * @date 2022-12-3
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -13,37 +13,31 @@
 #define WAVE_EQUATION
 
 #include <fstream>
-#include <functional>
-#include <iostream>
 #include <string>
 #include <vector>
 
 #include <gsl/gsl_const_mksa.h>
 
-#include "ODE_System.h"
+/**
+ * @brief Solves the wave equation with the given parameters
+ * 
+ * @param x0 Initial consitions
+ * @param step_x Space step
+ * @param tmax Time the equation is to be solved until
+ * @param c Speed of the wave
+ * @param step_t Time step
+ * @return std::vector<std::vector<std::vector<double>>> Solution of the equation (for each time, returns a vector with the function value and another with its derivative)
+ */
+std::vector<std::vector<std::vector<double>>> Solve_Wave_Eq(std::vector<std::vector<double>> x0, double step_x, double tmax, double c = {GSL_CONST_MKSA_SPEED_OF_LIGHT}, double step_t = 1e-3);
 
-class Wave_Equation : private ODE_System{
-	public:
-		Wave_Equation() = default;
-		Wave_Equation(const std::vector<std::vector<double>> &x0, double step_x, double step_t = 1e-3, double c = GSL_CONST_MKSA_SPEED_OF_LIGHT);
-		Wave_Equation(const std::function<double(double)> &x0, const std::function<double(double)> &xl0, double xmax, double step_x = 1e-3, double step_t = 1e-3, double c = GSL_CONST_MKSA_SPEED_OF_LIGHT);
-		
-		void Set_IC(const std::vector<std::vector<double>> &x0, double step_x);
-		void Set_IC(std::function<double(double)> x0, std::function<double(double)> xl0, double xmax, double step_x = 1e-3);
-		
-		void Set_Step_t(double step_t);
-		
-		void Set_C(double c);
-		
-		void Solve(double tmax);
-
-		void Save_Sol(std::string filename);
-
-		~Wave_Equation(){};
-		
-	private:		
-		//Wave propagation speed
-		double c {GSL_CONST_MKSA_SPEED_OF_LIGHT};
-};
+/**
+ * @brief Saves the solution to the equation in a way muninn can display
+ * 
+ * @param Sol Solution to the equation
+ * @param step_x Space step
+ * @param filename Name of the file that will be saved
+ * @param step_t Time step
+ */
+void Save_Sol(std::vector<std::vector<std::vector<double>>> Sol, double step_x, std::string filename, double step_t = 1e-3);
 
 #endif
