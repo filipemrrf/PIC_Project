@@ -8,12 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3e305184d206b35c",
+            "id": "a94338ccce563465",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Wave Equation/Runge-Kutta method.md",
+                "file": "Wave Equation/Runge-Kutta 4 Method.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9d6030ca5e95db52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Wave Equation/Numericaly Solving the Wave Equation.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "73a17ba208847a89",
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Wave Equation/Runge-Kutta method.md",
+                "file": "Wave Equation/Runge-Kutta 4 Method.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Wave Equation/Runge-Kutta method.md",
+                "file": "Wave Equation/Runge-Kutta 4 Method.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Wave Equation/Runge-Kutta method.md"
+                "file": "Wave Equation/Runge-Kutta 4 Method.md"
               }
             }
           }
@@ -136,10 +149,11 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "349f443d6cc5754f",
+  "active": "a94338ccce563465",
   "lastOpenFiles": [
     "Wave Equation/Numericaly Solving the Wave Equation.md",
-    "Wave Equation/Runge-Kutta method.md",
+    "Wave Equation/Runge-Kutta 4 Method.md",
+    "Wave Equation/Numerically Solving the Wave Equation (With Higher Precision).md",
     "Wave Equation/Wave Equation Solver Class.md",
     "Numericaly.md"
   ]
