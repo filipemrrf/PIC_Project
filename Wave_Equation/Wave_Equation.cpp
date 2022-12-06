@@ -11,231 +11,133 @@
 
 #include "Wave_Equation.h"
 
-std::vector<std::vector<std::vector<double>>> Solve_Wave_Eq(std::vector<std::vector<double>> x0, double step_x, double tmax, double c, double step_t){
-    //Calculates a constant that will be used multiple times throughout the loops
-    double k = c/step_x;
-    k *= k*step_t;
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), double* IC, int N, double step_x, void* params, double tmax, double step_t, std::string filename){
+    //Opens the file the solution is to be written to
+    std::fstream FILE;
+    FILE.open(filename, std::fstream::out);
 
-    //Declares the variables to store the 4 slopes of the rk4 method
-    double K1, K2, K3, K4;
+    //Writes the header of the file
+    FILE << "\"Output of X axis, variable ana.CSI, rank 0, grid 0, type CU, orientation: CE" << std::endl;
 
-    //Declares the solution vector and adds the initial conditions to the solution vector
-    std::vector<std::vector<std::vector<double>>> Sol = {x0};
+    //Writes the initial conditions to the file
+    FILE << "\"Time = 0.0" << std::endl;
+    for(int i = 0; i < N/2; ++i)
+        FILE << step_x*i << " " << IC[i] << " " << IC[N/2 + i] << std::endl;
+    
+    FILE << std::endl;
+
+    //Copies the initial conditions to an auxiliary array
+    double* aux = new double[N];
+
+    for(int i = 0; i < N; ++i)
+        aux[i] = IC[i];
+
+    //Allocates memory for the 4 slopes in every point
+    double* K1 = new double[N];
+    double* K2 = new double[N];
+    double* K3 = new double[N];
+    double* K4 = new double[N];
 
     //Loops through the time
-    for(int t = 0; (double)t*step_t < tmax; ++t){
-        //Creates auxiliary vectors to store the solutions
-        std::vector<std::vector<double>> aux;
-        std::vector<double> aux_0, aux_1;
+    for(int t = 0; ((double) t)*step_t < tmax; ++t){
+        //Copies the IC array to K1
+        for(int i = 0; i < N; ++i)
+            K1[i] = aux[i];
 
-        //Loops through the positions
-        for(int x = 0; x < x0[0].size()-1; ++x){
-                //1st ODE
-                //Calculates the 4 slopes necessary for the rk4 method
+        //Calculates the slope K1 for every point
+        f(K1, N, step_x, params);
 
-                //Calculates the 1st slope
-                K1 = step_t*x0[1][x];
+        for(int i = 0; i < N; ++i)
+            K1[i] *= step_t;
 
 
-                //Calculates the index of the point where the 2nd slope will be calculated
-                int xK2 = x + K1/(2.0*step_x);
+        //Calculates where the slope K2 is to be calculated at for every point
+        for(int i = 0; i < N; ++i)
+            K2[i] = aux[i] + 0.5*K1[i];
+        
+        //Calculates the slope K2 for every point
+        f(K2, N, step_x, params);
 
-                if(xK2 < 0){
-                    xK2 %= (x0[1].size() - 1);
-                    xK2 += (x0[1].size() - 1);
-                }
+        for(int i = 0; i < N; ++i)
+            K2[i] *= step_t;
 
-                if(xK2 > (x0[1].size() - 1))
-                    xK2 %= (x0[1].size() - 1);
+        //Calculates where the slope K3 is to be calculated at for every point
+        for(int i = 0; i < N; ++i)
+            K3[i] = aux[i] + 0.5*K2[i];
+        
+        //Calculates the slope K3 for every point
+        f(K3, N, step_x, params);
 
-
-                /*if(xK2 == (x0[1].size() - 1))
-                    xK2 = 0;*/
-
-                //Calculates the 2nd slope
-                K2 = step_t*(x0[1][xK2] + 0.5*step_t*x0[1][xK2]);
-
-
-                //Calculates the index of the point where the 3rd slope will be calculated
-                int xK3 = x + K2/(2.0*step_x);
-
-                if(xK3 < 0){
-                    xK3 %= (x0[1].size() - 1);
-                    xK3 += (x0[1].size() - 1);
-                }
-
-                if(xK3 > (x0[1].size() - 1))
-                    xK3 %= (x0[1].size() - 1);
-                    
-                //Calculates the 3rd slope
-                K3 = step_t*(x0[1][xK3] + 0.5*step_t*x0[1][xK3]);
+        for(int i = 0; i < N; ++i)
+            K3[i] *= step_t;
 
 
-                //Calculates the index of the point where the 4th slope will be calculated
-                int xK4 = x + K3/*/step_x*/;
+        //Calculates where the slope K4 is to be calculated at for every point
+        for(int i = 0; i < N; ++i)
+            K4[i] = aux[i] + K3[i];
+        
+        //Calculates the slope K4 for every point
+        f(K4, N, step_x, params);
 
-                if(xK4 < 0){
-                    xK4 %= (x0[1].size() - 1);
-                    xK4 += (x0[1].size() - 1);
-                }
+        for(int i = 0; i < N; ++i)
+            K4[i] *= step_t;
 
-                if(xK4 > (x0[1].size() - 1))
-                    xK4 %= (x0[1].size() - 1);
+        //Saves the solution to the ODE system
+        FILE << "\"Time = " << (double)t*step_t << std::endl;
 
-                //Calculates the 4th slope
-                K4 = k*(x0[1][xK4] + 0.5*step_t*x0[1][xK4]);
+        for(int i = 0; i < N; ++i)
+            aux[i] = (K1[i] + 2.0*K2[i] + 2.0*K3[i] + K4[i])/6.0;
 
+        for(int i = 0; i < N/2; ++i)
+            FILE << i*step_x << " " << aux[i] << " " << aux[N/2 + i] << std::endl;
 
-                //Saves the solution to the solution vector
-                aux_0.push_back(x0[1][x] + (K1 + 2*K2 + 2* K3 + K4)/6.0);
-
-
-                //2nd ODE
-                //Calculates the 4 slopes necessary for the rk4 method
-
-                //Checks if we are calculating for the first point and calculates the first slope accordingly
-                if(x == 0)
-                    K1 = k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]);
-                else
-                    K1 = k*(x0[0][x+1] - 2*x0[0][x] + x0[0][x-1]);
-
-
-                //Calculates the index of the point where the 2nd slope will be calculated
-                xK2 = x + K1/(2.0*step_x);
-
-                if(xK2 < 0){
-                    xK2 %= (x0[0].size() - 1);
-                    xK2 += (x0[0].size() - 1);
-                }
-
-                if(xK2 > (x0[0].size() - 1))
-                    xK2 %= (x0[0].size() - 1);
-
-                //Calculates the value of the function in the point where the slope will be calculated
-                std::vector<double> yK2;
-
-                if(xK2 == 0){
-                    yK2.push_back(x0[0][x0[0].size()-1] + 0.5*k*(x0[0][x0[0].size()-2] - 2*x0[0][0] + x0[0][x0[0].size()-3]));
-                    yK2.push_back(x0[0][0] + 0.5*k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]));
-                    yK2.push_back(x0[0][2] + 0.5*k*(x0[0][1] - 2*x0[0][1] + x0[0][0]));
-                }
-                else
-                    for(int i = -1; i <= 1; ++i){
-                        if(xK2+i == 0)
-                            yK2.push_back(x0[0][0] + 0.5*k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]));
-                        else
-                            yK2.push_back(x0[0][xK2+i] + 0.5*k*(x0[0][xK2+i+1] - 2*x0[0][xK2+i] + x0[0][xK2+i-1]));
-                    }
-
-                //Calculates the 2nd slope
-                K2 = k*(yK2[2] - 2*yK2[1] + yK2[0]);
-
-
-                //Calculates the index of the point where the 3rd slope will be calculated
-                xK3 = x + K2/(2.0*step_x);
-
-                if(xK3 < 0){
-                    xK3 %= (x0[0].size() - 1);
-                    xK3 += (x0[0].size() - 1);
-                }
-
-                if(xK3 > (x0[0].size() - 1))
-                    xK3 %= (x0[0].size() - 1);
-
-                //Calculates the value of the function in the point where the slope will be calculated
-                std::vector<double> yK3;
-
-                if(xK3 == 0){
-                    yK3.push_back(x0[0][x0[0].size()-1] + 0.5*k*(x0[0][x0[0].size()-2] - 2*x0[0][0] + x0[0][x0[0].size()-3]));
-                    yK3.push_back(x0[0][0] + 0.5*k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]));
-                    yK3.push_back(x0[0][2] + 0.5*k*(x0[0][1] - 2*x0[0][1] + x0[0][0]));
-                }
-                else
-                    for(int i = -1; i <= 1; ++i){
-                        if(xK3+i == 0)
-                            yK3.push_back(x0[0][0] + 0.5*k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]));
-                        else
-                            yK3.push_back(x0[0][xK3+i] + 0.5*k*(x0[0][xK3+i+1] - 2*x0[0][xK3+i] + x0[0][xK3+i-1]));
-                    }
-
-                //Calculates the 3rd slope
-                K3 = k*(yK3[2] - 2*yK3[1] + yK3[0]);
-
-
-                //Calculates the index of the point where the 4th slope will be calculated
-                xK4 = x + K3/*/step_x*/;
-
-                if(xK4 < 0){
-                    xK4 %= (x0[0].size() - 1);
-                    xK4 += (x0[0].size() - 1);
-                }
-
-                if(xK4 > (x0[0].size() - 1))
-                    xK4 %= (x0[0].size() - 1);
-
-                //Calculates the value of the function in the point where the slope will be calculated
-                std::vector<double> yK4;
-
-                if(xK4 == 0){
-                    yK4.push_back(x0[0][x0[0].size()-1] + 0.5*k*(x0[0][x0[0].size()-2] - 2*x0[0][0] + x0[0][x0[0].size()-3]));
-                    yK4.push_back(x0[0][0] + 0.5*k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]));
-                    yK4.push_back(x0[0][2] + 0.5*k*(x0[0][1] - 2*x0[0][1] + x0[0][0]));
-                }
-                else
-                    for(int i = -1; i <= 1; ++i){
-                        if(xK4+i == 0)
-                            yK4.push_back(x0[0][0] + k*(x0[0][1] - 2*x0[0][0] + x0[0][x0[0].size()-2]));
-                        else
-                            yK4.push_back(x0[0][xK4+i] + k*(x0[0][xK4+i+1] - 2*x0[0][xK4+i] + x0[0][xK4+i-1]));
-                    }
-
-                //Calculates the 4th slope
-                K4 = k*(yK4[2] - 2*yK4[1] + yK4[0]);
-
-
-                //Saves the solution to the solution vector
-                aux_1.push_back(x0[0][x] + (K1 + 2*K2 + 2* K3 + K4)/6.0);
-
-        }
-
-        //Mantains the symmetry by copying the first point
-        aux_0.push_back(aux_0[0]);
-        aux_1.push_back(aux_1[0]);
-
-        //Saves the solution to the solution vector
-        aux.push_back(aux_0);
-        aux.push_back(aux_1);
-        Sol.push_back(aux);
-
-        //clears the aux vector (not needed but just to make sure nothing goes wrong)
-        aux_0.clear();
-        aux_1.clear();
-        aux.clear();
+        FILE << std::endl;
     }
-    
-    return Sol;
+
+    //Writes the footer to the file
+    FILE << "\"Continue from checkpoint" << std::endl;
+    FILE << "\"Continue from checkpoint" << std::endl;
+
+    //Closes the file
+    FILE.close();
+
+    //Frees the memory allocated for the 4 slopes in every point and the auxiliary vector
+    delete[] K1;
+    delete[] K2;
+    delete[] K3;
+    delete[] K4;
+    delete[] aux;
 }
 
-void Save_Sol(std::vector<std::vector<std::vector<double>>> Sol, double step_x, std::string filename, double step_t){
-    //Opens the file
-    std::fstream F;
-    F.open(filename, std::fstream::out);
+void Wave_Equation(double* u, int N, double step_x, void* params){
+    //Allocates memory for the transformed array
+    double* Du = new double[N];
 
-    //Writtes the header of the file
-    F << "\"Output of X axis, variable ana.CSI, rank 0, grid 0, type CU, orientation: CE" << std::endl;
+    //Declarates auxiliary pointers for easier readability of the function
+    double* Phi0 = u;
+    double* Pi0 = &(u[N/2]);
 
-    for(int i = 0; i < Sol.size(); ++i){
-        //Writtes the time in the file
-        F << "\"Time = " << step_t*i << std::endl;
-        for(int j = 0; j < Sol[0][0].size(); ++j)
-            //Writtes the position and the function value
-            F << j*step_x << " " << Sol[i][0][j] << std::endl;
+    double* Phi1 = Du;
+    double* Pi1 = &(Du[N/2]);
 
-        F << std::endl;
+    //Calculates the auxiliary value k = (c/step_x)^2
+    double k = *((double*) params)/step_x;
+    k *= k;
+
+    //Transforms the array
+    for(int i = 0; i < N/2; ++i){
+        Phi1[i] = Pi0[i];
+
+        if((i == 0) || (i == (N/2 - 1)))
+            Pi1[i] = k*(Phi0[1] - 2*Phi0[0] + Phi0[N/2-1]);
+        else
+            Pi1[i] = k*(Phi0[i+1] - 2*Phi0[i] + Phi0[i-1]);
     }
 
-    F << "\"Continue from checkpoint" << std::endl;
-    F << "\"Continue from checkpoint" << std::endl;
+    //Copies the transformed array to the original one
+    for(int i = 0; i < N; ++i)
+        u[i] = Du[i];
 
-    F.close();
+    //Frees the memory allocated for the transformed array
+    delete[] Du;
 }

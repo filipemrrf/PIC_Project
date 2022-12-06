@@ -14,30 +14,18 @@
 
 #include <fstream>
 #include <string>
-#include <vector>
 
-#include <gsl/gsl_const_mksa.h>
 
-/**
- * @brief Solves the wave equation with the given parameters
- * 
- * @param x0 Initial consitions
- * @param step_x Space step
- * @param tmax Time the equation is to be solved until
- * @param c Speed of the wave
- * @param step_t Time step
- * @return std::vector<std::vector<std::vector<double>>> Solution of the equation (for each time, returns a vector with the function value and another with its derivative)
- */
-std::vector<std::vector<std::vector<double>>> Solve_Wave_Eq(std::vector<std::vector<double>> x0, double step_x, double tmax, double c = {GSL_CONST_MKSA_SPEED_OF_LIGHT}, double step_t = 1e-3);
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), double* IC, int N, double step_x, void* params, double tmax, double step_t, std::string filename);
 
 /**
- * @brief Saves the solution to the equation in a way muninn can display
+ * @brief Transforms an array using the wave equation (separated into a 2 ODE system)
  * 
- * @param Sol Solution to the equation
+ * @param u Array to be transformed by the equation (in the form u = {Phi_0, Phi_1, ..., Phi_n, Pi_0, Pi_1, ..., Pi_n})
+ * @param N Number of elements of array u
  * @param step_x Space step
- * @param filename Name of the file that will be saved
- * @param step_t Time step
+ * @param params Parameters for the equation: params = {c}, where c is the speed of the wave
  */
-void Save_Sol(std::vector<std::vector<std::vector<double>>> Sol, double step_x, std::string filename, double step_t = 1e-3);
+void Wave_Equation(double* u, int N, double step_x, void* params);
 
 #endif
