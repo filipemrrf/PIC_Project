@@ -86,7 +86,7 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), dou
         FILE << "\"Time = " << (double)t*step_t << std::endl;
 
         for(int i = 0; i < N; ++i)
-            aux[i] = (K1[i] + 2.0*K2[i] + 2.0*K3[i] + K4[i])/6.0;
+            aux[i] = aux[i] + (K1[i] + 2.0*K2[i] + 2.0*K3[i] + K4[i])/6.0;
 
         for(int i = 0; i < N/2; ++i)
             FILE << i*step_x << " " << aux[i] << " " << aux[N/2 + i] << std::endl;
@@ -129,7 +129,7 @@ void Wave_Equation(double* u, int N, double step_x, void* params){
         Phi1[i] = Pi0[i];
 
         if((i == 0) || (i == (N/2 - 1)))
-            Pi1[i] = k*(Phi0[1] - 2*Phi0[0] + Phi0[N/2-1]);
+            Pi1[i] = k*(Phi0[1] - 2*Phi0[0] + Phi0[N/2-2]);
         else
             Pi1[i] = k*(Phi0[i+1] - 2*Phi0[i] + Phi0[i-1]);
     }
