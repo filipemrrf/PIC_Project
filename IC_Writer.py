@@ -15,5 +15,8 @@ for i in range(50):
     FILE.write(str(2*numpy.pi*numpy.cos(2*numpy.pi*i/50)))
     FILE.write("\n")
 
+FILE.write("0.0 ")
+FILE.write(str(2*numpy.pi))
+
 # Closes the file
 FILE.close()
