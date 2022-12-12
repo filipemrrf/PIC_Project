@@ -11,19 +11,22 @@
 
 #include "Wave_Equation.h"
 
-void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), double* IC, int N, double step_x, void* params, double tmax, double step_t, std::string filename){
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), double* IC, int N, int N_Eq, double step_x, void* params, double tmax, double step_t, std::string filename){
     //Opens the file the solution is to be written to
     std::fstream FILE;
     FILE.open(filename, std::fstream::out);
 
-    //Writes the header of the file
-    FILE << "\"Output of X axis, variable ana.CSI, rank 0, grid 0, type CU, orientation: CE" << std::endl;
-
     //Writes the initial conditions to the file
     FILE << "\"Time = 0.0" << std::endl;
-    for(int i = 0; i < N/2; ++i)
-        FILE << step_x*i << " " << IC[i] << " " << IC[N/2 + i] << std::endl;
-    
+    for(int i = 0; i < N/N_Eq; ++i){
+        FILE << step_x*i << " ";
+
+        for(int j = 0; j < N_Eq; ++j)
+            FILE << IC[j*N/N_Eq + i] << " ";
+        
+        FILE << std::endl;
+    }
+
     FILE << std::endl;
 
     //Copies the initial conditions to an auxiliary array
@@ -39,7 +42,7 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), dou
     double* K4 = new double[N];
 
     //Loops through the time
-    for(int t = 0; ((double) t)*step_t < tmax; ++t){
+    for(int t = 0; ((double) t)*step_t <= tmax; ++t){
         //Copies the IC array to K1
         for(int i = 0; i < N; ++i)
             K1[i] = aux[i];
@@ -88,15 +91,17 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), dou
         for(int i = 0; i < N; ++i)
             aux[i] = aux[i] + (K1[i] + 2.0*K2[i] + 2.0*K3[i] + K4[i])/6.0;
 
-        for(int i = 0; i < N/2; ++i)
-            FILE << i*step_x << " " << aux[i] << " " << aux[N/2 + i] << std::endl;
+        for(int i = 0; i < N/N_Eq; ++i){
+            FILE << step_x*i << " ";
+
+            for(int j = 0; j < N_Eq; ++j)
+                FILE << aux[j*N/N_Eq + i] << " ";
+            
+            FILE << std::endl;
+        }
 
         FILE << std::endl;
     }
-
-    //Writes the footer to the file
-    FILE << "\"Continue from checkpoint" << std::endl;
-    FILE << "\"Continue from checkpoint" << std::endl;
 
     //Closes the file
     FILE.close();

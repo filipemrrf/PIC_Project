@@ -16,7 +16,7 @@ int main(){
     u0[49] = u0[0];
     u0[99] = u0[50];
 
-    Runge_Kutta_4(&Wave_Equation, u0, 100, 1.0/49.0, (void*) &c, 1, 1e-3, "Tests/Test_9.dat");
+    Runge_Kutta_4(&Wave_Equation, u0, 100, 2, 1.0/49.0, (void*) &c, 1, 1e-3, "Tests/Test_10.dat");
 
     delete[] u0;
 
