@@ -2,8 +2,8 @@
  * @file Wave_Equation.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Wave_Equation solver and output saver declaration
- * @version 1.0
- * @date 2022-12-3
+ * @version 1.1
+ * @date 2022-12-13
  * 
  * @copyright Copyright (c) 2022
  * 

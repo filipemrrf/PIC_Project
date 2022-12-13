@@ -1,9 +1,9 @@
 /**
  * @file main.cpp
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
- * @brief 
- * @version 0.1
- * @date 2022-12-12
+ * @brief Reads the arguments from the command line and solves the specified equations with given parameters and initial conditions
+ * @version 1.0
+ * @date 2022-12-13
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -149,7 +149,7 @@ int main(int argc, char** argv){
     FILE.close();
 
     //Solves the equation specifies with the given parameters
-    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, 1, 0.5*step_x, filename);
+    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, 1, 0.05*step_x, filename);
 
     //Deletes the memory allocated for the initial conditions
     delete[] u0;
