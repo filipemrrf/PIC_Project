@@ -2,7 +2,7 @@
  * @file Wave_Equation.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Wave_Equation solver and output saver definition
- * @version 0.4
+ * @version 1.0
  * @date 2022-12-3
  * 
  * @copyright Copyright (c) 2022
@@ -11,7 +11,7 @@
 
 #include "Wave_Equation.h"
 
-void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), double* IC, int N, int N_Eq, double step_x, void* params, double tmax, double step_t, std::string filename){
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), double* IC, int N, int N_Eq, double step_x, double* params, double tmax, double step_t, std::string filename){
     //Opens the file the solution is to be written to
     std::fstream FILE;
     FILE.open(filename, std::fstream::out);
@@ -114,7 +114,7 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), dou
     delete[] aux;
 }
 
-void Wave_Equation(double* u, int N, double step_x, void* params){
+void Wave_Equation(double* u, int N, double step_x, double* params){
     //Allocates memory for the transformed array
     double* Du = new double[N];
 
@@ -126,7 +126,7 @@ void Wave_Equation(double* u, int N, double step_x, void* params){
     double* Pi1 = &(Du[N/2]);
 
     //Calculates the auxiliary value k = (c/step_x)^2
-    double k = *((double*) params)/step_x;
+    double k = *(params)/step_x;
     k *= k;
 
     //Transforms the array

@@ -2,7 +2,7 @@
  * @file Wave_Equation.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Wave_Equation solver and output saver declaration
- * @version 0.4
+ * @version 1.0
  * @date 2022-12-3
  * 
  * @copyright Copyright (c) 2022
@@ -28,7 +28,7 @@
  * @param step_t Time step
  * @param filename Name of the file which will store the data
  */
-void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), double* IC, int N, int N_Eq, double step_x, void* params, double tmax, double step_t, std::string filename);
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), double* IC, int N, int N_Eq, double step_x, double* params, double tmax, double step_t, std::string filename);
 
 /**
  * @brief Transforms an array using the wave equation (separated into a 2 ODE system)
@@ -38,6 +38,6 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, void* params), dou
  * @param step_x Space step
  * @param params Parameters for the equation: params = {c}, where c is the speed of the wave
  */
-void Wave_Equation(double* u, int N, double step_x, void* params);
+void Wave_Equation(double* u, int N, double step_x, double* params);
 
 #endif

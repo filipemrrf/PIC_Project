@@ -3,10 +3,11 @@ import numpy
 # Opens the file that will be written
 FILE = open("IC.dat", "w")
 
-# Writtes the number of equations in the ODE systemspace step and the number of points to the file
+# Writtes the number of equations in the ODE systemspace step, the number of points to the file and the parameters for the equation
 FILE.write("#NEq: 2\n")
 FILE.write("#step_x: 0.02\n")
 FILE.write("#NPoints: 51\n")
+FILE.write("#pars: 1 1.0\n")
 
 # Writtes the initial conditions for the equation
 for i in range(50):
