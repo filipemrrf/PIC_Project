@@ -41,10 +41,12 @@ for l in IN:
 
     elif l != "\n":
         aux = l.split()
-        error = numpy.sin(2*numpy.pi*float(aux[0]) + time) - float(aux[1])
+        error = numpy.sin(2*numpy.pi*(float(aux[0]) + time)) - float(aux[1])
         FILE.write(aux[0] + " " + str(E*error) + "\n")
     else:
         FILE.write("\n")
 
 # Closes the file
 FILE.close()
+
+print(type(error))

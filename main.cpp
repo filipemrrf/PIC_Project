@@ -29,7 +29,7 @@ int main(int argc, char** argv){
     //Declares the needed variables for the program to work
     void (*equation)(double* u, int N, double step_x, double* params);
     int N_Eqs;
-    double res = 0.5;
+    double cfl = 0.5;
 
     //Sets up the string to store the name of the output file
     std::string filename = "Output.dat";
@@ -59,7 +59,7 @@ int main(int argc, char** argv){
 
             //Using -R <double> sets the time resolution to that multiple of the space resolution
             if((argv[i][1] == 'R') && (argv[i][2] == '\0'))
-                res = atof(argv[i+1]);
+                cfl = atof(argv[i+1]);
                 
 
             //Using -h opens the help menu
@@ -155,7 +155,7 @@ int main(int argc, char** argv){
     FILE.close();
 
     //Solves the equation specifies with the given parameters
-    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, 1, res*step_x, filename);
+    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, 1, cfl*step_x, filename);
 
     //Deletes the memory allocated for the initial conditions
     delete[] u0;

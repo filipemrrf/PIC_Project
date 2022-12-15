@@ -13,6 +13,8 @@
 #define WAVE_EQUATION
 
 #include <fstream>
+#include <iomanip>
+#include <limits>
 #include <string>
 
 /**

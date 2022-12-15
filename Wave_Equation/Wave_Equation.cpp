@@ -16,6 +16,9 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), d
     std::fstream FILE;
     FILE.open(filename, std::fstream::out);
 
+    //Makes sure the values are printed to full precision
+    FILE.precision(std::numeric_limits<double>::max_digits10 + 2);
+
     //Writes the initial conditions to the file
     FILE << "\"Time = 0.0" << std::endl;
     for(int i = 0; i < N/N_Eq; ++i){
