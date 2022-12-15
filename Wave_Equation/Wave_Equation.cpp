@@ -42,7 +42,7 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), d
     double* K4 = new double[N];
 
     //Loops through the time
-    for(int t = 0; ((double) t)*step_t <= tmax; ++t){
+    for(int t = 1; ((double) t)*step_t <= tmax; ++t){
         //Copies the IC array to K1
         for(int i = 0; i < N; ++i)
             K1[i] = aux[i];

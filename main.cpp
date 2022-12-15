@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Reads the arguments from the command line and solves the specified equations with given parameters and initial conditions
- * @version 1.0
+ * @version 1.1
  * @date 2022-12-13
  * 
  * @copyright Copyright (c) 2022
@@ -26,15 +26,16 @@ int main(int argc, char** argv){
     //Declares the string to store the input file name
     std::string INPUT;
 
-    //Declares the function pointer that will save the equation system to solve
+    //Declares the needed variables for the program to work
     void (*equation)(double* u, int N, double step_x, double* params);
     int N_Eqs;
+    double res = 0.5;
 
     //Sets up the string to store the name of the output file
     std::string filename = "Output.dat";
 
     //Reads command line arguments
-    for(int i = 0; i < argc; ++i){
+    for(int i = 1; i < argc; ++i){
         if(argv[i][0] == '-'){
             //Using -IC INPUT_FILE.dat sets the initial conditions
             if((argv[i][1] == 'I') && (argv[i][2] == 'C') && (argv[i][3] == '\0')){
@@ -55,6 +56,11 @@ int main(int argc, char** argv){
             //Using -FN filename.dat sets the name of the output file
             if((argv[i][1] == 'F') && (argv[i][2] == 'N') && (argv[i][3] == '\0'))
                 filename = argv[i+1];
+
+            //Using -R <double> sets the time resolution to that multiple of the space resolution
+            if((argv[i][1] == 'R') && (argv[i][2] == '\0'))
+                res = atof(argv[i+1]);
+                
 
             //Using -h opens the help menu
             if((argv[i][1] == 'h') && (argv[i][2] == '\0')){
@@ -149,7 +155,7 @@ int main(int argc, char** argv){
     FILE.close();
 
     //Solves the equation specifies with the given parameters
-    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, 1, 0.05*step_x, filename);
+    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, 1, res*step_x, filename);
 
     //Deletes the memory allocated for the initial conditions
     delete[] u0;
