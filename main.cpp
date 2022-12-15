@@ -58,7 +58,7 @@ int main(int argc, char** argv){
                 filename = argv[i+1];
 
             //Using -R <double> sets the time resolution to that multiple of the space resolution
-            if((argv[i][1] == 'R') && (argv[i][2] == '\0'))
+            if((argv[i][1] == 'C') && (argv[i][2] == 'F') && (argv[i][3] == 'L') && (argv[i][4] == '\0'))
                 cfl = atof(argv[i+1]);
                 
 
