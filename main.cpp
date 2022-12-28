@@ -2,14 +2,15 @@
  * @file main.cpp
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Reads the arguments from the command line and solves the specified equations with given parameters and initial conditions
- * @version 1.1
- * @date 2022-12-13
+ * @version 1.2
+ * @date 2022-12-28
  * 
  * @copyright Copyright (c) 2022
  * 
  */
 
-#include "Wave_Equation/Wave_Equation.h"
+#include "Core.h"
+#include "Equations.h"
 
 #include <fstream>
 #include <iostream>
@@ -48,9 +49,14 @@ int main(int argc, char** argv){
                 if(strcmp(argv[i+1], "simple_wave") == 0){
                     equation = &Wave_Equation;
                     N_Eqs = 2;
+                    EQ = true;
                 }
 
-                EQ = true;
+                if(strcmp(argv[i+1], "simple_wave_4th_order") == 0){
+                    equation = &Wave_Equation_4th_Order;
+                    N_Eqs = 2;
+                    EQ = true;
+                }                
             }
 
             //Using -FN filename.dat sets the name of the output file
