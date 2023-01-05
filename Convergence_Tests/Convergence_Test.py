@@ -120,7 +120,7 @@ for i in range(1, len(Data2)):
 time23 = []
 norm23 = []
 
-for i in range(1, len(Data2)):
+for i in range(2, len(Data2), 2):
     for j in range(1, len(Data3)):
         if Data2[i][0] == Data3[j][0]:
             time23.append(Data2[i][0])

@@ -24,7 +24,7 @@ FILE.write("\n")
 FILE.write("#NPoints: ")
 FILE.write(str(NPoints+1))
 FILE.write("\n")
-FILE.write("#pars: 1 1.0\n")
+FILE.write("#pars: 2 1.0 2.0\n")
 
 # Writtes the initial conditions for the equation
 for i in range( NPoints):
