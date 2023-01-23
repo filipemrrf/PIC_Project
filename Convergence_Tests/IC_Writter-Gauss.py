@@ -1,9 +1,9 @@
 """
- " @file IC_Writer-Sin.py
+ " @file IC_Writer-Gauss.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  " @brief Writes the initial conditions for the main executable to run
- " @version 2.1
- " @date 2023-01-13
+ " @version 1.0
+ " @date 2023-01-16
  " 
  " @copyright Copyright (c) 2023
  " 
