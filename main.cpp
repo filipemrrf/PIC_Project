@@ -2,8 +2,8 @@
  * @file main.cpp
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Reads the arguments from the command line and solves the specified equations with given parameters and initial conditions
- * @version 1.4
- * @date 2022-12-28
+ * @version 2.1
+ * @date 2023-01-09
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -32,6 +32,7 @@ int main(int argc, char** argv){
     int N_Eqs;
     double t_max = 1.0;
     double cfl = 0.5;
+    int w = 1;
 
     //Sets up the string to store the name of the output file
     std::string filename = "Output.dat";
@@ -65,8 +66,20 @@ int main(int argc, char** argv){
                     EQ = true;
                 }
 
+                if(strcmp(argv[i+1], "simple_wave_dissipation") == 0){
+                    equation = &Wave_Equation_Dissipation;
+                    N_Eqs = 2;
+                    EQ = true;
+                }
+
                 if(strcmp(argv[i+1], "non_linear_wave_dissipation") == 0){
                     equation = &Non_Linear_Wave_Equation_Dissipation;
+                    N_Eqs = 2;
+                    EQ = true;
+                }
+
+                if(strcmp(argv[i+1], "spherical_wave") == 0){
+                    equation = &Spherical_Wave_Equation;
                     N_Eqs = 2;
                     EQ = true;
                 }
@@ -84,6 +97,9 @@ int main(int argc, char** argv){
             if((argv[i][1] == 'C') && (argv[i][2] == 'F') && (argv[i][3] == 'L') && (argv[i][4] == '\0'))
                 cfl = atof(argv[i+1]);
                 
+            //Using -W <int> sets the iterations in which the data will be written to disk
+            if((argv[i][1] == 'W') && (argv[i][2] == '\0'))
+                w = atof(argv[i+1]);
 
             //Using -h opens the help menu
             if((argv[i][1] == 'h') && (argv[i][2] == '\0')){
@@ -130,7 +146,7 @@ int main(int argc, char** argv){
         if(!buffer2.compare("#NEq:")){
             getline(stream, buffer2, ' ');
 
-            if(N_Eqs != stoi(buffer2)){
+            if(N_Eqs > stoi(buffer2)){
                 std::cout << "ERROR: Initial conditions provided are not compatible with the equation specified" << std::endl;
                 exit(-1);
             }
@@ -178,7 +194,7 @@ int main(int argc, char** argv){
     FILE.close();
 
     //Solves the equation specifies with the given parameters
-    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, t_max, cfl*step_x, filename);
+    Runge_Kutta_4(equation, u0, N_Eqs*NPoints, N_Eqs, step_x, params, t_max, cfl*step_x, filename, w);
 
     //Deletes the memory allocated for the initial conditions
     delete[] u0;
