@@ -9,29 +9,33 @@
  " 
 """
 
-import numpy
+from numpy import exp
 
 # Initializes the number of points
 NPoints = 50
 
 for i in range(0, 5):
     # Opens the file that will be written
-    FILE = open(("Data/IC-Sin-" + str(NPoints) + "p.dat"), "w")
+    FILE = open(("Data/IC-Gauss-" + str(NPoints) + "p.dat"), "w")
 
-    # Writtes the number of equations in the ODE systemspace step, the number of points to the file and the parameters for the equation
+    """# Writtes the number of equations in the ODE systemspace step, the number of points to the file and the parameters for the equation
     FILE.write("#NEq: 2\n")
     FILE.write("#step_x: " + str(1/NPoints) + "\n")
-    FILE.write("#NPoints: " + str(NPoints+1) + "\n")
-    FILE.write("#pars: 3 1.0 2.0 0.01\n")
+    FILE.write("#NPoints: " + str(NPoints) + "\n")
+    FILE.write("#pars: 1 1.0\n")"""
+
+    FILE.write("\"Time = 0.0\n")
 
     # Writtes the initial conditions for the equation
-    for j in range(NPoints):
-        FILE.write(str(numpy.sin(2*numpy.pi*j/NPoints)))
+    for j in range(NPoints - 1):
+        FILE.write(str(j/NPoints) + " ")
+
+        FILE.write(str(exp(-(j/NPoints)*(j/NPoints)/0.1)))
         FILE.write(" ")
-        FILE.write(str(2*numpy.pi*numpy.cos(2*numpy.pi*j/NPoints)))
+        FILE.write(str(-0.1*(j/NPoints)*exp(-(j/NPoints)*(j/NPoints)*0.005)))
         FILE.write("\n")
 
-    FILE.write("0.0 " + str(2*numpy.pi))
+    FILE.write("0.0 0.0")
 
     # Closes the file
     FILE.close()
