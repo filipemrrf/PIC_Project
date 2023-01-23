@@ -2,8 +2,8 @@
  * @file Core.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Defines the core algorithms to solve differential equations (declared in Core.h)
- * @version 1.0
- * @date 2022-12-27
+ * @version 1.1
+ * @date 2023-01-09
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -11,7 +11,7 @@
 
 #include "Core.h"
 
-void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), double* IC, int N, int N_Eq, double step_x, double* params, double tmax, double step_t, std::string filename){
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), double* IC, int N, int N_Eq, double step_x, double* params, double tmax, double step_t, std::string filename, int w){
     //Opens the file the solution is to be written to
     std::fstream FILE;
     FILE.open(filename, std::fstream::out);
@@ -88,22 +88,26 @@ void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), d
         for(int i = 0; i < N; ++i)
             K4[i] *= step_t;
 
-        //Saves the solution to the ODE system
-        FILE << "\"Time = " << (double)t*step_t << std::endl;
-
+        //Calculates the final value of the time evolution
         for(int i = 0; i < N; ++i)
-            aux[i] = aux[i] + (K1[i] + 2.0*K2[i] + 2.0*K3[i] + K4[i])/6.0;
+                aux[i] = aux[i] + (K1[i] + 2.0*K2[i] + 2.0*K3[i] + K4[i])/6.0;
 
-        for(int i = 0; i < N/N_Eq; ++i){
-            FILE << step_x*i << " ";
+        //Decides if this timestep is to be saved to disk
+        if((t%w) == 0){
+            //Saves the timestep to disk
+            FILE << "\"Time = " << (double)t*step_t << std::endl;
 
-            for(int j = 0; j < N_Eq; ++j)
-                FILE << aux[j*N/N_Eq + i] << " ";
-            
+            for(int i = 0; i < N/N_Eq; ++i){
+                FILE << step_x*i << " ";
+
+                for(int j = 0; j < N_Eq; ++j)
+                    FILE << aux[j*N/N_Eq + i] << " ";
+                
+                FILE << std::endl;
+            }
+
             FILE << std::endl;
         }
-
-        FILE << std::endl;
     }
 
     //Closes the file
