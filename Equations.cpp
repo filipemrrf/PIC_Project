@@ -44,6 +44,43 @@ void Wave_Equation(double* u, int N, double step_x, double* params){
     delete[] Du;
 }
 
+void Wave_Equation_Dissipation(double* u, int N, double step_x, double* params){
+    //Allocates memory for the transformed array
+    double* Du = new double[N];
+
+    //Declarates auxiliary pointers for easier readability of the function
+    double* Phi0 = u;
+    double* Pi0 = &(u[N/2]);
+
+    double* Phi1 = Du;
+    double* Pi1 = &(Du[N/2]);
+
+    //Calculates the auxiliary value k = (c/step_x)^2
+    double k = *(params)/step_x;
+    k *= k;
+
+    //Transforms the array
+    for(int i = 0; i < N/2; ++i){
+        Phi1[i] = Pi0[i];
+
+        if((i == 0) || (i == (N/2-1))){
+            Pi1[i] = k*(Phi0[1] - 2*Phi0[0] + Phi0[N/2-1]);
+            Pi1[i] -= params[1]*(Phi0[0] - Phi0[1])*(Phi0[0] - Phi0[1])*(Phi0[0] - Phi0[N/2-1])*(Phi0[0] - Phi0[N/2-1])/(16.0*step_x);
+        }
+        else{
+            Pi1[i] = k*(Phi0[i+1] - 2*Phi0[i] + Phi0[i-1]);
+            Pi1[i] -= params[1]*(Phi0[i] - Phi0[i+1])*(Phi0[i] - Phi0[i+1])*(Phi0[i] - Phi0[i-1])*(Phi0[i] - Phi0[i-1])/(16.0*step_x);
+        }
+    }
+
+    //Copies the transformed array to the original one
+    for(int i = 0; i < N; ++i)
+        u[i] = Du[i];
+
+    //Frees the memory allocated for the transformed array
+    delete[] Du;
+}
+
 void Wave_Equation_4th_Order(double* u, int N, double step_x, double* params){
     //Allocates memory for the transformed array
     double* Du = new double[N];
