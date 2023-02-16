@@ -25,7 +25,7 @@ for i in range(0, 5):
     FILE.write("#pars: 1 1.0\n")
 
     # Writtes the initial conditions for the equation
-    for j in range(NPoints - 1):
+    for j in range(NPoints):
         FILE.write(str(exp(-(j/NPoints)*(j/NPoints)/0.03)))
         FILE.write(" ")
         FILE.write(str(-0.06*(j/NPoints)*exp(-(j/NPoints)*(j/NPoints)*0.03)))
