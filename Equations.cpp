@@ -187,3 +187,38 @@ void Non_Linear_Wave_Equation_Dissipation(double* u, int N, double step_x, doubl
     //Frees the memory allocated for the transformed array
     delete[] Du;
 }
+
+void Spherical_Wave_Equation(double* u, int N, double step_x, double* params){
+    //Allocates memory for the transformed array
+    double* Du = new double[N];
+
+    //Declarates auxiliary pointers for easier readability of the function
+    double* Phi0 = u;
+    double* Pi0 = &(u[N/2]);
+
+    double* Phi1 = Du;
+    double* Pi1 = &(Du[N/2]);
+
+    //Calculates the auxiliary value k = (c/step_x)^2
+    double k = *(params)/step_x;
+    k *= k;
+
+    //Transforms the array
+    for(int i = 0; i < N/2; ++i){
+        Phi1[i] = Pi0[i];
+
+        if(i == 0)
+            Pi1[0] = 6.0*k*(Phi0[1]-Phi0[0]);
+        else if(i == (N/2-1))
+            Pi1[N/2-1] = 0.0;
+        else
+            Pi1[i] = k*((Phi0[i+1] - 2.0*Phi0[i] + Phi0[i-1]) + (1.0/((double)i))*(Phi0[i+1] - Phi0[i-1]));
+    }
+
+    //Copies the transformed array to the original one
+    for(int i = 0; i < N; ++i)
+        u[i] = Du[i];
+
+    //Frees the memory allocated for the transformed array
+    delete[] Du;
+}
