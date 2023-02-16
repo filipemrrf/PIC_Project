@@ -2,8 +2,8 @@
  " @file Check_Convergence.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  " @brief Checks the convergence of the data
- " @version 3.0
- " @date 2023-01-13
+ " @version 4.0
+ " @date 2023-02-16
  " 
  " @copyright Copyright (c) 2023
  " 
@@ -17,6 +17,7 @@ EQ = ""
 Space_Size = 0
 S = 0
 Exact_Sol = [False, ""]
+Spherical = False
 
 
 # Displays the information the convergence analysis has started
@@ -28,14 +29,20 @@ NPoints = 100
 # Creates a folder for all of the comparison data to be saved
 os.system("mkdir Results/Convergence-" + EQ)
 
+# Decides which of the convergence scripts will be run
+if Spherical:
+    script = "Convergence_Tests/Convergence_Test-Spherical.py"
+else:
+    script = "Convergence_Tests/Convergence_Test.py"
+
 # Loops through all the comparisons that need to be computed
 for i in range(3):
     # Displays the information the convergence check is running for a specific set of points
     os.system("echo Checking convergence between the solutions with " + str(int(NPoints/2)) + ", " + str(NPoints) + " and " + str(NPoints*2))
 
     # Does the convergence check with all the given parameters
-    os.system("python3 Convergence_Tests/Convergence_Test.py \
-            Data/" + EQ + "-" + str(int(NPoints/2)) + "p.dat Data/" + EQ + "-" + str(NPoints) + "p.dat Data/" + EQ + "-" + str(NPoints*2) + "p.dat " + \
+    os.system("python3 " + script + " " + \
+            "Data/" + EQ + "-" + str(int(NPoints/2)) + "p.dat Data/" + EQ + "-" + str(NPoints) + "p.dat Data/" + EQ + "-" + str(NPoints*2) + "p.dat " + \
                 "-SX " + str(2*Space_Size/NPoints) + " " + str(Space_Size/NPoints) + " " + str(Space_Size/(2*NPoints)) + " "\
                     "-NP " + str(int(NPoints/2)) + " " + str(NPoints) + " " + str(2*NPoints) + " " + \
                         "-DIR " + ("Results/Convergence-" + EQ + "/ ") + "-S " + str(S))
