@@ -2,8 +2,8 @@
  " @file IC_Writer-Gauss.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  " @brief Writes the initial conditions for the main executable to run
- " @version 1.0
- " @date 2023-01-16
+ " @version 1.1
+ " @date 2023-02-16
  " 
  " @copyright Copyright (c) 2023
  " 
@@ -17,12 +17,6 @@ NPoints = 50
 for i in range(0, 5):
     # Opens the file that will be written
     FILE = open(("Data/IC-Gauss-" + str(NPoints) + "p.dat"), "w")
-
-    # Writtes the number of equations in the ODE systemspace step, the number of points to the file and the parameters for the equation
-    FILE.write("#NEq: 2\n")
-    FILE.write("#step_x: " + str(1/NPoints) + "\n")
-    FILE.write("#NPoints: " + str(NPoints) + "\n")
-    FILE.write("#pars: 1 1.0\n")
 
     # Writtes the initial conditions for the equation
     for j in range(NPoints):
