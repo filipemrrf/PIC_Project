@@ -2,8 +2,8 @@
  " @file Get_Data.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  " @brief Uses the main executable to get data
- " @version 1.0
- " @date 2023-01-09
+ " @version 2.0
+ " @date 2023-01-16
  " 
  " @copyright Copyright (c) 2023
  " 
@@ -12,11 +12,13 @@
 import os
 
 # Declaration of the variables to control the data aquisition process
-IC = ""
 EQ = ""
+params = "0"
+IC = ""
 T = 0
-W = 1
+W = 0
 
+spherical = False
 
 # Displays the information the aquisition process has started
 os.system("echo Starting data aquisition process")
@@ -29,8 +31,28 @@ for i in range(0, 5):
     # Displays the information the equation is being solved for a specific number of points
     os.system("echo Solving the equation for initial conditions with " + str(NPoints) + " points")
 
+
+    # Writes the parameters file for the run
+    # Opens the file
+    FILE = open("Data/Parameters-" + EQ + "-" + str(NPoints) + "p.txt", "w")
+
+    # Writes the data to the file
+    FILE.write("#Eq: " + EQ + "\n")
+    FILE.write("#params: " + params + "\n")
+    FILE.write("\n")
+    FILE.write("#IC: Data/IC-" + IC + "-" + str(NPoints) + "p.dat\n")
+    FILE.write("#step_x: " + str(1/NPoints) + "\n")
+    FILE.write("#NPoints: " + str(NPoints+1) + "\n")
+    FILE.write("\n")
+    FILE.write("#FN: Data/" + EQ + "-" + str(NPoints) +"p.dat\n")
+    FILE.write("#T: " + str(T) + "\n")
+    FILE.write("#W: " + str(W) + "\n")
+
+    # Closes the file
+    FILE.close()
+
     # Solves the equation with the parameters given
-    os.system("./test -IC Data/IC-" + IC + "-" + str(NPoints) + "p.dat -EQ " + EQ + " -FN Data/" + EQ + "-" + str(NPoints) + "p.dat -T " + str(T) + " -W " + str(W))
+    os.system("./main Data/Parameters-" + EQ + "-" + str(NPoints) + "p.txt")
 
     os.system("echo \n")
 
