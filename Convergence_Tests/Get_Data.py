@@ -18,8 +18,6 @@ IC = ""
 T = 0
 W = 0
 
-spherical = False
-
 # Displays the information the aquisition process has started
 os.system("echo Starting data aquisition process")
 
