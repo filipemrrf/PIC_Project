@@ -1,0 +1,3 @@
+To do a [[Pointwise Conversion]] analysis of our solutions, we compare 2 different solutions at the same points in space and time. This gives us a function of space and time that tells us how close our solutions are to each other at a given point $(t,x)$. Even though this doesn't tell us how good our convergence is (like [[Norm Convergence]] does), this lets us know whether or not our method is converging.
+
+Apart from that, this analysis also makes it easy to identify mistakes in the implementation of our method (or in the method itself), as we can see if there is a particular region of our solutions that is diverging.
