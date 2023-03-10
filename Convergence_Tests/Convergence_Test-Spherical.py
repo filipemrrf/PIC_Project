@@ -2,8 +2,8 @@
  " @file Convergence_Test.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  " @brief Compares the solutions given and checks their conversion
- " @version 1.0
- " @date 2023-02-16
+ " @version 1.1
+ " @date 2023-02-27
  " 
  " @copyright Copyright (c) 2023
  " 
@@ -103,9 +103,15 @@ for l in IN3:
         aux = l.split()
         space.append(float(aux[1]))
     else:
-        Data3.append((time, list(space)))
+        auxl = space.copy()
+        Data3.append((time, auxl))
         space.clear()
 
+
+# Closes the data files
+IN1.close()
+IN2.close()
+IN3.close()
 
 # Declares the variables needed to compare the first 2 solutions solutions
 time = []
