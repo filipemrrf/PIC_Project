@@ -2,8 +2,8 @@
  * @file Core.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Declares the core algorithms to solve differential equations
- * @version 1.1
- * @date 2023-01-09
+ * @version 1.2
+ * @date 2023-03-10
  * 
  * @copyright Copyright (c) 2022
  * 
@@ -31,6 +31,9 @@
  * @param filename Name of the file which will store the data
  * @param w Multiples of the iterations that will be saved to disk
  */
-void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), double* IC, int N, int N_Eq, double step_x, double* params, double tmax, double step_t, std::string filename, int w);
+void Runge_Kutta_4(void (*f)(double* u, int N, double step_x, double* params), double* IC, int N, int N_Eq, double step_x, double* params,
+    double tmax, double step_t, std::string filename, int w);
+
+
 
 #endif
