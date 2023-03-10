@@ -78,6 +78,11 @@ double** IC, double* step_x, int* N, std::string* outfilename, double* cfl, doub
                 *Eq = &Spherical_Wave_Equation;
                 *N_Eqs = 2;
             }
+
+            if(!buffer2.compare("spherical_wave_dissipation")){
+                *Eq = &Spherical_Wave_Equation_Dissipation;
+                *N_Eqs = 2;
+            }
         }
 
         //Sets up the parameters needed for the equation from the file
@@ -87,7 +92,7 @@ double** IC, double* step_x, int* N, std::string* outfilename, double* cfl, doub
             (*params) = new double[stoi(buffer2)];
 
             for(int i = 0; getline(stream, buffer2, ' '); ++i)
-                (*params)[i] = stod(buffer2);
+                (*params)[i] = atof(buffer2.c_str());
         }
             
         //Sets up the name of the initial conditions file
@@ -101,7 +106,7 @@ double** IC, double* step_x, int* N, std::string* outfilename, double* cfl, doub
         if(!buffer2.compare("#step_x:")){
             getline(stream, buffer2, ' ');
 
-            *step_x = stod(buffer2);
+            *step_x = atof(buffer2.c_str());
         }
 
         //Sets up the number of points from the file
@@ -122,14 +127,14 @@ double** IC, double* step_x, int* N, std::string* outfilename, double* cfl, doub
         if(!buffer2.compare("#CFL:")){
             getline(stream, buffer2, ' ');
 
-            *cfl = stod(buffer2);
+            *cfl = atof(buffer2.c_str());
         }
 
         //Sets the time until the system is to be solved
         if(!buffer2.compare("#T:")){
             getline(stream, buffer2, ' ');
 
-            *tmax = stod(buffer2);
+            *tmax = atof(buffer2.c_str());
         }
 
         //Sets the iterations in which the data will be written to disk
@@ -159,7 +164,7 @@ double** IC, double* step_x, int* N, std::string* outfilename, double* cfl, doub
 
         for(int j = 0; j < *N_Eqs; ++j){
             getline(stream, buffer2, ' ');
-            (*IC)[i + j*(*N)] = stod(buffer2);
+            (*IC)[i + j*(*N)] = atof(buffer2.c_str());
         }
     }
 

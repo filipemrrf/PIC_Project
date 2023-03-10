@@ -222,3 +222,55 @@ void Spherical_Wave_Equation(double* u, int N, double step_x, double* params){
     //Frees the memory allocated for the transformed array
     delete[] Du;
 }
+
+void Spherical_Wave_Equation_Dissipation(double* u, int N, double step_x, double* params){
+    //Allocates memory for the transformed array
+    double* Du = new double[N];
+
+    //Declarates auxiliary pointers for easier readability of the function
+    double* Phi0 = u;
+    double* Pi0 = &(u[N/2]);
+
+    double* Phi1 = Du;
+    double* Pi1 = &(Du[N/2]);
+
+    //Calculates the auxiliary value k = (c/step_x)^2
+    double k = params[0]/step_x;
+    k *= k;
+
+    //Calculates the auxiliary value d = -\sigma/16
+    double d = params[1]/(16.0*step_x);
+
+    //Transforms the array
+    for(int i = 0; i < N/2; ++i){
+        Phi1[i] = Pi0[i];
+
+        if(i == 0){
+            Pi1[0] = 6.0*k*(Phi0[1]-Phi0[0]);
+            Pi1[0] -= d*(2.0*Phi0[2] - 8.0*Phi0[1] + 6.0*Phi0[0]);
+        }
+        else if(i == 1){
+            Pi1[1] = k*((Phi0[2] - 2.0*Phi0[1] + Phi0[0]) + (Phi0[2] - Phi0[0]));
+            Pi1[1] -= d*(Phi0[3] - 4.0*Phi0[2] + 7.0*Phi0[1] - 4.0*Phi0[0]);
+        }
+        else if(i == (N/2-2)){
+            Pi1[N/2-2] = k*((Phi0[N/2-1] - 2.0*Phi0[N/2-2] + Phi0[N/2-3]) + (1.0/((double)(N/2-2)))*(Phi0[N/2-1] - Phi0[N/2-3]));
+            Pi1[N/2-2] -= d*(6.0*Phi0[N/2-2] - 4.0*Phi0[N/2-3] + Phi0[N/2-4]);
+        }
+        else if(i == (N/2-1)){
+            Pi1[N/2-1] = 0.0;
+            //Pi1[i] -= d*(4.0*Phi0[N/2-2] + Phi0[N/2-3]);
+        }
+        else{
+            Pi1[i] = k*((Phi0[i+1] - 2.0*Phi0[i] + Phi0[i-1]) + (1.0/((double)i))*(Phi0[i+1] - Phi0[i-1]));
+            Pi1[i] -= d*(Phi0[i+2] - 4.0*Phi0[i+1] + 6.0*Phi0[i] - 4.0*Phi0[i-1] + Phi0[i-2]);
+        }
+    }
+
+    //Copies the transformed array to the original one
+    for(int i = 0; i < N; ++i)
+        u[i] = Du[i];
+
+    //Frees the memory allocated for the transformed array
+    delete[] Du;
+}

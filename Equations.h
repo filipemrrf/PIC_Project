@@ -74,4 +74,7 @@ void Non_Linear_Wave_Equation_Dissipation(double* u, int N, double step_x, doubl
  */
 void Spherical_Wave_Equation(double* u, int N, double step_x, double* params);
 
+
+void Spherical_Wave_Equation_Dissipation(double* u, int N, double step_x, double* params);
+
 #endif
