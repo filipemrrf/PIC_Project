@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
-
-# Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
-
-# fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
-
-#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -136,113 +123,113 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-Core.o: Core.cpp.o
+Main_Code/Core.o: Main_Code/Core.cpp.o
 
-.PHONY : Core.o
-
-# target to build an object file
-Core.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Core.cpp.o
-.PHONY : Core.cpp.o
-
-Core.i: Core.cpp.i
-
-.PHONY : Core.i
-
-# target to preprocess a source file
-Core.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Core.cpp.i
-.PHONY : Core.cpp.i
-
-Core.s: Core.cpp.s
-
-.PHONY : Core.s
-
-# target to generate assembly for a file
-Core.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Core.cpp.s
-.PHONY : Core.cpp.s
-
-Equations.o: Equations.cpp.o
-
-.PHONY : Equations.o
+.PHONY : Main_Code/Core.o
 
 # target to build an object file
-Equations.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Equations.cpp.o
-.PHONY : Equations.cpp.o
+Main_Code/Core.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Core.cpp.o
+.PHONY : Main_Code/Core.cpp.o
 
-Equations.i: Equations.cpp.i
+Main_Code/Core.i: Main_Code/Core.cpp.i
 
-.PHONY : Equations.i
+.PHONY : Main_Code/Core.i
 
 # target to preprocess a source file
-Equations.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Equations.cpp.i
-.PHONY : Equations.cpp.i
+Main_Code/Core.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Core.cpp.i
+.PHONY : Main_Code/Core.cpp.i
 
-Equations.s: Equations.cpp.s
+Main_Code/Core.s: Main_Code/Core.cpp.s
 
-.PHONY : Equations.s
+.PHONY : Main_Code/Core.s
 
 # target to generate assembly for a file
-Equations.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Equations.cpp.s
-.PHONY : Equations.cpp.s
+Main_Code/Core.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Core.cpp.s
+.PHONY : Main_Code/Core.cpp.s
 
-main.o: main.cpp.o
+Main_Code/Equations.o: Main_Code/Equations.cpp.o
 
-.PHONY : main.o
+.PHONY : Main_Code/Equations.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+Main_Code/Equations.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Equations.cpp.o
+.PHONY : Main_Code/Equations.cpp.o
 
-main.i: main.cpp.i
+Main_Code/Equations.i: Main_Code/Equations.cpp.i
 
-.PHONY : main.i
+.PHONY : Main_Code/Equations.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+Main_Code/Equations.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Equations.cpp.i
+.PHONY : Main_Code/Equations.cpp.i
 
-main.s: main.cpp.s
+Main_Code/Equations.s: Main_Code/Equations.cpp.s
 
-.PHONY : main.s
+.PHONY : Main_Code/Equations.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+Main_Code/Equations.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Equations.cpp.s
+.PHONY : Main_Code/Equations.cpp.s
 
-test_drive.o: test_drive.cpp.o
+Main_Code/Output.o: Main_Code/Output.cpp.o
 
-.PHONY : test_drive.o
+.PHONY : Main_Code/Output.o
 
 # target to build an object file
-test_drive.cpp.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test_drive.cpp.o
-.PHONY : test_drive.cpp.o
+Main_Code/Output.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Output.cpp.o
+.PHONY : Main_Code/Output.cpp.o
 
-test_drive.i: test_drive.cpp.i
+Main_Code/Output.i: Main_Code/Output.cpp.i
 
-.PHONY : test_drive.i
+.PHONY : Main_Code/Output.i
 
 # target to preprocess a source file
-test_drive.cpp.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test_drive.cpp.i
-.PHONY : test_drive.cpp.i
+Main_Code/Output.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Output.cpp.i
+.PHONY : Main_Code/Output.cpp.i
 
-test_drive.s: test_drive.cpp.s
+Main_Code/Output.s: Main_Code/Output.cpp.s
 
-.PHONY : test_drive.s
+.PHONY : Main_Code/Output.s
 
 # target to generate assembly for a file
-test_drive.cpp.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test_drive.cpp.s
-.PHONY : test_drive.cpp.s
+Main_Code/Output.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/Output.cpp.s
+.PHONY : Main_Code/Output.cpp.s
+
+Main_Code/main.o: Main_Code/main.cpp.o
+
+.PHONY : Main_Code/main.o
+
+# target to build an object file
+Main_Code/main.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/main.cpp.o
+.PHONY : Main_Code/main.cpp.o
+
+Main_Code/main.i: Main_Code/main.cpp.i
+
+.PHONY : Main_Code/main.i
+
+# target to preprocess a source file
+Main_Code/main.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/main.cpp.i
+.PHONY : Main_Code/main.cpp.i
+
+Main_Code/main.s: Main_Code/main.cpp.s
+
+.PHONY : Main_Code/main.s
+
+# target to generate assembly for a file
+Main_Code/main.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Main_Code/main.cpp.s
+.PHONY : Main_Code/main.cpp.s
 
 # Help Target
 help:
@@ -252,20 +239,19 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... main"
-	@echo "... Core.o"
-	@echo "... Core.i"
-	@echo "... Core.s"
-	@echo "... Equations.o"
-	@echo "... Equations.i"
-	@echo "... Equations.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... test_drive.o"
-	@echo "... test_drive.i"
-	@echo "... test_drive.s"
+	@echo "... Main_Code/Core.o"
+	@echo "... Main_Code/Core.i"
+	@echo "... Main_Code/Core.s"
+	@echo "... Main_Code/Equations.o"
+	@echo "... Main_Code/Equations.i"
+	@echo "... Main_Code/Equations.s"
+	@echo "... Main_Code/Output.o"
+	@echo "... Main_Code/Output.i"
+	@echo "... Main_Code/Output.s"
+	@echo "... Main_Code/main.o"
+	@echo "... Main_Code/main.i"
+	@echo "... Main_Code/main.s"
 .PHONY : help
 
 
