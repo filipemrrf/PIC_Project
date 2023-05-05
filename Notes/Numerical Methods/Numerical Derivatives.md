@@ -1,4 +1,4 @@
-Many ODE's require the calculation of the function's derivative, making a method to calculate numerical derivatives necessary. One example of such an equation is the [[Numerically Solving the Wave Equation in 1+1 Dimensions|Wave Equation]].
+Many ODE's require the calculation of the function's derivative, making a method to calculate numerical derivatives necessary. One example of such an equation is the [[Numerically Solving the Wave Equation in 1+1 Dimensions with Periodic Boundary Conditions|Wave Equation]].
 
 To calculate a numerical derivative, we need to use finite differences, discretizing our axis into a grid with N cells with side $\Delta x$, covering the whole axis. This discretization is edge centered.
 
@@ -54,5 +54,6 @@ $$M^{-1} = \left( \begin{matrix}
 1/(2\Delta x^3) & -1/\Delta x^3 & 0 & 1/\Delta x^3 & -1/(2\Delta x^3)\\
 1/\Delta x^4 & -4/\Delta x^4 & 6/\Delta x^4 & -4/\Delta x^4 & 1/\Delta x^4
 \end{matrix} \right),$$
-which using the matrix equation gives us a fourth order accurate expression for the second spatial derivative:
+which using the matrix equation gives us a fourth order accurate expression for the first and second spatial derivative:
+$$\frac{\partial u(x)}{\partial x} \approx \frac{-u(x+2\Delta x) + 12 u(x+\Delta x) - 12 u(x- \Delta x) + u(x + 2 \Delta x)}{12 \Delta x}$$
 $$\frac{\partial^2 u(x)}{\partial x^2} \approx \frac{-u(x+2\Delta x) + 16u(x+\Delta x) - 30u(x) + 16u(x-\Delta x) - u(x-2\Delta x)}{12 \Delta x^2}$$

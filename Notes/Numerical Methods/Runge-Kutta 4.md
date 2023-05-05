@@ -3,7 +3,7 @@ $$\frac{\partial \Phi(t,x)}{\partial t} = \Pi(t,x)$$
 However, it may also be used to solve ODE systems in the form:
 $$\left\{ \begin{array}{@{}l@{}} \frac{\partial \Phi(t,x)}{\partial t} = \Pi (t,x) \\ \frac{\partial \Pi(t,x)}{\partial t} = f(t,x) \end{array} \right.\, $$
 
-The [[Numerically Solving the Wave Equation in 1+1 Dimensions|Wave Equation]] is an example of an ODE system in that form:
+The [[Numerically Solving the Wave Equation in 1+1 Dimensions with Periodic Boundary Conditions|Wave Equation]] is an example of an ODE system in that form:
 $$\left\{ \begin{array}{@{}l@{}} \frac{\partial \Phi(t,x)}{\partial t} = \Pi (t,x) \\ \frac{\partial \Pi(t,x)}{\partial t} = \frac{\partial^2 \Phi(t,x)}{\partial x^2} \end{array} \right.\, $$
 
 

@@ -8,11 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "751f96b6d90d7ae2",
+            "id": "8458d35732da1b18",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -60,6 +64,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "f79a24f733ee443e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -81,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md"
+              }
             }
           }
         ]
@@ -139,18 +155,29 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "751f96b6d90d7ae2",
+  "active": "8458d35732da1b18",
   "lastOpenFiles": [
-    "Numerically Solving the Wave Equation in 1+1 Dimensions.md",
+    "Numerically Solving a Non Linear Wave Equation in 1+1 Dimensions with Periodic Boundary Conditions.md",
+    "Numerically Solving the Wave Equation in 1+1 Dimensions with Periodic Boundary Conditions.md",
+    "Images/non_linear_simple_wave-4th_order-with_dissipation-norm_convergence.png",
+    "Images/Norm_Convergence_Full_Comparison.png",
+    "Images/non_linear_simple_wave-2nd_order-with_dissipation-norm_convergence.png",
+    "Numerical Methods/Kreiss-Oliger Dissipation.md",
+    "Images/non_linear_simple_wave-4th_order-without_dissipation-norm_convergence.png",
+    "Images/non_linear_simple_wave-2nd_order-without_dissipation-norm_convergence.png",
+    "Bug Log/18-04-2023 - Spherical_Wave not Converging.md",
+    "Numerical Methods/Numerical Derivatives.md",
+    "Numerical Methods/Runge-Kutta 4.md",
+    "Numerical Methods/The CFL condition.md",
+    "Bug Log",
+    "Numerical Methods/Norm Convergence.md",
+    "Numerically Solving the Einstein Equations in 3+1 Dimensions with Spherical Symmetry.md",
+    "Numerical Methods/Pointwise Convergence.md",
+    "Images/non_linear_wave-4th_order-norm_convergence.png",
+    "Images/non_linear_wave-2nd_order-norm_convergence.png",
     "Images/CFL Condition.png",
     "Images/Runge_Kutta_Scheme.png",
-    "Numerical Methods/Kreiss-Oliger Dissipation.md",
     "General Relativity",
-    "Numerical Methods/Norm Convergence.md",
-    "Numerical Methods/Numerical Derivatives.md",
-    "Numerical Methods/The CFL condition.md",
-    "Numerical Methods/Runge-Kutta 4.md",
-    "Numerical Methods/Pointwise Conversion.md",
     "Simple_Wave-Norm_Comparison.png.md",
     "Numerical Methods/Convergence of a Numerical Method.md",
     "Wave Equation/Numerically Solving the Wave Equation (With Higher Precision).md",
