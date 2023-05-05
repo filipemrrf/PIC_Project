@@ -1,0 +1,15 @@
+{
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "alwaysUpdateLinks": true,
+  "spellcheckLanguages": [
+    "en-US",
+    "pt"
+  ],
+  "spellcheck": true
+}

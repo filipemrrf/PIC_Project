@@ -1,0 +1,186 @@
+{
+  "main": {
+    "id": "22fdb9b898eba678",
+    "type": "split",
+    "children": [
+      {
+        "id": "88b02382c188966c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8458d35732da1b18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9a23e4cfb822388a",
+    "type": "split",
+    "children": [
+      {
+        "id": "e0a781218bf90520",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "349f443d6cc5754f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "29398c6a7f51274b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "61c9af45e415556c",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "f79a24f733ee443e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "73a17ba208847a89",
+    "type": "split",
+    "children": [
+      {
+        "id": "4b2d8322d1c13d36",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b98e5df20f499cde",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6eff33aa733eff39",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c5260185906f8dd9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "58f87acba81e84e2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Numerical Methods/Convergence of a Numerical Method.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "workspaces:Manage workspace layouts": false
+    }
+  },
+  "active": "8458d35732da1b18",
+  "lastOpenFiles": [
+    "Numerically Solving a Non Linear Wave Equation in 1+1 Dimensions with Periodic Boundary Conditions.md",
+    "Numerically Solving the Wave Equation in 1+1 Dimensions with Periodic Boundary Conditions.md",
+    "Images/non_linear_simple_wave-4th_order-with_dissipation-norm_convergence.png",
+    "Images/Norm_Convergence_Full_Comparison.png",
+    "Images/non_linear_simple_wave-2nd_order-with_dissipation-norm_convergence.png",
+    "Numerical Methods/Kreiss-Oliger Dissipation.md",
+    "Images/non_linear_simple_wave-4th_order-without_dissipation-norm_convergence.png",
+    "Images/non_linear_simple_wave-2nd_order-without_dissipation-norm_convergence.png",
+    "Bug Log/18-04-2023 - Spherical_Wave not Converging.md",
+    "Numerical Methods/Numerical Derivatives.md",
+    "Numerical Methods/Runge-Kutta 4.md",
+    "Numerical Methods/The CFL condition.md",
+    "Bug Log",
+    "Numerical Methods/Norm Convergence.md",
+    "Numerically Solving the Einstein Equations in 3+1 Dimensions with Spherical Symmetry.md",
+    "Numerical Methods/Pointwise Convergence.md",
+    "Images/non_linear_wave-4th_order-norm_convergence.png",
+    "Images/non_linear_wave-2nd_order-norm_convergence.png",
+    "Images/CFL Condition.png",
+    "Images/Runge_Kutta_Scheme.png",
+    "General Relativity",
+    "Simple_Wave-Norm_Comparison.png.md",
+    "Numerical Methods/Convergence of a Numerical Method.md",
+    "Wave Equation/Numerically Solving the Wave Equation (With Higher Precision).md",
+    "Wave Equation/Wave Equation Solver Class.md"
+  ]
+}
