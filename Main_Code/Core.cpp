@@ -34,7 +34,7 @@ void First_Derivative_4th_Order(double* u, double* du, int N, double step_x, int
     // Calculates the derivative
     for(int i = 0; i < N_Vars; ++i)
         for(int j = 2; j < n_var-2; ++j)
-            du[i*n_var + j] = aux*(-u[i*n_var + j+2] + 12.0*u[i*n_var + j+1] - 12.0*u[i*n_var + j-1] + u[i*n_var + j-2]);
+            du[i*n_var + j] = aux*(-u[i*n_var + j+2] + 8.0*u[i*n_var + j+1] - 8.0*u[i*n_var + j-1] + u[i*n_var + j-2]);
 }
 
 void Second_Derivative_2nd_Order(double* u, double* du, int N, double step_x, int N_Vars){
@@ -123,6 +123,40 @@ void Even_0_Boundary(double* u, int N, int N_Var, int Acc){
         for(int j = 1; j <= N_ghosts; ++j){
             u[i*n_var + N_ghosts-j] = u[i*n_var + N_ghosts+j];
             u[(i+1)*n_var - N_ghosts + j-1] = 0.0;
+        }
+    }
+}
+
+void Even_Constant_Boundary(double* u, int N, int N_Var, int Acc){
+    // Calculates the number of ghost points in each side of the array
+    int N_ghosts = Acc/2 + 1;
+
+    // Calculates the number of points for each variable
+    int n_var = N/N_Var;
+
+    // Loops through the multiple variables
+    for(int i = 0; i < N_Var; ++i){
+        // Loops through the ghost points and populates them
+        for(int j = 1; j <= N_ghosts; ++j){
+            u[i*n_var + N_ghosts-j] = u[i*n_var + N_ghosts+j];
+            u[(i+1)*n_var - N_ghosts + j-1] = u[(i+1)*n_var - N_ghosts - 2];
+        }
+    }
+}
+
+void Odd_Constant_Boundary(double* u, int N, int N_Var, int Acc){
+    // Calculates the number of ghost points in each side of the array
+    int N_ghosts = Acc/2 + 1;
+
+    // Calculates the number of points for each variable
+    int n_var = N/N_Var;
+
+    // Loops through the multiple variables
+    for(int i = 0; i < N_Var; ++i){
+        // Loops through the ghost points and populates them
+        for(int j = 1; j <= N_ghosts; ++j){
+            u[i*n_var + N_ghosts-j] = -u[i*n_var + N_ghosts+j];
+            u[(i+1)*n_var - N_ghosts + j-1] = u[(i+1)*n_var - N_ghosts - 2];
         }
     }
 }

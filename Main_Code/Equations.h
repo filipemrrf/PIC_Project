@@ -49,4 +49,8 @@ void Non_Linear_Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary,
  */
 void Spherical_Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
 
+void Non_Linear_Spherical_Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+
+void ADM_Evolution(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+
 #endif

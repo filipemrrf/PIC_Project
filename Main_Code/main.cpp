@@ -91,6 +91,16 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
             *rh_side = &Spherical_Wave_Equation;
             N_Vars = 2;
         }
+
+        if(!buffer2.compare("non_linear_spherical_wave")){
+            *rh_side = &Non_Linear_Spherical_Wave_Equation;
+            N_Vars = 2;
+        }
+
+        if(!buffer2.compare("adm_evolution")){
+            *rh_side = &ADM_Evolution;
+            N_Vars = 9;
+        }
     }
     else{
         std::cout << "ERROR: Equation information not given" << std::endl;
@@ -142,6 +152,9 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
     // Sets up the boundary conditions of the ODE to be solved
     if(!buffer2.compare("Bound:")){
         getline(stream, buffer2, ' ');
+
+        if(!buffer2.compare("even_constant"))
+            *boundary = &Even_Constant_Boundary;
 
         if(!buffer2.compare("periodic"))
             *boundary = &Periodic_Boundary;

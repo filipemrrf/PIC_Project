@@ -29,6 +29,9 @@
  */
 void Output_Solution(std::fstream* FILE, double* u, int N, int N_ghosts, double t, double* params);
 
+
+void Hamiltonian_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params);
+
 void Debug(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params);
 
 #endif

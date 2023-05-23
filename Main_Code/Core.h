@@ -97,6 +97,11 @@ void KO_Dissipation_6th_Order(double* u, double* du, int N, double step_x, int N
 
 
 /* Declares boundary conditions */
+
+void Even_Constant_Boundary(double* u, int N, int N_Var, int Acc);
+
+void Odd_Constant_Boundary(double* u, int N, int N_Var, int Acc);
+
 /**
  * @brief Populates ghost points using parity of the IC in the left and with 0 on the right
  * 
