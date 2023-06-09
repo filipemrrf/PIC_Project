@@ -31,7 +31,7 @@ if(EQ == "simple_wave"):
 
 if(EQ == "non_linear_simple_wave"):
     Bound = "periodic"
-    params = "2 1.0 2.0"
+    params = "2 1.0 3.0"
     T = 5
     IC = ["Sin(2pi.x)", "2pi.Cos(2pi.x)"]
     NOut = 2
@@ -65,9 +65,9 @@ if(EQ == "spherical_wave"):
 
 if(EQ == "non_linear_spherical_wave"):
     Bound = "even_0"
-    params = "2 1.0 2.0"
+    params = "2 1.0 4.0"
     T = 3
-    IC = ["exp(-50x^2)", "(-100).exp(-50x^2)"]
+    IC = ["0.01.exp(-50x^2)", "(-1).exp(-50x^2)"]
     NOut = 2
     Out_Type = "solution"
     Out_Filename = ["Phi", "Pi"]
@@ -84,15 +84,15 @@ if(EQ == "adm_evolution"):
     Bound = "even_constant"
     params = "0"
     T = 5
-    IC = ["0.002*exp(-2.0*x^2)+1", "(-0.008*x*exp(-2.0*x^2))(1+0.002*exp(-2.0*x^2))^(-1)", "0", "0.002*exp(-2.0*x^2)+1", "(-0.008*x*exp(-2.0*x^2))(1+0.002*exp(-2.0*x^2))^(-1)", "0", "0", "1", "0"]
+    IC = ["0.002*exp(-2.0*x^2)+1", "0.002*exp(-2.0*x^2)+1", "0", "0", "0"]
     #IC = ["1", "0", "0", "1", "0", "0", "0", "0.02*exp(-50x^2)", "(-4.x)"]
-    NOut = 9
+    NOut = 5
     Out_Type = "solution"
-    Out_Filename = ["A", "DA", "KA", "B", "DB", "KB", "lambda", "alpha", "Dalpha"]
-    W = [1, 1, 1, 1, 1, 1, 1, 1, 1]
+    Out_Filename = ["A", "B", "KA", "KB", "lambda"]
+    W = [1, 1, 1, 1, 1]
 
     Acc = 2
-    diss = 0.0
+    diss = 0.02
 
     space_size = 10
 
@@ -161,8 +161,6 @@ for j in range(0, 5):
 
     # Solves the equation with the parameters given
     os.system("./main " + folder + "/" + str(NPoints) + "p/Parameters-" + EQ + "-" + str(NPoints) + "p.txt")
-
-    os.system("echo \n")
 
     # Updates how many points the next initial conditions will have and how many timesteps will be written to disk
     NPoints *= 2

@@ -99,7 +99,7 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
 
         if(!buffer2.compare("adm_evolution")){
             *rh_side = &ADM_Evolution;
-            N_Vars = 9;
+            N_Vars = 5;
         }
     }
     else{
@@ -331,7 +331,7 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
 
     // Sets the ouput functions that will bw called
     if(!buffer2.compare("Out_Type:")){
-        for(int i = 0; i < *N_output; ++i){
+        for(int i = 0; i < *N_output;){
             getline(stream, buffer2, ' ');
 
             if(!buffer2.compare("solution")){
@@ -347,13 +347,36 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
                 i += N_Vars;
             }
 
-            if(!buffer2.compare("debug")){          
-                    (*params_output)[i] = new double[3];
-                    (*params_output)[i][0] = (double) N_Vars;
-                    (*params_output)[i][1] = (double) 0;
-                    (*params_output)[i][2] = (double) (*step_x);
+            if(!buffer2.compare("hamiltonian")){ 
+                (*params_output)[i] = new double[2];
+                (*params_output)[i][0] = (double) (*step_x);
+                (*params_output)[i][1] = (double) (*Acc);
+            
+                (*output)[i] = &Hamiltonian_Constraint;
                 
-                    (*output)[i] = &Debug;
+
+                i++;
+            }
+
+            if(!buffer2.compare("momentum")){          
+                (*params_output)[i] = new double[2];
+                (*params_output)[i][0] = (double) (*step_x);
+                (*params_output)[i][1] = (double) (*Acc);
+            
+                (*output)[i] = &Momentum_Constraint;
+
+                i++;
+            }
+
+            if(!buffer2.compare("debug")){          
+                (*params_output)[i] = new double[3];
+                (*params_output)[i][0] = (double) N_Vars;
+                (*params_output)[i][1] = (double) 0;
+                (*params_output)[i][2] = (double) (*step_x);
+            
+                (*output)[i] = &Debug;
+
+                i++;
             }
         }
     }

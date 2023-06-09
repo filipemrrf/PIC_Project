@@ -27,10 +27,13 @@
  * @param params Array containing {N_Eqs, Eq_Select, step_x}, where N_Eqs contains the number of equations in the system, Eq_Select the equation that will be output 
  *                  and step_x the space step
  */
-void Output_Solution(std::fstream* FILE, double* u, int N, int N_ghosts, double t, double* params);
+void Output_Solution(std::fstream* FILE, double* u, int N, int N_ghosts, double time, double* params);
 
 
 void Hamiltonian_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params);
+
+
+void Momentum_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params);
 
 void Debug(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params);
 

@@ -22,11 +22,11 @@ def Cos(x):
 
 def Gauss(x):
     # Sets the standard deviation and the amplitude of the gaussian
-    A = 0.002
-    std_dev = 0.5
+    A = -1
+    std_dev = 0.1
     c = 1/(std_dev*std_dev)
 
-    return A*exp(-0.5*c*x*x)+1
+    return A*exp(-0.5*c*x*x)
 
 def Log_deriv_Gauss(x):
     # Sets the standard deviation and the amplitude of the gaussian
@@ -43,9 +43,9 @@ def Sin(x):
     return A*sin(2*pi*x)
 
 # Sets the required parameters for the script to run
-filename = "0"
-function = Constant
-size = 10
+filename = "(-1).exp(-50x^2)"
+function = Gauss
+size = 5
 point_density = 50
 
 # Initializes the number of points
