@@ -2,8 +2,8 @@
  * @file main.cpp
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Reads the arguments from the command line and solves the specified equations with given parameters and initial conditions
- * @version 3.0
- * @date 2023-04-19
+ * @version 3.1
+ * @date 2023-06-13
  * 
  * @copyright Copyright (c) 2023
  * 
@@ -99,7 +99,7 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
 
         if(!buffer2.compare("adm_evolution")){
             *rh_side = &ADM_Evolution;
-            N_Vars = 5;
+            N_Vars = 9;
         }
     }
     else{
@@ -329,7 +329,7 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
         getline(stream, buffer2, ' ');
     }while((buffer2.empty()) || (buffer2[0] == '#'));
 
-    // Sets the ouput functions that will bw called
+    // Sets the ouput functions that will be called
     if(!buffer2.compare("Out_Type:")){
         for(int i = 0; i < *N_output;){
             getline(stream, buffer2, ' ');
@@ -366,6 +366,19 @@ void read_par_file(std::string parfilename, rh_sideFunc** rh_side, int* Acc, Bou
                 (*output)[i] = &Momentum_Constraint;
 
                 i++;
+            }
+
+            if(!buffer2.compare("reduction")){         
+                for(int j = 0; j < 2; ++j){
+                    (*params_output)[i+j] = new double[3];
+                    (*params_output)[i+j][0] = (double) (*step_x);
+                    (*params_output)[i+j][1] = (double) (*Acc);
+                    (*params_output)[i+j][2] = (double) j;
+                
+                    (*output)[i+j] = &Reduction_Constraints;
+                }
+
+                i += 2;
             }
 
             if(!buffer2.compare("debug")){          
@@ -497,12 +510,6 @@ int main(int argc, char** argv){
     if(argc > 2){
         std::cout << "ERROR: Too many arguments given" << std::endl;
         exit(-1);
-    }
-
-    // If the command -h is used, display help
-    if(!strcmp(argv[1], "-h")){
-        std::cout << "this is helpful" << std::endl;
-        exit(0);
     }
 
     // Reads the name of the parameter file

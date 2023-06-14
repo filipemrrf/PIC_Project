@@ -87,6 +87,34 @@ void Hamiltonian_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, 
     delete[] Hamiltonean;
 }
 
+void Reduction_Constraints(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << time << std::endl;
+
+    // Defines pointers to make the manipulation of the state vector easier
+    double* var = &(u[((int) params[2]*3)*(N/9)]);
+    double* Dvar = &(u[(1 + (int) params[2]*3)*(N/9)]);
+
+    // Populates the ghost points
+    Even_Constant_Boundary(var, N/9, 1, params[1]);
+    Odd_Constant_Boundary(Dvar, N/9, 1, params[1]);
+
+    // Allocates memory for the derivative of DB and for the constraint
+    double* dr_var = new double[N/9];
+
+    // Calculates the derivatives necessary for the calculation
+    First_Derivative_2nd_Order(var, dr_var, N/9, params[0], 1);
+
+    // Saves the value of the Hamiltonian constraint to disk (ignoring ghost points)
+    for(int i = N_Ghosts; i < N/9 - N_Ghosts; ++i)
+        *FILE << (i-N_Ghosts)*params[0] << " " << dr_var[i]/var[i] - Dvar[i] << std::endl;
+
+    *FILE << std::endl;
+
+    // Frees the memory allocated
+    delete[] dr_var;
+}
+
 void Momentum_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
     // Writes the time step that is being saved
     *FILE << "\"Time = " << time << std::endl;
