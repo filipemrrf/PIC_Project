@@ -11,9 +11,9 @@
 
 import os
 
- 
-EQ= "adm_evolution"
-Acc = 2
+# Chooses the equation to analyse
+EQ = ""
+Acc = 0
 
 # Declaration of the variables to control the data aquisition process
 if(EQ == "simple_wave"):
@@ -31,7 +31,7 @@ if(EQ == "simple_wave"):
 
 if(EQ == "non_linear_simple_wave"):
     Bound = "periodic"
-    params = "2 1.0 3.0"
+    params = "2 1.0 2.0"
     T = 5
     IC = ["Sin(2pi.x)", "2pi.Cos(2pi.x)"]
     NOut = 2
@@ -40,9 +40,9 @@ if(EQ == "non_linear_simple_wave"):
     W = [1, 1]
 
     if(Acc == 2):
-        diss = 0.02
+        diss = 0.0
     if(Acc == 4):
-        diss = 0.007
+        diss = 0.00
 
     space_size = 1
 
@@ -84,12 +84,12 @@ if(EQ == "adm_evolution"):
     Bound = "even_constant"
     params = "0"
     T = 5
-    IC = ["0.002*exp(-2.0*x^2)+1", "0.002*exp(-2.0*x^2)+1", "0", "0", "0"]
-    #IC = ["1", "0", "0", "1", "0", "0", "0", "0.02*exp(-50x^2)", "(-4.x)"]
-    NOut = 5
-    Out_Type = "solution"
-    Out_Filename = ["A", "B", "KA", "KB", "lambda"]
-    W = [1, 1, 1, 1, 1]
+
+    IC = ["0.002*exp(-2.0*x^2)+1", "(-0.008*x*exp(-2.0*x^2))(1+0.002*exp(-2.0*x^2))^(-1)", "0", "0.002*exp(-2.0*x^2)+1", "(-0.008*x*exp(-2.0*x^2))(1+0.002*exp(-2.0*x^2))^(-1)", "0", "0", "1", "0"]
+    NOut = 13
+    Out_Type = "solution reduction momentum hamiltonian"
+    Out_Filename = ["A", "DA", "KA", "B", "DB", "KB", "lambda", "alpha", "Dalpha", "Reduction_A", "Reduction_B", "Momentum", "Hamiltonian"]
+    W = [1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10, 10]
 
     Acc = 2
     diss = 0.02

@@ -45,8 +45,8 @@ def Scale_Pointwise(folder, field, NPoints, Scale):
         "-NP " + str(NPoints) + " " + "-DIR " + (folder + "Convergence-" + field + "/ ") + "-S " + str(Scale))
 
 # Chooses the equation to analyse
-EQ = "adm_evolution"
-Acc = 2
+EQ = ""
+Acc = 0
 
 # Declaration of the variables to control the cmunionvergence analysis
 if(EQ == "simple_wave"):
@@ -110,10 +110,10 @@ if(EQ == "non_linear_spherical_wave"):
     Spherical = "1"
 
 if(EQ == "adm_evolution"):
-    folder = "Results/adm_evolution-2nd_order/"
+    folder = "Results/adm_evolution-2nd_order-long/"
     S = 4
 
-    Fields = ["A", "KA", "B", "KB", "lambda"]
+    Fields = ["A", "DA", "KA", "B", "DB", "KB", "lambda"]
     Space_Size = 10
 
     Exact_Sol = [False, ""]
