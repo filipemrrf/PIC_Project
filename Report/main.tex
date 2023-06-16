@@ -1,0 +1,80 @@
+\documentclass[11pt,twocolumn]{article}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{natbib}
+\usepackage[toc,page]{appendix}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage{float}
+
+% Indentation for first paragraph
+\usepackage{indentfirst}
+\setlength{\parindent}{1.5em}
+
+\begin{document}
+
+% Cover Page
+\begin{titlepage}
+    \begin{flushleft}
+        \vspace*{-1.5cm}
+        \hspace*{-0.1cm}
+        \includegraphics[width=4cm]{Images/college_logo.jpg}
+    \end{flushleft}
+    
+    \vspace{5cm}
+    
+    \centering
+    {\Large Scientific Project:\par}
+    {\Huge\bfseries Numerical Evolutions of Spacetime\par}
+    
+    \vspace{10cm}
+    
+    {\large Filipe Ficalho\par}
+    \vspace{0.5cm}
+    {\large Supervisor: David Hilditch\par}
+    
+    \vfill
+    
+    {\large June 2023\par}
+\end{titlepage}
+
+% Abstract
+\twocolumn[
+\begin{@twocolumnfalse}
+    \hrulefill % Upper horizontal line
+    \begin{abstract}
+        \input{Abstract}
+    \end{abstract}
+    \hrulefill % Lower horizontal line
+\end{@twocolumnfalse}
+\vspace{0.5cm}
+]
+
+\input{Introduction}
+
+\input{Simple_Wave}
+
+\input{Non_Linear_Wave}
+
+\input{Spherical_Wave}
+
+\input{ADM}
+
+\input{Conclusion}
+
+\input{Acknowledgements}
+
+% References
+\bibliographystyle{abbrv} % Set bibliography style
+\bibliography{references.bib}
+
+\newpage
+
+% Appendix
+\appendix
+
+\input{Apendix}
+
+
+\end{document}

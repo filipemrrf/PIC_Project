@@ -1,0 +1,10 @@
+\vspace{-0.5cm}
+\section{Conclusion}
+\vspace{-0.1cm}
+
+After seeing how our code performed in all these tests and problems, we can conclude that we succeeded in making a code capable of solving all the Einstein equations. 
+
+It showed a clean convergence when solving the wave equation with periodic boundaries and with spherical symmetry, as well as with a nonlinear variant of the wave equation with periodic boundaries. 
+
+However, when solving the Einstein equations in the ADM formalism, we only got a good convergence for small evolutions. As previously stated, This is due to the fact that our problem is not well posed, since it uses geodesic slicing. Moving forward, we should reformulate this problem to make it well posed by implementing a better gauge condition and treating the origin properly, using 1st-order in time and 2nd-order in space code.
+

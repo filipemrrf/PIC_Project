@@ -1,3 +1,0 @@
-After implementing a numerical method, it is important to check whether it converges or not, that is, we want to check if, when we increase resolution the solutions converge to one (true) solution. Because our solution space is complete (or a Cauchy space), we can simply check if the "distance" between solutions is getting smaller as we increase resolution.
-
-We can do this analysis by considering a [[Norm Convergence]] or a [[Pointwise Convergence]]. 
