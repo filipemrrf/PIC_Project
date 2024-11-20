@@ -1,17 +1,17 @@
 """
- " @file Convergence_Test-Exact_Sol.py
+ " @file Exact_Sol_Convergence_Test.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
- " @brief Compares the solutions given and checks their conversion
- " @version 1.0
- " @date 2023-05-19
+ " @brief Compares the solutions to the exact solution and checks their convergence
+ " @version 2.0
+ " @date 2024-11-14
  " 
- " @copyright Copyright (c) 2022
+ " @copyright Copyright (c) 2023
  " 
 """
 
-from numpy import sqrt, log2, sin, pi, exp
+from numpy import sqrt, log2, pi
 from math import pi
-import sys
+import argparse
 import matplotlib.pyplot as plt
 
 # Reads the file and stores its information in Data
@@ -58,67 +58,54 @@ def Sol_Compare(numerical_sol, analytical_sol, norm, point_FILE, step_low, spher
     else:
         norm.append(sqrt(sum_error*step_low))
 
-# Exact solution to simple wave equation
-def plane_wave(t,x):
-    return sin(2*pi*(x-t))
 
+# Create an ArgumentParser object
+parser = argparse.ArgumentParser(description='Compare solutions and check their convergence.')
 
-# Initializes the variables to hold directory and the name of the files
-directory = ""
-filenames = []
+# Define the filenames argument
+parser.add_argument('filenames', metavar='F', type=str, nargs='+', help='filenames to process')
 
-# Reads the command line arguments to define the files to compare to each other
-for i in range(1, 6):
-    filenames.append(sys.argv[i])
+# Define the optional flags
+parser.add_argument('--N', type=int, default=100, help='Number of points (default: 100)')
+parser.add_argument('--SX', type=float, help='Space step of the lower resolution solution')
+parser.add_argument('--Runs', type=int, default=5, help='Number of different resolutions that will be run (default: 5)')
+parser.add_argument('--Dir', type=str, default="", help='Directory the results will be saved to (default: "")')
+parser.add_argument('--S', type=int, default=0, help='Flag to indicate if the solution is in spherical coordinates (default: 0)')
+parser.add_argument('--CFL', type=float, default=0.25, help='CFL number (default: 0.25)')
+parser.add_argument('--Exact', type=str, help='Exact solution to compare to')
 
-# Reads the command line arguments to define variables needed for the comparison
-for i in range(6, len(sys.argv)):
-    # Chooses the spatial step of the lower resolution solution
-    if sys.argv[i] == "-SX":
-        step_low = float(sys.argv[i+1])
+# Parse the arguments
+args = parser.parse_args()
 
-    # Chooses the spatial step of each of the solutions
-    if sys.argv[i] == "-CFL":
-        cfl = float(sys.argv[i+1])
-
-    # Chooses the number of points for the lower solution
-    if sys.argv[i] == "-NP":
-        NPoints_low = int(sys.argv[i+1])
-
-    # Chooses the size of the space
-    if sys.argv[i] == "-L":
-        Space_Size = int(sys.argv[i+1])
-
-    # Chooses the directory where the results of the comparison will be saved
-    if sys.argv[i] == "-DIR":
-        directory = sys.argv[i+1]
-
-    # Sets the spherical flag
-    if sys.argv[i] == "-S":
-        if int(sys.argv[i+1]) == 1:
-            spherical = True
-        else:
-            spherical = False
+# Access the parsed arguments
+filenames = args.filenames # Sets the filenames to be processed
+NPoints_low = args.N # Sets the number of points of the lower resolution
+step_low = args.SX # Sets the space step of the lower resolution solution
+Runs = args.Runs # Sets the number of different resolutions that will be run
+directory = args.Dir # Sets the directory the results will be saved to
+spherical = args.S # Sets the flag to indicate if the solution is in spherical coordinates
+cfl = args.CFL # Sets the CFL number
+exact = args.Exact # Sets the exact solution to compare to
 
 
 # Declares a variable to store the data of the files and the exact solution
 Data = []
 Exact = []
 
+# Declares an auxiliar variable to store the data temporarily
+aux = []
+
 # Reads the files and saves their data
-for i in range(len(filenames)):
-    aux = []
+for i in range(1,len(filenames)+1):
+    aux.clear()
     Read_File(filenames[i], aux)
-    Data.append(aux)
+    Data.append(aux.copy())
 
-# Calculates the exact solution
-for time in range(1, len(Data[0])):
-    t = time*cfl*step_low
+    aux.clear()
+    Read_File("Exact_Solutions/Exact-" + exact + "-" + str(i*NPoints_low + 1) + "p.dat", aux)
+    Exact.append(aux.copy())
 
-    for space in range(0, len(Data[0][1])):
-        x = space*step_low
-        Exact.append(plane_wave(t,x))
-
+# Declares the variables to store the time and the norm
 Time = []
 Norm = []
 

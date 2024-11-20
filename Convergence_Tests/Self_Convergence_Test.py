@@ -1,17 +1,17 @@
 """
- " @file Convergence_Test.py
+ " @file Self_Convergence_Test.py
  " @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
- " @brief Compares the solutions given and checks their conversion
- " @version 3.0
- " @date 2023-05-17
+ " @brief Compares the solutions given and checks their convergence
+ " @version 4.0
+ " @date 2024-11-14
  " 
- " @copyright Copyright (c) 2022
+ " @copyright Copyright (c) 2024
  " 
 """
 
+import argparse
 from numpy import sqrt, log2
 from math import pi
-import sys
 import matplotlib.pyplot as plt
 
 # Reads the file and stores its information in Data
@@ -38,7 +38,7 @@ def Sol_Compare(low_res, high_res, norm, point_FILE, step_low, spherical, step):
     sum_error = 0.0
 
     # Calculates the pointwise error and the norm error for this time
-    for l in range(0, step*NPoints_low, step):
+    for l in range(0, step*NPoints_low+1, step):
         error = high_res[2*l][1] - low_res[l][1]
         if spherical:
             sum_error += low_res[l][0]*low_res[l][0]*error*error
@@ -57,59 +57,56 @@ def Sol_Compare(low_res, high_res, norm, point_FILE, step_low, spherical, step):
     else:
         norm.append(sqrt(sum_error*step_low))
 
-# Initializes the variables to hold directory and the name of the files
-directory = ""
-filenames = []
 
-# Reads the command line arguments to define the files to compare to each other
-for i in range(1, 6):
-    filenames.append(sys.argv[i])
+# Create an ArgumentParser object
+parser = argparse.ArgumentParser(description='Compare solutions and check their convergence.')
 
-# Reads the command line arguments to define variables needed for the comparison
-for i in range(6, len(sys.argv)):
-    # Chooses the spatial step of the lower resolution solution
-    if sys.argv[i] == "-SX":
-        step_low = float(sys.argv[i+1])
+# Define the filenames argument
+parser.add_argument('filenames', metavar='F', type=str, nargs='+', help='filenames to process')
 
-    # Chooses the spatial step of each of the solutions
-    if sys.argv[i] == "-CFL":
-        cfl = float(sys.argv[i+1])
+# Define the optional flags
+parser.add_argument('--N', type=int, default=100, help='Number of points (default: 100)')
+parser.add_argument('--SX', type=float, help='Space step of the lower resolution solution')
+parser.add_argument('--Runs', type=int, default=5, help='Number of different resolutions that will be run (default: 5)')
+parser.add_argument('--Dir', type=str, default="", help='Directory the results will be saved to (default: "")')
+parser.add_argument('--S', type=int, default=0, help='Flag to indicate if the solution is in spherical coordinates (default: 0)')
+parser.add_argument('--CFL', type=float, default=0.25, help='CFL number (default: 0.25)')
 
-    # Chooses the number of points for the lower solution
-    if sys.argv[i] == "-NP":
-        NPoints_low = int(sys.argv[i+1])
+# Parse the arguments
+args = parser.parse_args()
 
-    # Chooses the directory where the results of the comparison will be saved
-    if sys.argv[i] == "-DIR":
-        directory = sys.argv[i+1]
-
-    # Sets the spherical flag
-    if sys.argv[i] == "-S":
-        if int(sys.argv[i+1]) == 1:
-            spherical = True
-        else:
-            spherical = False
+# Access the parsed arguments
+filenames = args.filenames # Sets the filenames to be processed
+NPoints_low = args.N # Sets the number of points of the lower resolution
+step_low = args.SX # Sets the space step of the lower resolution solution
+Runs = args.Runs # Sets the number of different resolutions that will be run
+directory = args.Dir # Sets the directory the results will be saved to
+spherical = args.S # Sets the flag to indicate if the solution is in spherical coordinates
+cfl = args.CFL # Sets the CFL number
 
 
 # Declares a variable to store the data of the files
 Data = []
+aux = []
 
 # Reads the files and saves their data
-for i in range(len(filenames)):
-    aux = []
-    Read_File(filenames[i], aux)
-    Data.append(aux)
+for file in filenames:
+    aux.clear()
+    Read_File(file, aux)
+    Data.append(aux.copy())
 
+
+# Declares the variables to store the time and the norm of the error
 Time = []
 Norm = []
 
-# Loops through the data
-for resolution in range(4):
+# Calculates the norm of the error for each resolution
+for resolution in range(Runs-1):
     # Opens the file that will be written
-    FILE_point = open(directory + str(pow(2, resolution)*NPoints_low) + "p," + str(pow(2, resolution+1)*NPoints_low) + "p-Point_Comparison.dat", "w")
+    FILE_point = open(directory + str(pow(2, resolution)*NPoints_low + 1) + "p," + str(pow(2, resolution+1)*NPoints_low + 1) + "p-Point_Comparison.dat", "w")
     
-    # Declares an auxiliar variable to store the norm data temporarily
-    aux = []
+    # Clears the aux variable to store the norm of the error
+    aux.clear()
 
     # Matches the time of the solutions
     for time in range(1, len(Data[0])):
@@ -123,13 +120,15 @@ for resolution in range(4):
 
 
     # Saves the norm to teh appropriate list
-    Norm.append(aux)
+    Norm.append(aux.copy())
 
     # Closes the pointwise comparison file
     FILE_point.close()
 
+legend = []
+
 # Loops through the norm
-for resolution in range(3):
+for resolution in range(Runs-2):
     # Declares the variable to store the log2 of the norm error comparison
     log2_NormError = []
 
@@ -137,12 +136,15 @@ for resolution in range(3):
     for i in range(len(Time)):
         log2_NormError.append(log2(Norm[resolution][i]/Norm[resolution+1][i]))
 
+
+    legend.append("|" + str(pow(2, resolution)*NPoints_low + 1) + "p - " + str(pow(2, resolution+1)*NPoints_low + 1) + "p| / |" + str(pow(2, resolution+1)*NPoints_low + 1) + "p - " + str(pow(2, resolution+2)*NPoints_low + 1) + "p|")
+
     # Plots the norm comparison 
     plt.plot(Time, log2_NormError)
 
 # Writes the legend and saves it as a png
-plt.ylim([0,5])
+plt.ylim([0,4])
 plt.xlabel("Time")
 plt.ylabel("Log2(Norm_Comparison)")
-plt.legend(["Low resolution", "Medium resolution", "High resolution"])
+plt.legend(legend)
 plt.savefig(directory + "Norm_Convergence_Comparison.png")

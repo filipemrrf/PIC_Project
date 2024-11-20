@@ -2,27 +2,202 @@
  * @file Output.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Defines the output functions for the main code
- * @version 1.0
- * @date 2023-04-19
+ * @version 3.0
+ * @date 2024-11-19
  * 
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2024
  * 
  */
 
 #include "Output.h"
+#include "Equations.h"
 
-void Output_Solution(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
-    // Writes the time stepthat is being saved
-    *FILE << "\"Time = " << time << std::endl;
+void Output_Solution(std::fstream* FILE, double* x, double* u, int N, int* N_Ghosts, double t, double* params){
+    // Defines the parameters for the output
+    int N_Fields = (int) params[0];
+    int Field_Select = (int) params[1];
+
+    // Calculates the size of the fields
+    int N_Fields_Size = N/N_Fields;
+
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << t << std::endl;
 
     // Saves the solution to disk (ignoring ghost points)
-    for(int i = 0; i < (N/((int) params[0]) - 2*N_Ghosts); ++i)
-        *FILE << i*params[2] << " " << u[i + ((int) params[1])*(N/((int) params[0])) + N_Ghosts] << std::endl;
+    for(int i = N_Ghosts[0]; i < (N_Fields_Size - N_Ghosts[1]); ++i)
+        *FILE << x[i] << " " << u[i + Field_Select*N_Fields_Size] << std::endl;
 
     *FILE << std::endl;
 }
 
-void Hamiltonian_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
+void Output_RHS(std::fstream* FILE, double* x, double* u, int N, int* N_Ghosts, double t, double* params){
+    // Defines the parameters for the output
+    int N_Fields = (int) params[0];
+    int Field_Select = (int) params[1];
+    double step_x = params[2];
+    double dissipation = params[3];
+
+    // Calculates the size of the fields
+    int N_Fields_Size = N/N_Fields;
+
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << t << std::endl;
+
+    // Allocates memory for the RHS
+    double* RHS = new double[N]();
+
+    // Copies the state data to the RHS array
+    for(int i = 0; i < N; ++i)
+        RHS[i] = u[i];
+
+    // Calculates the RHS
+    Compact_Wave_Equation(x, RHS, N, N_Ghosts, step_x, 2, Poison, params, dissipation); /*Needs some fixing*/
+
+    // Saves the solution to disk (ignoring ghost points)
+    for(int i = N_Ghosts[0]; i < (N_Fields_Size - N_Ghosts[1]); ++i)
+        *FILE << x[i] << " " << RHS[i + Field_Select*N_Fields_Size] << std::endl;
+
+    *FILE << std::endl;
+
+    // Frees the memory allocated
+    delete[] RHS;
+}
+
+void Output_Dissipation(std::fstream* FILE, double* x, double* u, int N, int* N_Ghosts, double t, double* params){
+    // Defines the parameters for the output
+    int N_Fields = (int) params[0];
+    int Field_Select = (int) params[1];
+    double step_x = params[2];
+    double dissipation = params[3];
+
+    // Calculates the size of the fields
+    int N_Fields_Size = N/N_Fields;
+
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << t << std::endl;
+
+    // Allocates memory for the dissipation
+    double* diss = new double[N]();
+
+    // Calculates the dissipation
+    KO_Dissipation_4th_Order(u, diss, N, step_x, N_Ghosts, N_Fields, dissipation);
+
+    // Saves the solution to disk (ignoring ghost points)
+    for(int i = N_Ghosts[0]; i < (N_Fields_Size - N_Ghosts[1]); ++i)
+        *FILE << x[i] << " " << diss[i + Field_Select*N_Fields_Size] << std::endl;
+
+    *FILE << std::endl;
+
+    // Frees the memory allocated
+    delete[] diss;
+}
+
+void Output_1st_Derivative(std::fstream* FILE, double* x, double* u, int N, int* N_Ghosts, double t, double* params){
+    // Defines the parameters for the output
+    int N_Fields = (int) params[0];
+    int Field_Select = (int) params[1];
+    double step_x = params[2];
+
+    // Calculates the size of the fields
+    int N_Fields_Size = N/N_Fields;
+
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << t << std::endl;
+
+    // Allocates memory for the 1st derivative
+    double* dr_u = new double[N]();
+
+    // Calculates the 1st derivative
+    First_Derivative_2nd_Order(u, dr_u, N, step_x, N_Ghosts, N_Fields);
+
+    // Saves the solution to disk (ignoring ghost points)
+    for(int i = N_Ghosts[0]; i < (N_Fields_Size - N_Ghosts[1]); ++i)
+        *FILE << x[i] << " " << dr_u[i + Field_Select*N_Fields_Size] << std::endl;
+
+    *FILE << std::endl;
+
+    // Frees the memory allocated
+    delete[] dr_u;
+}
+
+void Output_2nd_Derivative(std::fstream* FILE, double* x, double* u, int N, int* N_Ghosts, double t, double* params){
+    // Defines the parameters for the output
+    int N_Fields = (int) params[0];
+    int Field_Select = (int) params[1];
+    double step_x = params[2];
+
+    // Calculates the size of the fields
+    int N_Fields_Size = N/N_Fields;
+
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << t << std::endl;
+
+    // Allocates memory for the 1st derivative
+    double* dr2_u = new double[N]();
+
+    // Calculates the 1st derivative
+    Second_Derivative_2nd_Order(u, dr2_u, N, step_x, N_Ghosts, N_Fields);
+
+    // Saves the solution to disk (ignoring ghost points)
+    for(int i = N_Ghosts[0]; i < (N_Fields_Size - N_Ghosts[1]); ++i)
+        *FILE << x[i] << " " << dr2_u[i + Field_Select*N_Fields_Size] << std::endl;
+
+    *FILE << std::endl;
+
+    // Frees the memory allocated
+    delete[] dr2_u;
+}
+
+void Output_Constraint(std::fstream* FILE, double* x, double* u, int N, int* N_Ghosts, double t, double* params){
+    // Defines the parameters for the output
+    double step_x = params[0];
+    int N_Fields = (int) params[1];
+    
+    // Populates the ghost points
+    Even_Extrapolation_Boundary(u, N/N_Fields, 1, N_Ghosts);
+    Odd_Extrapolation_Boundary(&(u[N/N_Fields]), N/N_Fields, 1, N_Ghosts);
+    Even_Extrapolation_Boundary(&(u[(2*N)/N_Fields]), N/N_Fields, 1, N_Ghosts);   
+
+    // Declarates auxiliary pointers for easier readability of the function
+    double* Psi = u;
+    double* Phi = &(u[N/N_Fields]);
+    double* Pi = &(u[(2*N)/N_Fields]);
+    
+    // Calculates the 1st derivative of psi
+    double* drho_Psi = new double[N]();
+
+    First_Derivative_2nd_Order(Psi, drho_Psi, N/N_Fields, step_x, N_Ghosts, 1);
+
+    // Writes the time step that is being saved
+    *FILE << "\"Time = " << t << std::endl;
+
+    if(N_Fields == 5){
+        double* H = &(u[(3*N)/5]);
+        double* A = &(u[(4*N)/5]);
+
+        // Saves the solution to disk (ignoring ghost points)
+        for(int i = N_Ghosts[0]; i < N/5 - N_Ghosts[1]; ++i)
+            *FILE << x[i] << " " << H[i]*Pi[i] + A[i]*(H[i]*H[i]-1.0)*drho_Psi[i] - Phi[i] << std::endl;
+    }
+
+    if(N_Fields == 7){
+        double* H = &(u[(3*N)/7]);
+        double* Omega = &(u[(4*N)/7]);
+        double* L = &(u[(5*N)/7]);
+        double* B = &(u[(6*N)/7]);
+
+        // Saves the solution to disk (ignoring ghost points)
+        for(int i = N_Ghosts[0]; i < N/7 - N_Ghosts[1]; ++i)
+            *FILE << x[i] << " " << H[i]*Pi[i] + Omega[i]*Omega[i]*drho_Psi[i]/L[i] - Phi[i] << std::endl;
+    }
+
+    *FILE << std::endl;
+
+    // Frees the memory allocated
+    delete[] drho_Psi;
+}
+
+/*void Hamiltonian_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
     // Writes the time step that is being saved
     *FILE << "\"Time = " << time << std::endl;
 
@@ -85,9 +260,9 @@ void Hamiltonian_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, 
     delete[] dr_DB;
     delete[] dr_lambda;
     delete[] Hamiltonean;
-}
+}*/
 
-void Reduction_Constraints(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
+/*void Reduction_Constraints(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
     // Writes the time step that is being saved
     *FILE << "\"Time = " << time << std::endl;
 
@@ -113,9 +288,9 @@ void Reduction_Constraints(std::fstream* FILE, double* u, int N, int N_Ghosts, d
 
     // Frees the memory allocated
     delete[] dr_var;
-}
+}*/
 
-void Momentum_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
+/*void Momentum_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
     // Writes the time step that is being saved
     *FILE << "\"Time = " << time << std::endl;
 
@@ -174,44 +349,82 @@ void Momentum_Constraint(std::fstream* FILE, double* u, int N, int N_Ghosts, dou
     delete[] dr_KA;
     delete[] dr_KB;
     delete[] Momentum;
-}
+}*/
 
-void Debug(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
+/*void Debug(std::fstream* FILE, double* u, int N, int N_Ghosts, double time, double* params){
     // Writes the time step that is being saved
     *FILE << "\"Time = " << time << std::endl;
 
-    // Defines pointers to make the manipulation of the state vector easier
-    double* A = u;
-    double* KA = &(u[N/4]);
-    double* B = &(u[(2*N)/4]);
-    double* KB = &(u[(3*N)/4]);
-
-    // Allocates memory for the derivatives needed and the KO dissipation
-    double* dr_A = new double[N/4];
-    double* dr2_A = new double[N/4];
-    double* dr_B = new double[N/4];
-    double* dr2_B = new double[N/4];
-
     // Populates the ghost points
-    Even_Constant_Boundary(u, N, 4, 2);
+    Poison(u, N, 5, 2);
 
-    // Calculates the required derivative of the fields
-    First_Derivative_2nd_Order(A, dr_A, N/4, params[2], 1);
-    Second_Derivative_2nd_Order(A, dr2_A, N/4, params[2], 1);
-    First_Derivative_2nd_Order(B, dr_B, N/4, params[2], 1);
-    Second_Derivative_2nd_Order(B, dr2_B, N/4, params[2], 1);
+    // Allocates memory for the 2nd derivative and the KO dissipation
+    double* drho_u = new double[3*N/5];
+    double* dissipation = new double[3*N/5];
+    
+    // Calculates the derivatives of u
+    First_Derivative_2nd_Order(u, drho_u, 3*N/5, params[1], 3);
+
+    // Calculates the artificial dissipation of u
+    KO_Dissipation_4th_Order(u, dissipation, 3*N/5, params[1], 3, params[0]);
+
+    // Corrects the dissipation
+    for(int i = 0; i < 3; ++i){
+        for(int j = 0; j < N_Ghosts+ 2; ++j){
+            dissipation[i*(N/5) + j] = 0;
+            dissipation[(i+1)*(N/5) - j - 1] = 0;
+        }
+    }
+
+
+    // Corrects the derivative at the borders
+    for(int i = 0; i < 3; ++i){
+       drho_u[i*(N/5) + N_Ghosts] = (u[i*(N/5) + N_Ghosts+3] - 4.0*u[i*(N/5) + N_Ghosts+2] + 7.0*u[i*(N/5) + N_Ghosts+1] - 4.0*u[i*(N/5) + N_Ghosts])/(2.0*params[1]);
+       drho_u[(i+1)*(N/5) - N_Ghosts-1] = (4.0*u[(i+1)*(N/5)- N_Ghosts - 1] - 7.0*u[(i+1)*(N/5) - N_Ghosts- 2] + 4.0*u[(i+1)*(N/5)- N_Ghosts - 3] - u[(i+1)*(N/5)- N_Ghosts - 4])/(2.0*params[1]);
+    }
+
+    // Allocates memory for the transformed array
+    double* udot = new double[3*N/5]();
+
+    // Declarates auxiliary pointers for easier readability of the function
+    double* Psi0 = u;
+    double* drho_Psi0 = drho_u;
+    double* dissPsi0 = dissipation;
+
+    double* Phi0 = &(u[N/5]);
+    double* drho_Phi0 = &(drho_u[N/5]);
+    double* dissPhi0 = &(dissipation[N/5]);
+
+    double* Pi0 = &(u[(2*N)/5]);
+    double* drho_Pi0 = &(drho_u[(2*N)/5]);
+    double* dissPi0 = &(dissipation[(2*N)/5]);
+
+    double* H = &(u[(3*N)/5]);
+    double* A = &(u[(4*N)/5]);
+    
+    double* Psi1 = udot;
+    double* Phi1 = &(udot[N/5]);
+    double* Pi1 = &(udot[(2*N)/5]);
+
+
+    // Transforms the array
+    for(int i = N_Ghosts; i < N/5 - N_Ghosts; ++i){
+        Psi1[i] = -Pi0[i] + dissPsi0[i];
+        Phi1[i] = A[i]*(H[i]*drho_Phi0[i] + drho_Pi0[i] - drho_Psi0[i]) + dissPhi0[i];
+        Pi1[i] = A[i]*(H[i]*(drho_Pi0[i] - drho_Psi0[i]) + drho_Phi0[i]) + dissPi0[i];
+    }
 
     // Saves the solution to disk (ignoring ghost points)
-    for(int i = N_Ghosts; i < (N/params[0]) - N_Ghosts; ++i){
-        double r = (i-N_Ghosts)*params[2];
+    for(int i = N_Ghosts; i < (N/5)-N_Ghosts; ++i){
+        double r = (i-N_Ghosts)*params[2] -1;
 
-        *FILE << r << " " << dr2_A[i] << std::endl;
+        *FILE << r << " " << Pi1[i] << std::endl;
     }
 
     *FILE << std::endl;
 
-    delete[] dr_A;
-    delete[] dr2_A;
-    delete[] dr_B;
-    delete[] dr2_B;
-}
+    // Deletes the allocated memory
+    delete[] udot;
+    delete[] drho_u;
+    delete[] dissipation;
+}*/

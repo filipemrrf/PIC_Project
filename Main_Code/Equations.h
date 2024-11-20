@@ -2,10 +2,10 @@
  * @file Equations.h
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Declares the equations that are to be solved
- * @version 3.0
- * @date 2023-06-13
+ * @version 4.0
+ * @date 2024-11-14
  * 
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2024
  * 
  */
 
@@ -17,61 +17,123 @@
 #include "Core.h"
 
 /**
- * @brief Transforms an array using the wave equation (separated into a 2 ODE system)
+ * @brief 2nd order in space and 1st order in time wave equation
  * 
- * @param u Array to be transformed by the equation (in the form u = {Phi_0, Phi_1, ..., Phi_n, Pi_0, Pi_1, ..., Pi_n})
- * @param N Number of elements of array u
- * @param Acc Accuracy order of the equation
- * @param boundary Boundary conditions to be imposed
- * @param params Parameters for the equation: params = {c, diss, step_x}, where c is the speed of the wave, diss is the dissipation coefficient and
- *                  step_X is the spatial step       
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
  */
-void Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+void Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
 
 /**
- * @brief Transforms an array using the non linear wave equation (separated into a 2 ODE system) with a non linear coefficient n
+ * @brief 1st order in space and 1st order in time wave equation in compactified hyperboloidal coordinates
  * 
- * @param u Array to be transformed by the equation (in the form u = {Phi_0, Phi_1, ..., Phi_n, Pi_0, Pi_1, ..., Pi_n})
- * @param N Number of elements of array u
- * @param Acc Accuracy order of the equation
- * @param boundary Boundary conditions to be imposed
- * @param params Parameters for the equation: params = {c, n, diss, step_x}, where c is the speed of the wave, n is the power of the non linear coeficient of the wave,
- *                  diss is the dissipation coefficient and step_x is the spatial step
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
  */
-void Non_Linear_Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+void Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
 
 /**
- * @brief Transforms an array using the wave equation (separated into a 2 ODE system) in spherical symmetry
+ * @brief 2nd order in space and 1st order in time wave equation in spherical coordinates
  * 
- * @param u Array to be transformed by the equation (in the form u = {Phi_0, Phi_1, ..., Phi_n, Pi_0, Pi_1, ..., Pi_n})
- * @param N Number of elements of array u
- * @param Acc Accuracy order of the equation
- * @param boundary Boundary conditions to be imposed
- * @param params Parameters for the equation: params = {c, diss, step_x}, where c is the speed of the wave, diss is the dissipation coefficient and 
- *                  step_x is the spatial step
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
  */
-void Spherical_Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+void Spherical_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
 
 /**
- * @brief Transforms an array using the non linear wave equation (separated into a 2 ODE system) in spherical symmetry, with the non linear coefficient n
+ * @brief 1st order in space and 1st order in time wave equation in spherical coordinates
  * 
- * @param u Array to be transformed by the equation (in the form u = {Phi_0, Phi_1, ..., Phi_n, Pi_0, Pi_1, ..., Pi_n})
- * @param N Number of elements of array u
- * @param Acc Accuracy order of the equation
- * @param boundary Boundary conditions to be imposed
- * @param params Parameters for the equation: params = {c, n, diss, step_x}, where c is the speed of the wave, n is the power of the non linear coeficient of the wave, 
- *                  diss is the dissipation coefficient and step_x is the spatial step
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
  */
-void Non_Linear_Spherical_Wave_Equation(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+void Spherical_Reduced_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
 
 /**
- * @brief Transforms an array using the ADM evolution equations (separated into a 2 ODE system) in spherical symmetry
+ * @brief 1st order in space and 1st order in time wave equation in spherical compactified hyperboloidal coordinates
  * 
- * @param u Array to be transformed by the equation (in the form u = {A, B, DA, DB, KA, KB, lambda, alpha, Dalpha})
- * @param N Number of elements of array u
- * @param step_x Space step
- * @param params Parameters for the equation: params = {diss, step_x}, where diss is the dissipation coefficient and step_x is the spatial step
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
  */
-void ADM_Evolution(double* u, int N, int Acc, BoundaryFunc* boundary, double* params);
+void Spherical_Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
+
+/**
+ * @brief 2nd order in space and 1st order in time non linear wave equation
+ * 
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
+ */
+void Non_Linear_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
+
+/**
+ * @brief 2nd order in space and 1st order in time non linear wave equation in spherical coordinates
+ * 
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
+ */
+void Non_Linear_Spherical_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
+
+/**
+ * @brief 2nd order in space and 1st order in time ADM evolution equations
+ * 
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
+ */
+void ADM_Evolution(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
 
 #endif

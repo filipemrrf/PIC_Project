@@ -1,0 +1,12 @@
+.vscode
+build/
+CMakeFiles/
+
+Exact_Solutions/
+Initial_Conditions/
+Results/
+
+cmake_install.cmake
+CMakeCache.txt
+
+*.exe
