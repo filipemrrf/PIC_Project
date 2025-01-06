@@ -1,0 +1,81 @@
+Now, let us consider the wave equation in 3+1 dimensions with spherical symmetry
+\begin{equation}
+    \Box \psi \equiv - \partial_T^2 \psi + \frac{1}{R^2} \partial_R\left( R^2 \partial_R \psi\right) = 0 \;.
+\end{equation}
+
+It is important to note that, since $\psi$ is a solution to the wave equation in 3+1 dimensions with spherical symmetry, this field will decay at a rate of $1/R$. Since we want to know how our field behaves at $\mathscr{I}$, we will need to perform a rescaling of this field. For this, we define a new field $\Psi$ such that
+$$\Psi \equiv \chi \, \psi \; ,$$
+where $\chi = \sqrt{1+R^2}$.
+
+Applying that transformation, our wave equation becomes
+\begin{equation}
+    \partial_T^2 \Psi = \partial_R^2\Psi + \frac{2}{R(R^2+1)} \partial_R\Psi - \frac{3}{(R^2+1)^2} \Psi \;,
+\end{equation}
+to which we can apply a first order reduction, obtaining
+\begin{equation}
+    \left\{ \begin{array}{l} 
+        \partial_T \Psi = - \Pi \\ 
+        \partial_T \Phi = - \partial_R \Pi + \gamma_2 \partial_R \Psi - \gamma_2\Phi\\
+        \partial_T \Pi = - \partial_R \Phi - \frac{2}{R(R^2+1)}\Phi + \frac{3}{(R^2+1)^2} \Psi
+    \end{array} \right. \; .
+\end{equation}
+
+Doing a coordinate change from inertial Minkowski coordinates to hyperboloidal coordinates and setting $\gamma_2 = 0$, we get
+\begin{equation}
+    \begin{array}{c c c}
+        \partial_T = \partial_t & \text{and} & \partial_R = - H' \partial_t + \frac{\Omega^2}{L} \partial_r
+    \end{array} \; ,
+\end{equation}
+which is very similar to the results we obtained before.
+
+Our equation then becomes
+\begin{equation}
+    \left\{ \begin{array}{l} 
+        \partial_T \Psi = - \Pi \\ 
+        \partial_T \Phi = \mathcal{B}\left((r^2 + \Omega^2)^2 \left(H' \partial_r \Phi + \partial_r\Pi\right) + H' L \Omega \left( 2r\Phi - 3 \Omega \Psi + 2 r^{-1} \Omega^2 \Phi\right)\right)\\
+        \partial_T \Pi = \mathcal{B}\left((r^2 + \Omega^2)^2 \left(\partial_r \Phi + H' \partial_r\Pi\right) + L \Omega \left( 2r\Phi - 3 \Omega \Psi + 2 r^{-1} \Omega^2 \Phi\right)\right)
+    \end{array} \right. \; ,
+\end{equation}
+where we defined $\mathcal{B}= \frac{\Omega^2}{L(H'^{\,2}-1)(r^2 + \Omega^2)^2}$. 
+
+We can see that in our evolution equations for $\Phi$ and for $\Pi$, we have a term that is formally singular, to which we will need to apply Evans method. For that, we rewrite those evolution equations, obtaining
+\begin{equation}
+    \left\{ \begin{array}{l} 
+        \partial_T \Psi = - \Pi \\ 
+        \partial_T \Phi = \mathcal{B}\left((r^2 + \Omega^2)^2 \left(H' \partial_r \Phi + \partial_r\Pi\right) + H' L \Omega \left( 2r\Phi - 3 \Omega \Psi - \Omega^2 \partial_r \Phi\right) + H' L\Omega^3\left( \partial_r \Phi + 2 r^{-1}\Phi\right) \right)\\
+        \partial_T \Pi = \mathcal{B}\left((r^2 + \Omega^2)^2 \left(\partial_r \Phi + H' \partial_r\Pi\right) + L \Omega \left( 2r\Phi - 3 \Omega \Psi - \Omega^2 \partial_r\Phi \right) + L \Omega^3\left( \partial_r \Phi + 2 r^{-1}\Phi \right) \right)
+    \end{array} \right. \; ,
+\end{equation}
+where it is easy to see that we can apply the Evans method to the last terms in parenthesis.
+
+Choosing the height and compress functions as
+\begin{equation}
+    \begin{array}{c c c}
+        H = \sqrt{S^2 + R^2} & \text{and} & \Omega= \frac{1}{2}\left( 1 - \frac{r^2}{S^2} \right)
+    \end{array}\; ,
+\end{equation}
+we can calculate the boost function to be 
+\begin{equation}
+    H'= \frac{2rS}{S^2+r^2}\; .
+\end{equation}
+
+Additionally, our auxiliary function $L$ becomes
+\begin{equation}
+    L = \frac{1}{2}\left( 1 + \frac{r^2}{S^2} \right) \; .
+\end{equation}
+
+Differently from before, this time we impose the parity of each field at the origin and do extrapolation at $\mathscr{I}$ (instead of truncation error matching). Using as initial data the following fields
+\begin{equation}
+    \begin{array}{c c c c}
+        \psi(0,r) = A \, e^{-C \, r^2/2} \; , & \Phi(0,r) = - A \,C \, r \, \frac{\Omega^2(r)}{L(r)} \, e^{-C \, r^2/2} & \text{and} & \Pi(0,r) = 0
+        \end{array} \; ,
+\end{equation}
+with $A = 1.0$ and $C = 100$, we obtain the evolution represented in the following figure:
+
+
+Similarly to before, we obtain a clean second order convergence during the whole evolution, as can be seen in the norm convergence (represented in the following figure for $\psi$).
+
+
+It is also important to note that we still have very good norm convergence at $\mathscr{I}$, as can be seen in the following figure:
+
+These results could be further improved by doing truncation error matching of the Evans method at $\mathscr{I}$.
