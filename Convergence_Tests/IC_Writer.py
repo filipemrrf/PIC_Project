@@ -24,7 +24,7 @@ def Gauss(x):
     # Sets the standard deviation and the amplitude of the gaussian
     A = 1
     std_dev = 0.1
-    c = 10#/(std_dev*std_dev)
+    c = 1/(std_dev*std_dev)
 
     return A*exp(-0.5*c*x*x)
 
@@ -76,8 +76,8 @@ def B(x):
     return -8*(S**6)*(x**2+S**2)/pow(x**4 + S**4 + (x**2)*(4*(S**4) - 2*(S**2)), 2)
 
 # Sets the required parameters for the script to run
-filename = "0"
-function = Constant
+filename = "Gauss"
+function = Gauss
 size = 1
 point_density = 100
 
