@@ -9,7 +9,7 @@
  " 
 """
 
-from numpy import cos, exp, sin, pi
+from numpy import cos, exp, sin, pi, sqrt
 
 def Constant(x):
     return 0
@@ -24,7 +24,7 @@ def Gauss(x):
     # Sets the standard deviation and the amplitude of the gaussian
     A = 1
     std_dev = 0.1
-    c = 1/(std_dev*std_dev)
+    c = 10#/(std_dev*std_dev)
 
     return A*exp(-0.5*c*x*x)
 
@@ -76,10 +76,10 @@ def B(x):
     return -8*(S**6)*(x**2+S**2)/pow(x**4 + S**4 + (x**2)*(4*(S**4) - 2*(S**2)), 2)
 
 # Sets the required parameters for the script to run
-filename = "H"
-function = H
-size = 2
-point_density = 50
+filename = "0"
+function = Constant
+size = 1
+point_density = 100
 
 # Initializes the number of points
 NPoints = int(point_density*size)
@@ -92,7 +92,7 @@ for i in range(0, 5):
     # Writtes the initial conditions for the equation
     for j in range(NPoints+1):
         # Devines an auxiliary variable x
-        x = j*size/NPoints - 1
+        x = j*size/NPoints
 
         # Writes the IC to the file
         FILE.write(str(x) + " " + str(function(x)) + "\n")

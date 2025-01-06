@@ -135,12 +135,26 @@ if(EQ == "spherical_compact_wave_equation"):
     params = "0"
 
     IC = ["Gauss", "Gauss_Deriv", "0", "H", "Omega", "L", "B"]
+    #IC = ["IncomingPsi", "IncomingPhi", "IncomingPi", "H", "Omega", "L", "B"]
     N_Ghosts = [1, 1]
 
     NOut = 8
     Out_Type = "solution constraint"
 
     Field_Names = ["Psi", "Phi", "Pi", "H", "Omega", "L", "B"]
+
+if(EQ == "power_non_linear_spherical_compact_wave_equation"):
+    Acc = 2
+    Bound = "poison"
+    params = "1 3.0"
+
+    IC = ["Gauss", "Gauss_Deriv", "0", "H", "Omega", "L", "A", "B"]
+    N_Ghosts = [1, 1]
+
+    NOut = 9
+    Out_Type = "solution constraint"
+
+    Field_Names = ["Psi", "Phi", "Pi", "H", "Omega", "L", "A", "B"]
 
 # Displays the information the aquisition process has started
 os.system("echo Starting data aquisition process")

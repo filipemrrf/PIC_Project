@@ -122,6 +122,21 @@ void Non_Linear_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double
 void Non_Linear_Spherical_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double dissipation);
 
 /**
+ * @brief 2nd order in space and 1st order in time wave equation in spherical coordinates with a power non linearity
+ * 
+ * @param x Array with the spatial points
+ * @param u Array with the values of the fields
+ * @param N Number of points in the fields array
+ * @param N_Ghosts Number of ghost points in each boundary
+ * @param step_x Spatial step
+ * @param Acc Accuracy order of the derivatives
+ * @param boundary Boundary conditions function
+ * @param params Array with the parameters of the equation
+ * @param dissipation Dissipation parameter
+ */
+void Power_Non_Linear_Spherical_Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double diss);
+
+/**
  * @brief 2nd order in space and 1st order in time ADM evolution equations
  * 
  * @param x Array with the spatial points

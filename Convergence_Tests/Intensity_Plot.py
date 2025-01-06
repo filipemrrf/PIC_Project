@@ -11,7 +11,7 @@
 
 import argparse
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
+import matplotlib.colors as colors
 
 # Reads the file and stores its information in Data
 def Read_File(filename, time, space, intensity, Tmax):
@@ -63,11 +63,11 @@ Read_File(filename, time, space, intensity, Tmax)
 intensity = intensity[::-1]
 
 # Defines the colormap
-colors = [(0, 'red'), (0.5, 'white'), (1, 'blue')]  # Blue to white to red
-custom_cmap = LinearSegmentedColormap.from_list('custom_cmap', colors)
+scale = [(0, 'red'), (0.5, 'white'), (1, 'blue')]  # Blue to white to red
+custom_cmap = colors.LinearSegmentedColormap.from_list('custom_cmap', scale)
 
 # Create the intensity plot
-plt.imshow(intensity, cmap=custom_cmap, interpolation='nearest', aspect='auto', extent=[min(space), max(space), min(time), max(time)])
+plt.imshow(intensity, cmap=custom_cmap, norm=colors.CenteredNorm(), interpolation='nearest', aspect='auto', extent=[min(space), max(space), min(time), max(time)])
 
 # Add colorbar for reference
 plt.colorbar()

@@ -3,7 +3,7 @@
  * @author Filipe Ficalho (filipe.ficalho@tecnico.ulisboa.pt)
  * @brief Defines the output functions for the main code
  * @version 3.0
- * @date 2024-11-19
+ * @date 2024-11-21
  * 
  * @copyright Copyright (c) 2024
  * 
@@ -180,14 +180,13 @@ void Output_Constraint(std::fstream* FILE, double* x, double* u, int N, int* N_G
             *FILE << x[i] << " " << H[i]*Pi[i] + A[i]*(H[i]*H[i]-1.0)*drho_Psi[i] - Phi[i] << std::endl;
     }
 
-    if(N_Fields == 7){
-        double* H = &(u[(3*N)/7]);
-        double* Omega = &(u[(4*N)/7]);
-        double* L = &(u[(5*N)/7]);
-        double* B = &(u[(6*N)/7]);
+    if(N_Fields >= 7){
+        double* H = &(u[(3*N)/N_Fields]);
+        double* Omega = &(u[(4*N)/N_Fields]);
+        double* L = &(u[(5*N)/N_Fields]);;
 
         // Saves the solution to disk (ignoring ghost points)
-        for(int i = N_Ghosts[0]; i < N/7 - N_Ghosts[1]; ++i)
+        for(int i = N_Ghosts[0]; i < N/N_Fields - N_Ghosts[1]; ++i)
             *FILE << x[i] << " " << H[i]*Pi[i] + Omega[i]*Omega[i]*drho_Psi[i]/L[i] - Phi[i] << std::endl;
     }
 

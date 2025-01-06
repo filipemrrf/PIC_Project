@@ -155,6 +155,16 @@ if(EQ == "spherical_compact_wave_equation"):
     Exact_Sol = [False, ""]
     Spherical = "1"
 
+if(EQ == "power_non_linear_spherical_compact_wave_equation"):
+    if(Acc == 2):
+        folder = "Results/power_non_linear_spherical_compact_wave_equation-2nd_order/"
+        S = 4
+
+    Fields = ["Psi", "Phi", "Pi", "Constraint"]
+    
+    Exact_Sol = [False, ""]
+    Spherical = "1"
+
 # Displays the information the convergence analysis has started
 os.system("echo Beginning convergence analysis\n\n")
 

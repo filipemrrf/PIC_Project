@@ -317,6 +317,77 @@ void Spherical_Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts,
     delete[] dissipation;
 }
 
+void Power_Non_Linear_Spherical_Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double diss){
+    // Sets the non-linear parameter
+    double power = params[0];
+
+    // Populates the ghost points
+    Even_Extrapolation_Boundary(u, N/8, 1, N_Ghosts);
+    Odd_Extrapolation_Boundary(&(u[N/8]), N/8, 1, N_Ghosts);
+    Even_Extrapolation_Boundary(&(u[(2*N)/8]), N/8, 1, N_Ghosts);
+
+    // Allocates memory for the 2nd derivative and the KO dissipation
+    double* drho_u = new double[3*N/8]();
+    double* dissipation = new double[3*N/8]();
+    double* evans = new double[3*N/8]();
+
+    // Calculates the derivatives of u
+    First_Derivative_2nd_Order(u, drho_u, 3*N/8, step_x, N_Ghosts, 3);
+
+    // Calculates the artificial dissipation of u
+    KO_Dissipation_4th_Order(u, dissipation, 3*N/8, step_x, N_Ghosts, 3, diss);
+
+    // Allocates memory for the transformed array
+    double* udot = new double[3*N/8]();
+
+    // Declarates auxiliary pointers for easier readability of the function
+    double* Psi0 = u;
+    double* drho_Psi0 = drho_u;
+    double* dissPsi0 = dissipation;
+
+    double* Phi0 = &(u[N/8]);
+    double* drho_Phi0 = &(drho_u[N/8]);
+    double* dissPhi0 = &(dissipation[N/8]);
+
+    double* Pi0 = &(u[(2*N)/8]);
+    double* drho_Pi0 = &(drho_u[(2*N)/8]);
+    double* dissPi0 = &(dissipation[(2*N)/8]);
+
+    double* H = &(u[(3*N)/8]);
+    double* Omega = &(u[(4*N)/8]);
+    double* L = &(u[(5*N)/8]);
+    double* A = &(u[(6*N)/8]);
+    double* B = &(u[(7*N)/8]);
+    
+    double* Psi1 = udot;
+    double* Phi1 = &(udot[N/8]);
+    double* Pi1 = &(udot[(2*N)/8]);
+
+    // Calculates the Evans Method
+    Evans_Method(x, Phi0, evans, N/8, step_x, N_Ghosts, 1, 2.0);
+
+    // Transforms the array
+    for(int i = N_Ghosts[0]; i < N/8 - N_Ghosts[1]; ++i){
+        Psi1[i] = -Pi0[i] + dissPsi0[i];
+        Phi1[i] = B[i]*(pow((pow(x[i], 2) + pow(Omega[i], 2)), 2)*(drho_Phi0[i]*H[i] + drho_Pi0[i]) + H[i]*L[i]*Omega[i]*(2.0*x[i]*Phi0[i] - 3.0*Omega[i]*Psi0[i] -
+            pow(Omega[i], 2)*drho_Phi0[i]) + H[i]*L[i]*pow(Omega[i], 3)*evans[i]) + H[i]*L[i]*A[i]/(x[i]*x[i] + Omega[i]*Omega[i])*pow(Psi0[i], power) + dissPhi0[i];
+        Pi1[i] = B[i]*(pow((pow(x[i], 2) + pow(Omega[i], 2)), 2)*(drho_Pi0[i]*H[i] + drho_Phi0[i]) + L[i]*Omega[i]*(2.0*x[i]*Phi0[i] - 3.0*Omega[i]*Psi0[i] - 
+            pow(Omega[i], 2)*drho_Phi0[i]) + L[i]*pow(Omega[i], 3)*evans[i]) + L[i]*A[i]/(x[i]*x[i] + Omega[i]*Omega[i])*pow(Psi0[i], power) + dissPi0[i];
+    }
+
+    // Copies the transformed array to the received one
+    for(int i = 0; i < 3*N/8; ++i)
+        u[i] = udot[i];
+
+    for(int i = 3*N/8; i < N; ++i)
+        u[i] = 0;
+
+    // Deletes the allocated memory
+    delete[] udot;
+    delete[] drho_u;
+    delete[] dissipation;
+}
+
 void Non_Linear_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double diss){
     // Populates the ghost points
     boundary(u, N, 2, N_Ghosts);

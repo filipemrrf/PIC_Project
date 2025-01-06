@@ -279,6 +279,11 @@ rh_sideFunc* read_eq(std::string eq_name, int* N_Vars){
         *N_Vars = 7;
         return &Spherical_Compact_Wave_Equation;
     }
+    
+    else if(!eq_name.compare("power_non_linear_spherical_compact_wave_equation")){
+        *N_Vars = 8;
+        return &Power_Non_Linear_Spherical_Compact_Wave_Equation;
+    }
 
     else{
         std::cout << "ERROR: Equation provided not supported" << std::endl;

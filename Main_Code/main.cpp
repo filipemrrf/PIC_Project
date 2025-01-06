@@ -74,6 +74,8 @@ int main(int argc, char** argv){
     delete[] x;
     delete[] IC;
     delete[] N_Ghosts;
+    for (int i = 0; i < N_output; ++i)
+        delete[] params_output[i];
     delete[] output;
     delete[] params_output;
     delete[] out_filenames;
