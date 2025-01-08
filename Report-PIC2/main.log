@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.12.15)  6 JAN 2025 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.12.15)  8 JAN 2025 14:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -853,46 +853,87 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 1.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-) [1]) [2] (./Main_Text/Wave_Equation_1+1.tex
-<Images/Wave_Equation_1+1-Solution.png, id=91, 338.4645pt x 264.38776pt>
+)
+<Images/Good_Speeds.png, id=65, 361.35pt x 214.401pt>
+File: Images/Good_Speeds.png Graphic file (type png)
+<use Images/Good_Speeds.png>
+Package pdftex.def Info: Images/Good_Speeds.png  used on input line 37.
+(pdftex.def)             Requested size: 244.69366pt x 145.18552pt.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 38.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 38.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 38.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 38.
+ [1 <./Images/Good_Speeds.png (PNG copy)>]
+<Images/Bad_Speeds.png, id=82, 361.35pt x 219.82124pt>
+File: Images/Bad_Speeds.png Graphic file (type png)
+<use Images/Bad_Speeds.png>
+Package pdftex.def Info: Images/Bad_Speeds.png  used on input line 62.
+(pdftex.def)             Requested size: 244.69366pt x 148.85593pt.
+ [2 <./Images/Bad_Speeds.png (PNG copy)>]) (./Main_Text/Wave_Equation_1+1.tex [3]
+<Images/Wave_Equation_1+1-Solution.png, id=103, 338.4645pt x 264.38776pt>
 File: Images/Wave_Equation_1+1-Solution.png Graphic file (type png)
 <use Images/Wave_Equation_1+1-Solution.png>
 Package pdftex.def Info: Images/Wave_Equation_1+1-Solution.png  used on input line 48.
 (pdftex.def)             Requested size: 244.69366pt x 191.14166pt.
-<Images/Wave_Equation_1+1-Norm.png, id=96, 342.68025pt x 261.97874pt>
+ [4 <./Images/Wave_Equation_1+1-Solution.png>]
+<Images/Wave_Equation_1+1-Norm.png, id=118, 342.68025pt x 261.97874pt>
 File: Images/Wave_Equation_1+1-Norm.png Graphic file (type png)
 <use Images/Wave_Equation_1+1-Norm.png>
 Package pdftex.def Info: Images/Wave_Equation_1+1-Norm.png  used on input line 59.
 (pdftex.def)             Requested size: 220.22281pt x 168.36137pt.
-<Images/Wave_Equation_1+1-Pointwise.png, id=97, 342.68025pt x 268.00125pt>
+<Images/Wave_Equation_1+1-Pointwise.png, id=119, 342.68025pt x 268.00125pt>
 File: Images/Wave_Equation_1+1-Pointwise.png Graphic file (type png)
 <use Images/Wave_Equation_1+1-Pointwise.png>
 Package pdftex.def Info: Images/Wave_Equation_1+1-Pointwise.png  used on input line 64.
 (pdftex.def)             Requested size: 220.22281pt x 172.23175pt.
-) (./Main_Text/Wave_Equation_3+1_Spherical.tex [3] [4 <./Images/Wave_Equation_1+1-Solution.png> <./Images/Wave_Equation_1+1-Norm.png> <./Images/Wave_Equation_1+1-Pointwise.png>]) (./Main_Text/Cubic_Wave_Equation_3+1_Spherical.tex) (./Main_Text/Conclusions.tex)
+) (./Main_Text/Wave_Equation_3+1_Spherical.tex [5 <./Images/Wave_Equation_1+1-Norm.png> <./Images/Wave_Equation_1+1-Pointwise.png>]
+<Images/Wave_Equation_3+1_Spherical-Solution.png, id=131, 350.5095pt x 263.18324pt>
+File: Images/Wave_Equation_3+1_Spherical-Solution.png Graphic file (type png)
+<use Images/Wave_Equation_3+1_Spherical-Solution.png>
+Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Solution.png  used on input line 58.
+(pdftex.def)             Requested size: 244.69366pt x 183.73306pt.
+<Images/Wave_Equation_3+1_Spherical-Norm.png, id=136, 355.3275pt x 262.581pt>
+File: Images/Wave_Equation_3+1_Spherical-Norm.png Graphic file (type png)
+<use Images/Wave_Equation_3+1_Spherical-Norm.png>
+Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Norm.png  used on input line 69.
+(pdftex.def)             Requested size: 220.22281pt x 162.74643pt.
+<Images/Wave_Equation_3+1_Spherical-Pointwise.png, id=137, 358.33875pt x 267.399pt>
+File: Images/Wave_Equation_3+1_Spherical-Pointwise.png Graphic file (type png)
+<use Images/Wave_Equation_3+1_Spherical-Pointwise.png>
+Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Pointwise.png  used on input line 74.
+(pdftex.def)             Requested size: 220.22281pt x 164.3372pt.
 
-LaTeX Warning: Empty bibliography on input line 212.
 
-[5] (./main.aux)
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./Main_Text/Cubic_Wave_Equation_3+1_Spherical.tex) (./Main_Text/Conclusions.tex)
+
+LaTeX Warning: Empty bibliography on input line 211.
+
+[6 <./Images/Wave_Equation_3+1_Spherical-Solution.png>] [7 <./Images/Wave_Equation_3+1_Spherical-Norm.png> <./Images/Wave_Equation_3+1_Spherical-Pointwise.png>] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C2352F3AA2BB7824BB134DE99CC950C;2006.
+(rerunfilecheck)             Checksum: CEFEF71E9B204E9BC5424F0554096AFE;2011.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29157 strings out of 478287
- 624300 string characters out of 5849288
- 1097157 words of memory out of 5000000
- 46942 multiletter control sequences out of 15000+600000
- 511211 words of font info for 104 fonts, out of 8000000 for 9000
+ 29230 strings out of 478287
+ 626189 string characters out of 5849288
+ 1096196 words of memory out of 5000000
+ 46992 multiletter control sequences out of 15000+600000
+ 521502 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 96i,20n,93p,1855b,1765s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 96i,21n,93p,1855b,1765s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (6 pages, 257583 bytes).
+Output written on main.pdf (8 pages, 348364 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 217 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,7 +4,7 @@ To do so, we must perform a conformal compactification of the spacetime, which b
 
 \subsection{Hyperboloidal Coordinates}
 
-The hyperboloidal coordinate system, as previously mentioned, maps our previously unbonded domain to a finite one. This is done by introducing new time and radial coordinates $(t,r)$, which are related to the spherical coordinates of Minkowski spacetime $(T,R)$ by the following transformations:
+The hyperboloidal coordinate system, as previously mentioned, maps our previously unbonded domain to a finite one. This is done by introducing new time and radial coordinates $(t,r)$, which are related to the spherical coordinates of Minkowski spacetime $(T,R)$ by the transformations
 
 \begin{equation}
     \begin{array}{c c} 
@@ -12,17 +12,7 @@ The hyperboloidal coordinate system, as previously mentioned, maps our previousl
     \end{array} \; 
 \end{equation}
 %
-where $H(R)$ is called the height function and $\Omega(r)$ is called the compress function. Throughout this work, we will use the following choices for these functions:
-
-\begin{equation}
-    \begin{array}{c c}
-        H(R) = \sqrt{S^2+R^2} & \Omega(r) = \frac{1}{2} \left(1 - \frac{r^2}{S^2}\right)
-    \end{array} \; ,
-\end{equation}
-%
-where $S$ is a constant that determines the size of the compactified domain. The choice of $S$ is arbitrary as it simply defines what point $\mathscr{I}$ will be maped to. In this work, we will use $S = 1$.
-
-This coordinate transformation gives rize to the following Jacobian matrix:
+where $H(R)$ is called the height function and $\Omega(r)$ is called the compress function, which give rize to the following Jacobian matrix:
 
 \begin{equation}
     \left(J^{Hyp}\right)_{\alpha'}^{\ \ \beta} = 
@@ -40,7 +30,24 @@ where $H'(r)$ denotes the derivative of the height function with respect to $R$ 
     L(r) \equiv \Omega(r) - r \, \partial_r \Omega(r) \; .
 \end{equation}
 
-For the previously chosen height and compress functions, we have
+This coordinate system is particularly useful because it is possible for us to choose the height and compress functions in such a way that the outgoing light speed is constant. This however has the tradeoff of making the incoming light speed decrease as it reaches $\mathscr{I}$. This property can be observed in figure \ref{fig:Good_Speeds} for a specific choice of the height and compress functions.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/Good_Speeds.png}
+    \caption{Outgoing and incoming light speeds for $H(R) = \frac{2 R^2 + S^2 - \sqrt{4 R^2 S^2 + S^4}}{2R}$ and $\Omega(r) = 1 - \frac{r^2}{S^2}$, with $S = 1$.}
+    \label{fig:Good_Speeds}
+\end{figure}
+
+Throughout this work, we will sacrifice this very relevant property in exchange for ease of manipulation of the expressions, since the goal of this introductory work to the subject is to get accostumed with the coordinate system. The height and compress functions that will used throughout this work are
+%
+\begin{equation}
+    \begin{array}{c c}
+        H(R) = \sqrt{S^2+R^2} & \Omega(r) = \frac{1}{2} \left(1 - \frac{r^2}{S^2}\right)
+    \end{array} \; ,
+\end{equation}
+%
+where $S$ is a constant that determines the size of the compactified domain. The choice of $S$ is arbitrary, as it simply defines what point $\mathscr{I}$ will be maped to. We will set $S = 1$. As a consequence of our previous choices, we also have
 %
 \begin{equation}
     \begin{array}{c c}
@@ -48,6 +55,14 @@ For the previously chosen height and compress functions, we have
     \end{array}
 \end{equation}
 
+For this choice of functions, we still have that the incoming light speed decreases as it reaches $\mathscr{I}$. However, we don't have a constant outgoing propagation speed. This can be seen in figure \ref{fig:Bad_Speeds}. The only implication this choice will have in our results is that the wave will take longer to reach $\mathscr{I}$ and will be slightly distorted. This is not a problem for our purposes, since on this first approach we are only interested in making sure the code converges smoothly towards the solution.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/Bad_Speeds.png}
+    \caption{Outgoing and incoming light speeds for $H(R) = \sqrt{S^2+R^2}$ and $\Omega(r) = \frac{1}{2} \left(1 - \frac{r^2}{S^2}\right)$, with $S = 1$.}
+    \label{fig:Bad_Speeds}
+\end{figure}
 
 \subsection{Computational Setup}
 

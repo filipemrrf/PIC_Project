@@ -3,15 +3,18 @@ Now, let us consider the wave equation in 3+1 dimensions with spherical symmetry
     \Box \psi \equiv - \partial_T^2 \psi + \frac{1}{R^2} \partial_R\left( R^2 \partial_R \psi\right) = 0 \;.
 \end{equation}
 
-It is important to note that, since $\psi$ is a solution to the wave equation in 3+1 dimensions with spherical symmetry, this field will decay at a rate of $1/R$. Since we want to know how our field behaves at $\mathscr{I}$, we will need to perform a rescaling of this field. For this, we define a new field $\Psi$ such that
+Since $\psi$ is a solution to this equation, it will decay at a rate of $1/R$, which is a problem because we want to know how our field behaves at $\mathscr{I}$. Thus, we need to renormalize this field in such a way that it does not vanish at infinity. With this in mind, let us define a new field $\Psi$ such that
 $$\Psi \equiv \chi \, \psi \; ,$$
-where $\chi = \sqrt{1+R^2}$.
+where we will take $\chi = \sqrt{1+R^2}$.
 
-Applying that transformation, our wave equation becomes
+Applying that transformation to the wave equation, it becomes
+
 \begin{equation}
     \partial_T^2 \Psi = \partial_R^2\Psi + \frac{2}{R(R^2+1)} \partial_R\Psi - \frac{3}{(R^2+1)^2} \Psi \;,
 \end{equation}
+%
 to which we can apply a first order reduction, obtaining
+
 \begin{equation}
     \left\{ \begin{array}{l} 
         \partial_T \Psi = - \Pi \\ 
@@ -20,15 +23,8 @@ to which we can apply a first order reduction, obtaining
     \end{array} \right. \; .
 \end{equation}
 
-Doing a coordinate change from inertial Minkowski coordinates to hyperboloidal coordinates and setting $\gamma_2 = 0$, we get
-\begin{equation}
-    \begin{array}{c c c}
-        \partial_T = \partial_t & \text{and} & \partial_R = - H' \partial_t + \frac{\Omega^2}{L} \partial_r
-    \end{array} \; ,
-\end{equation}
-which is very similar to the results we obtained before.
+Doing a coordinate change from inertial Minkowski coordinates to hyperboloidal coordinates and setting $\gamma_2 = 0$ as we did previously, we get
 
-Our equation then becomes
 \begin{equation}
     \left\{ \begin{array}{l} 
         \partial_T \Psi = - \Pi \\ 
@@ -38,7 +34,7 @@ Our equation then becomes
 \end{equation}
 where we defined $\mathcal{B}= \frac{\Omega^2}{L(H'^{\,2}-1)(r^2 + \Omega^2)^2}$. 
 
-We can see that in our evolution equations for $\Phi$ and for $\Pi$, we have a term that is formally singular, to which we will need to apply Evans method. For that, we rewrite those evolution equations, obtaining
+We can see that in our evolution equations for $\Phi$ and for $\Pi$, we have a term that is formally singular, to which we will need to apply the Evans method. For that, we rewrite those evolution equations, obtaining
 \begin{equation}
     \left\{ \begin{array}{l} 
         \partial_T \Psi = - \Pi \\ 
@@ -46,36 +42,37 @@ We can see that in our evolution equations for $\Phi$ and for $\Pi$, we have a t
         \partial_T \Pi = \mathcal{B}\left((r^2 + \Omega^2)^2 \left(\partial_r \Phi + H' \partial_r\Pi\right) + L \Omega \left( 2r\Phi - 3 \Omega \Psi - \Omega^2 \partial_r\Phi \right) + L \Omega^3\left( \partial_r \Phi + 2 r^{-1}\Phi \right) \right)
     \end{array} \right. \; ,
 \end{equation}
+%
 where it is easy to see that we can apply the Evans method to the last terms in parenthesis.
 
-Choosing the height and compress functions as
-\begin{equation}
-    \begin{array}{c c c}
-        H = \sqrt{S^2 + R^2} & \text{and} & \Omega= \frac{1}{2}\left( 1 - \frac{r^2}{S^2} \right)
-    \end{array}\; ,
-\end{equation}
-we can calculate the boost function to be 
-\begin{equation}
-    H'= \frac{2rS}{S^2+r^2}\; .
-\end{equation}
-
-Additionally, our auxiliary function $L$ becomes
-\begin{equation}
-    L = \frac{1}{2}\left( 1 + \frac{r^2}{S^2} \right) \; .
-\end{equation}
-
-Differently from before, this time we impose the parity of each field at the origin and do extrapolation at $\mathscr{I}$ (instead of truncation error matching). Using as initial data the following fields
+Imposing the parity of each field at the origin and doing extrapolation at $\mathscr{I}$ (instead of truncation error matching that we used before) as our boundary conditions and using the initial data
 \begin{equation}
     \begin{array}{c c c c}
         \psi(0,r) = A \, e^{-C \, r^2/2} \; , & \Phi(0,r) = - A \,C \, r \, \frac{\Omega^2(r)}{L(r)} \, e^{-C \, r^2/2} & \text{and} & \Pi(0,r) = 0
         \end{array} \; ,
 \end{equation}
-with $A = 1.0$ and $C = 100$, we obtain the evolution represented in the following figure:
+with $A = 1.0$ and $C = 100$, we obtain the evolution represented in figure \ref{fig:spherical_compact_wave_equation-2nd_order}.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/Wave_Equation_3+1_Spherical-Solution.png}
+    \caption{Evolution of the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates with the initial conditions given in equation \eqref{eq:compact_wave_equation-2nd_order_initial_conditions}.}
+    \label{fig:spherical_compact_wave_equation-2nd_order}
+\end{figure}
 
-Similarly to before, we obtain a clean second order convergence during the whole evolution, as can be seen in the norm convergence (represented in the following figure for $\psi$).
+Similarly to before, we obtain a clean second order convergence during the whole evolution, as can be seen for $\psi$ in the left of figure \ref{fig:spherical_compact_wave_equation-2nd_order-convergence}. Addicionally, we still have very good pointwise convergence at $\mathscr{I}$, as can be seen in the right of figure \ref{fig:spherical_compact_wave_equation-2nd_order-convergence}. Despite the fact that these results are already very good, they could be further improved by doing truncation error matching at the outer boundary instead of the extrapolation that was used.
 
-
-It is also important to note that we still have very good norm convergence at $\mathscr{I}$, as can be seen in the following figure:
-
-These results could be further improved by doing truncation error matching of the Evans method at $\mathscr{I}$.
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Images/Wave_Equation_3+1_Spherical-Norm.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Images/Wave_Equation_3+1_Spherical-Pointwise.png}
+    \end{subfigure}
+    \caption{Convergence tests of the obtained evolutions for the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
+    \label{fig:spherical_compact_wave_equation-2nd_order-convergence}
+\end{figure}
