@@ -315,6 +315,7 @@ void Spherical_Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts,
     delete[] udot;
     delete[] drho_u;
     delete[] dissipation;
+    delete[] evans;
 }
 
 void Power_Non_Linear_Spherical_Compact_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double diss){
@@ -386,6 +387,7 @@ void Power_Non_Linear_Spherical_Compact_Wave_Equation(double* x, double* u, int 
     delete[] udot;
     delete[] drho_u;
     delete[] dissipation;
+    delete[] evans;
 }
 
 void Non_Linear_Wave_Equation(double* x, double* u, int N, int* N_Ghosts, double step_x, int Acc, BoundaryFunc* boundary, double* params, double diss){

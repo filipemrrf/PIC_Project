@@ -49,14 +49,15 @@ Imposing the parity of each field at the origin and doing extrapolation at $\mat
 \begin{equation}
     \begin{array}{c c c c}
         \psi(0,r) = A \, e^{-C \, r^2/2} \; , & \Phi(0,r) = - A \,C \, r \, \frac{\Omega^2(r)}{L(r)} \, e^{-C \, r^2/2} & \text{and} & \Pi(0,r) = 0
-        \end{array} \; ,
+    \end{array} \; ,
+    \label{eq:spherical_compact_wave_equation-2nd_order_initial_conditions}
 \end{equation}
-with $A = 1.0$ and $C = 100$, we obtain the evolution represented in figure \ref{fig:spherical_compact_wave_equation-2nd_order}.
+with $A = 1$ and $C = 100$, we obtain the evolution represented in figure \ref{fig:spherical_compact_wave_equation-2nd_order}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{Images/Wave_Equation_3+1_Spherical-Solution.png}
-    \caption{Evolution of the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates with the initial conditions given in equation \eqref{eq:compact_wave_equation-2nd_order_initial_conditions}.}
+    \caption{Evolution of the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates with the initial conditions given in equation \eqref{eq:spherical_compact_wave_equation-2nd_order_initial_conditions}, with $A = 1$ and $C = 100$.}
     \label{fig:spherical_compact_wave_equation-2nd_order}
 \end{figure}
 
@@ -73,6 +74,6 @@ Similarly to before, we obtain a clean second order convergence during the whole
         \centering
         \includegraphics[width=\textwidth]{Images/Wave_Equation_3+1_Spherical-Pointwise.png}
     \end{subfigure}
-    \caption{Convergence tests of the obtained evolutions for the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
+    \caption{Convergence tests for the evolution for the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates, provided the initial conditions given in equation \eqref{eq:spherical_compact_wave_equation-2nd_order_initial_conditions}, with $A = 1$ and $C = 100$.. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
     \label{fig:spherical_compact_wave_equation-2nd_order-convergence}
 \end{figure}

@@ -41,12 +41,12 @@ We can now solve this system of equations using the aforementioned code, using t
     \end{array} \; ,
     \label{eq:compact_wave_equation-2nd_order_initial_conditions}
 \end{equation}
-with $A = 1.0$ and $C = 100$, we obtain the evolution present in figure \ref{fig:compact_wave_equation-2nd_order}. In that evolution, it is noticeable that after the wave leaves the grid, we are left with a permanent negative displacement on our field. Even though this result is counterintuitive, it was proven in \cite{} to be correct.
+with $A = 1$ and $C = 100$, we obtain the evolution present in figure \ref{fig:compact_wave_equation-2nd_order}. In that evolution, it is noticeable that after the wave leaves the grid, we are left with a permanent negative displacement on our field. Even though this result is counterintuitive, it was proven in \cite{} to be correct.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{Images/Wave_Equation_1+1-Solution.png}
-    \caption{Evolution of the wave equation in 1+1 dimensions using hyperboloidal coordinates with the initial conditions given in equation \eqref{eq:compact_wave_equation-2nd_order_initial_conditions}.}
+    \caption{Evolution of the wave equation in 1+1 dimensions using hyperboloidal coordinates with the initial conditions given in equation \eqref{eq:compact_wave_equation-2nd_order_initial_conditions}, with $A = 1$ and $C = 100$.}
     \label{fig:compact_wave_equation-2nd_order}
 \end{figure}
 
@@ -63,7 +63,6 @@ Doing a norm convergence test (using the $L^2$ norm), we obtain a clean second o
         \centering
         \includegraphics[width=\textwidth]{Images/Wave_Equation_1+1-Pointwise.png}
     \end{subfigure}
-    \caption{Convergence tests of the obtained evolutions for the wave equation in 1+1 dimensions using hyperboloidal coordinates. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
+    \caption{Convergence tests of the evolution of the wave equation in 1+1 dimensions using hyperboloidal coordinates, provided the initial conditions given in equation \ref{eq:compact_wave_equation-2nd_order_initial_conditions}, with $A = 1$ and $C = 100$. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
     \label{fig:compact_wave_equation-2nd_order-convergence}
 \end{figure}
-
