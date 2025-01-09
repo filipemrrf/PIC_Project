@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1736416591 "main.aux" "main.bbl" "main" 1736417845
+["bibtex main"] 1736424169 "main.aux" "main.bbl" "main" 1736424171
   "/usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1643926307 65483 fc69f364ef63c07bf68a2ab4b323f197 ""
   "example.bib" 1526392642 750 94e573919dbbccdf4c937fc237088cb0 ""
-  "main-blx.bib" 1736417844 340 9808bdce1baf21af67814872548f430c "pdflatex"
-  "main.aux" 1736417844 9441 efc37c65f78417d941a5cba7f7cd6214 "pdflatex"
+  "main-blx.bib" 1736424171 340 9808bdce1baf21af67814872548f430c "pdflatex"
+  "main.aux" 1736424171 10431 7560e6cd9dfe3b3f96889d85dc9c9763 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1736417843 "/home/filipe/PIC_Project/Report-PIC2/main.tex" "main.pdf" "main" 1736417845
+["pdflatex"] 1736424169 "/home/filipe/PIC_Project/Report-PIC2/main.tex" "main.pdf" "main" 1736424171
   "/etc/texmf/web2c/texmf.cnf" 1699367576 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/filipe/PIC_Project/Report-PIC2/main.tex" 1736354895 9548 2b87e2435f7091ba01253c51bcf086b3 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -178,6 +178,8 @@
   "Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png" 1736415163 29825 efdad2b0dccb200efb199918bacb41a0 ""
   "Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png" 1736415202 21913 2ecdb80af704d80646b831353f50d648 ""
   "Images/Good_Speeds.png" 1736332726 9205 031063d7489eae17fea0572f70bb8716 ""
+  "Images/Incoming_Error.png" 1736370813 25522 eb42e03c278d7dab61e2ffea1b600191 ""
+  "Images/Incoming_IC.png" 1736416853 75691 bc0c93ec2c11b0b46f7cb36b98bb7d9d ""
   "Images/Logo-MEFT_Hor.png" 1526391734 86622 fde9ed76d08843b8bb4bcc6391464c9d ""
   "Images/Wave_Equation_1+1-Norm.png" 1736157236 23178 40423ad9d4d45d6da4063b1f31408144 ""
   "Images/Wave_Equation_1+1-Pointwise.png" 1736157277 32318 c3563bbb4a5c4b6133ca23c925e05a39 ""
@@ -186,17 +188,17 @@
   "Images/Wave_Equation_3+1_Spherical-Pointwise.png" 1736261988 33237 01b5926c035bc2590e0fe77fbde2c312 ""
   "Images/Wave_Equation_3+1_Spherical-Solution.png" 1736262011 38999 c1516937f0ef185713da94713587f6a4 ""
   "Images/logo.pdf" 1381690532 3329 938ac147a1a0596507520f034bb463ec ""
-  "Main_Text/Conclusions.tex" 1735225557 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "Main_Text/Conclusions.tex" 1736424167 1196 9c9acaadd804ae834d5be288d041f4f7 ""
   "Main_Text/Cubic_Wave_Equation_3+1_Spherical.tex" 1736415989 4276 9175db1abbfb7434a6a482df95a1bc89 ""
-  "Main_Text/Incoming_Waves.tex" 1736417843 577 cae99cf539c4358b850b8ba96239c6e0 ""
+  "Main_Text/Incoming_Waves.tex" 1736422484 3480 2217e9c5c4a92911e15c17c443a9fdf7 ""
   "Main_Text/Introduction.tex" 1736414955 7919 423eb3914a430828d6631c023101e119 ""
   "Main_Text/Wave_Equation_1+1.tex" 1736416351 4756 30beff2464ff2f1cdaa0a127f54b767f ""
   "Main_Text/Wave_Equation_3+1_Spherical.tex" 1736416589 5438 def05b178b63a7a7396c3d115ce3468e ""
   "MastersDoctoralThesis.cls" 1526851172 11624 aeca00daa5e388fd0c75e36a8b49c083 ""
-  "main.aux" 1736417844 9441 efc37c65f78417d941a5cba7f7cd6214 "pdflatex"
-  "main.bbl" 1736416591 512 242e9db92557ac81f6b30ce4f9334513 "bibtex main"
-  "main.out" 1736417844 2283 e89d75ae17f4252142c529e2a1d70f3f "pdflatex"
-  "main.run.xml" 1736417844 2553 1689e1e457107e1ba9de7449f066f039 "pdflatex"
+  "main.aux" 1736424171 10431 7560e6cd9dfe3b3f96889d85dc9c9763 "pdflatex"
+  "main.bbl" 1736424169 512 242e9db92557ac81f6b30ce4f9334513 "bibtex main"
+  "main.out" 1736424171 2283 1f16483fd91108db8415ed425c97b988 "pdflatex"
+  "main.run.xml" 1736424171 2553 1689e1e457107e1ba9de7449f066f039 "pdflatex"
   "main.tex" 1736354895 9548 2b87e2435f7091ba01253c51bcf086b3 ""
   (generated)
   "main-blx.bib"
