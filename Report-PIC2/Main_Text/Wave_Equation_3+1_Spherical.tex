@@ -1,20 +1,25 @@
-Now, let us consider the wave equation in 3+1 dimensions with spherical symmetry
+Now, let us consider the wave equation in 3+1 dimensions with spherical symmetry:
+%
 \begin{equation}
     \Box \psi \equiv - \partial_T^2 \psi + \frac{1}{R^2} \partial_R\left( R^2 \partial_R \psi\right) = 0 \;.
 \end{equation}
 
-Since $\psi$ is a solution to this equation, it will decay at a rate of $1/R$, which is a problem because we want to know how our field behaves at $\mathscr{I}$. Thus, we need to renormalize this field in such a way that it does not vanish at infinity. With this in mind, let us define a new field $\Psi$ such that
-$$\Psi \equiv \chi \, \psi \; ,$$
+Since $\psi$ is a solution to this equation, it will decay at a rate of $1/R$, which is a problem because we want to know how our field behaves at $\mathscr{I}$. Thus, we need to renormalize this field so it does not vanish at infinity. With this in mind, let us define a new field $\Psi$ such that
+%
+\begin{equation}
+    \Psi \equiv \chi \, \psi \; ,
+\end{equation}
+%
 where we will take $\chi = \sqrt{1+R^2}$.
 
-Applying that transformation to the wave equation, it becomes
-
+Applying that transformation to the equation, it becomes
+%
 \begin{equation}
     \partial_T^2 \Psi = \partial_R^2\Psi + \frac{2}{R(R^2+1)} \partial_R\Psi - \frac{3}{(R^2+1)^2} \Psi \;,
 \end{equation}
 %
-to which we can apply a first order reduction, obtaining
-
+to which we can apply a first-order reduction, obtaining
+%
 \begin{equation}
     \left\{ \begin{array}{l} 
         \partial_T \Psi = - \Pi \\ 
@@ -24,7 +29,7 @@ to which we can apply a first order reduction, obtaining
 \end{equation}
 
 Doing a coordinate change from inertial Minkowski coordinates to hyperboloidal coordinates and setting $\gamma_2 = 0$ as we did previously, we get
-
+%
 \begin{equation}
     \left\{ \begin{array}{l} 
         \partial_T \Psi = - \Pi \\ 
@@ -34,7 +39,8 @@ Doing a coordinate change from inertial Minkowski coordinates to hyperboloidal c
 \end{equation}
 where we defined $\mathcal{B}= \frac{\Omega^2}{L(H'^{\,2}-1)(r^2 + \Omega^2)^2}$. 
 
-We can see that in our evolution equations for $\Phi$ and for $\Pi$, we have a term that is formally singular, to which we will need to apply the Evans method. For that, we rewrite those evolution equations, obtaining
+We can see that in our evolution equations for $\Phi$ and $\Pi$, there are formally singular terms we can remove by applying the Evans method. For that, we rewrite those evolution equations, obtaining
+%
 \begin{equation}
     \left\{ \begin{array}{l} 
         \partial_T \Psi = - \Pi \\ 
@@ -43,9 +49,10 @@ We can see that in our evolution equations for $\Phi$ and for $\Pi$, we have a t
     \end{array} \right. \; ,
 \end{equation}
 %
-where it is easy to see that we can apply the Evans method to the last terms in parenthesis.
+where we can directly apply the Evans method to the last terms in parenthesis.
 
 Imposing the parity of each field at the origin and doing extrapolation at $\mathscr{I}$ (instead of truncation error matching that we used before) as our boundary conditions and using the initial data
+%
 \begin{equation}
     \begin{array}{c c c c}
         \psi(0,r) = A \, e^{-C \, r^2/2} \; , & \Phi(0,r) = - A \,C \, r \, \frac{\Omega^2(r)}{L(r)} \, e^{-C \, r^2/2} & \text{and} & \Pi(0,r) = 0
@@ -61,7 +68,7 @@ with $A = 1$ and $C = 100$, we obtain the evolution represented in figure \ref{f
     \label{fig:spherical_compact_wave_equation-2nd_order}
 \end{figure}
 
-Similarly to before, we obtain a clean second order convergence during the whole evolution, as can be seen for $\psi$ in the left of figure \ref{fig:spherical_compact_wave_equation-2nd_order-convergence}. Addicionally, we still have very good pointwise convergence at $\mathscr{I}$, as can be seen in the right of figure \ref{fig:spherical_compact_wave_equation-2nd_order-convergence}. Despite the fact that these results are already very good, they could be further improved by doing truncation error matching at the outer boundary instead of the extrapolation that was used.
+Similarly to the previous case, we obtain a clean second-order convergence during the whole evolution, shown in the left of figure \ref{fig:spherical_compact_wave_equation-2nd_order-convergence} for $\psi$, and an excellent pointwise convergence at $\mathscr{I}$, as seen in the right of figure \ref{fig:spherical_compact_wave_equation-2nd_order-convergence}. Even though these results are already outstanding, they could be further improved by using truncation error matching at the outer boundary instead of extrapolation.
 
 \begin{figure}[h]
     \centering
@@ -74,6 +81,6 @@ Similarly to before, we obtain a clean second order convergence during the whole
         \centering
         \includegraphics[width=\textwidth]{Images/Wave_Equation_3+1_Spherical-Pointwise.png}
     \end{subfigure}
-    \caption{Convergence tests for the evolution for the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates, provided the initial conditions given in equation \eqref{eq:spherical_compact_wave_equation-2nd_order_initial_conditions}, with $A = 1$ and $C = 100$.. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
+    \caption{Convergence tests for the evolution of the wave equation in 3+1 dimensions with spherical symmetry using hyperboloidal coordinates, provided the initial conditions given in equation \eqref{eq:spherical_compact_wave_equation-2nd_order_initial_conditions}, with $A = 1$ and $C = 100$.. On the left, we have the $L^2$ norm convergence, and on the right, we have the pointwise convergence at $\mathscr{I}$.}
     \label{fig:spherical_compact_wave_equation-2nd_order-convergence}
 \end{figure}

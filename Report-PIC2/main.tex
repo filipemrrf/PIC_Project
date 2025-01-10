@@ -45,6 +45,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{subcaption}
+\usepackage{adjustbox}
 
 \usepackage{mathpazo} % Use the Palatino font by default
 
@@ -81,7 +82,7 @@ headsepline, % Uncomment to get a line under the header
 \thesistitle[Linearized General Relativity in Hyperboloidal Coordinates]{Linearized General Relativity in Hyperboloidal Coordinates} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Prof. David Hilditch} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
-\degree{Master in Physics Engineering} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\degree{Master in Engineering Physics} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Filipe Ficalho} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
@@ -127,7 +128,7 @@ headsepline, % Uncomment to get a line under the header
 
 \vspace*{.06\textheight}
 {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-\textsc{\Large Projecto MEFT}\\[0.5cm] % Thesis type
+\textsc{\Large 2nd Cycle Integrated Project in Engineering Physics}\\[0.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
@@ -150,12 +151,23 @@ headsepline, % Uncomment to get a line under the header
 
 \large \textit{Research work performed for the \degreename}\\[0.3cm] % University requirement text
 \textit{at}\\[0.4cm]
-\groupname\\\deptname\\[2cm] % Research group name and department name
- 
-\vfill
+%\groupname\\\deptname\\[2cm] % Research group name and department name
 
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \adjustbox{valign=c}{\includegraphics[scale=0.45]{Images/Centra.jpg}}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \adjustbox{valign=c}{\includegraphics[scale=0.4]{Images/Grit.png}}
+    \end{subfigure}
+\end{figure}
+
+\vfill
 {\small \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
+% University/department logo - uncomment to place it
  
 \vfill
 \end{center}

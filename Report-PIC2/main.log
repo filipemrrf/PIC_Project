@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.12.15)  9 JAN 2025 12:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.12.15)  10 JAN 2025 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -322,7 +322,50 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
 \c@subfigure=\count298
 \c@subtable=\count299
-) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+ (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+ (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
+)
+\XKV@depth=\count300
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+ (/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box67
+)
+\tc@llx=\dimen187
+\tc@lly=\dimen188
+\tc@urx=\dimen189
+\tc@ury=\dimen190
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen191
+\adjbox@Height=\dimen192
+\adjbox@Depth=\dimen193
+\adjbox@Totalheight=\dimen194
+\adjbox@pwidth=\dimen195
+\adjbox@pheight=\dimen196
+\adjbox@pdepth=\dimen197
+\adjbox@ptotalheight=\dimen198
+ (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count301
+) (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box68
+\sift@deathcycles=\count302
+\@vwid@loff=\dimen199
+\@vwid@roff=\dimen256
+)) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty
 Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup7
 ) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
@@ -333,7 +376,7 @@ Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )) (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count300
+\lrq@indent=\count303
  (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -342,48 +385,48 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count301
-\c@listtotal=\count302
-\c@listcount=\count303
-\c@liststart=\count304
-\c@liststop=\count305
-\c@citecount=\count306
-\c@citetotal=\count307
-\c@multicitecount=\count308
-\c@multicitetotal=\count309
-\c@instcount=\count310
-\c@maxnames=\count311
-\c@minnames=\count312
-\c@maxitems=\count313
-\c@minitems=\count314
-\c@citecounter=\count315
-\c@maxcitecounter=\count316
-\c@savedcitecounter=\count317
-\c@uniquelist=\count318
-\c@uniquename=\count319
-\c@refsection=\count320
-\c@refsegment=\count321
-\c@maxextratitle=\count322
-\c@maxextratitleyear=\count323
-\c@maxextraname=\count324
-\c@maxextradate=\count325
-\c@maxextraalpha=\count326
-\c@abbrvpenalty=\count327
-\c@highnamepenalty=\count328
-\c@lownamepenalty=\count329
-\c@maxparens=\count330
-\c@parenlevel=\count331
-\blx@tempcnta=\count332
-\blx@tempcntb=\count333
-\blx@tempcntc=\count334
-\c@blx@maxsection=\count335
-\c@blx@maxsegment@0=\count336
-\blx@notetype=\count337
-\blx@parenlevel@text=\count338
-\blx@parenlevel@foot=\count339
-\c@blx@sectionciteorder@0=\count340
-\blx@entrysetcounter=\count341
-\blx@biblioinstance=\count342
+\c@tabx@nest=\count304
+\c@listtotal=\count305
+\c@listcount=\count306
+\c@liststart=\count307
+\c@liststop=\count308
+\c@citecount=\count309
+\c@citetotal=\count310
+\c@multicitecount=\count311
+\c@multicitetotal=\count312
+\c@instcount=\count313
+\c@maxnames=\count314
+\c@minnames=\count315
+\c@maxitems=\count316
+\c@minitems=\count317
+\c@citecounter=\count318
+\c@maxcitecounter=\count319
+\c@savedcitecounter=\count320
+\c@uniquelist=\count321
+\c@uniquename=\count322
+\c@refsection=\count323
+\c@refsegment=\count324
+\c@maxextratitle=\count325
+\c@maxextratitleyear=\count326
+\c@maxextraname=\count327
+\c@maxextradate=\count328
+\c@maxextraalpha=\count329
+\c@abbrvpenalty=\count330
+\c@highnamepenalty=\count331
+\c@lownamepenalty=\count332
+\c@maxparens=\count333
+\c@parenlevel=\count334
+\blx@tempcnta=\count335
+\blx@tempcntb=\count336
+\blx@tempcntc=\count337
+\c@blx@maxsection=\count338
+\c@blx@maxsegment@0=\count339
+\blx@notetype=\count340
+\blx@parenlevel@text=\count341
+\blx@parenlevel@foot=\count342
+\c@blx@sectionciteorder@0=\count343
+\blx@entrysetcounter=\count344
+\blx@biblioinstance=\count345
 \labelnumberwidth=\skip59
 \labelalphawidth=\skip60
 \biblabelsep=\skip61
@@ -395,9 +438,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \blx@bcfin=\read3
 \blx@bcfout=\write3
 \blx@langwohyphens=\language88
-\c@mincomprange=\count343
-\c@maxcomprange=\count344
-\c@mincompwidth=\count345
+\c@mincomprange=\count346
+\c@maxcomprange=\count347
+\c@mincompwidth=\count348
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -407,74 +450,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count346
-\c@savedafterword=\count347
-\c@annotator=\count348
-\c@savedannotator=\count349
-\c@author=\count350
-\c@savedauthor=\count351
-\c@bookauthor=\count352
-\c@savedbookauthor=\count353
-\c@commentator=\count354
-\c@savedcommentator=\count355
-\c@editor=\count356
-\c@savededitor=\count357
-\c@editora=\count358
-\c@savededitora=\count359
-\c@editorb=\count360
-\c@savededitorb=\count361
-\c@editorc=\count362
-\c@savededitorc=\count363
-\c@foreword=\count364
-\c@savedforeword=\count365
-\c@holder=\count366
-\c@savedholder=\count367
-\c@introduction=\count368
-\c@savedintroduction=\count369
-\c@namea=\count370
-\c@savednamea=\count371
-\c@nameb=\count372
-\c@savednameb=\count373
-\c@namec=\count374
-\c@savednamec=\count375
-\c@translator=\count376
-\c@savedtranslator=\count377
-\c@shortauthor=\count378
-\c@savedshortauthor=\count379
-\c@shorteditor=\count380
-\c@savedshorteditor=\count381
-\c@labelname=\count382
-\c@savedlabelname=\count383
-\c@institution=\count384
-\c@savedinstitution=\count385
-\c@lista=\count386
-\c@savedlista=\count387
-\c@listb=\count388
-\c@savedlistb=\count389
-\c@listc=\count390
-\c@savedlistc=\count391
-\c@listd=\count392
-\c@savedlistd=\count393
-\c@liste=\count394
-\c@savedliste=\count395
-\c@listf=\count396
-\c@savedlistf=\count397
-\c@location=\count398
-\c@savedlocation=\count399
-\c@organization=\count400
-\c@savedorganization=\count401
-\c@origlocation=\count402
-\c@savedoriglocation=\count403
-\c@origpublisher=\count404
-\c@savedorigpublisher=\count405
-\c@publisher=\count406
-\c@savedpublisher=\count407
-\c@language=\count408
-\c@savedlanguage=\count409
-\c@origlanguage=\count410
-\c@savedoriglanguage=\count411
-\c@pageref=\count412
-\c@savedpageref=\count413
+\c@afterword=\count349
+\c@savedafterword=\count350
+\c@annotator=\count351
+\c@savedannotator=\count352
+\c@author=\count353
+\c@savedauthor=\count354
+\c@bookauthor=\count355
+\c@savedbookauthor=\count356
+\c@commentator=\count357
+\c@savedcommentator=\count358
+\c@editor=\count359
+\c@savededitor=\count360
+\c@editora=\count361
+\c@savededitora=\count362
+\c@editorb=\count363
+\c@savededitorb=\count364
+\c@editorc=\count365
+\c@savededitorc=\count366
+\c@foreword=\count367
+\c@savedforeword=\count368
+\c@holder=\count369
+\c@savedholder=\count370
+\c@introduction=\count371
+\c@savedintroduction=\count372
+\c@namea=\count373
+\c@savednamea=\count374
+\c@nameb=\count375
+\c@savednameb=\count376
+\c@namec=\count377
+\c@savednamec=\count378
+\c@translator=\count379
+\c@savedtranslator=\count380
+\c@shortauthor=\count381
+\c@savedshortauthor=\count382
+\c@shorteditor=\count383
+\c@savedshorteditor=\count384
+\c@labelname=\count385
+\c@savedlabelname=\count386
+\c@institution=\count387
+\c@savedinstitution=\count388
+\c@lista=\count389
+\c@savedlista=\count390
+\c@listb=\count391
+\c@savedlistb=\count392
+\c@listc=\count393
+\c@savedlistc=\count394
+\c@listd=\count395
+\c@savedlistd=\count396
+\c@liste=\count397
+\c@savedliste=\count398
+\c@listf=\count399
+\c@savedlistf=\count400
+\c@location=\count401
+\c@savedlocation=\count402
+\c@organization=\count403
+\c@savedorganization=\count404
+\c@origlocation=\count405
+\c@savedoriglocation=\count406
+\c@origpublisher=\count407
+\c@savedorigpublisher=\count408
+\c@publisher=\count409
+\c@savedpublisher=\count410
+\c@language=\count411
+\c@savedlanguage=\count412
+\c@origlanguage=\count413
+\c@savedoriglanguage=\count414
+\c@pageref=\count415
+\c@savedpageref=\count416
 \shorthandwidth=\skip67
 \shortjournalwidth=\skip68
 \shortserieswidth=\skip69
@@ -508,19 +551,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-\c@textcitecount=\count414
-\c@textcitetotal=\count415
-\c@textcitemaxnames=\count416
-\c@biburlbigbreakpenalty=\count417
-\c@biburlbreakpenalty=\count418
-\c@biburlnumpenalty=\count419
-\c@biburlucpenalty=\count420
-\c@biburllcpenalty=\count421
+\c@textcitecount=\count417
+\c@textcitetotal=\count418
+\c@textcitemaxnames=\count419
+\c@biburlbigbreakpenalty=\count420
+\c@biburlbreakpenalty=\count421
+\c@biburlnumpenalty=\count422
+\c@biburlucpenalty=\count423
+\c@biburllcpenalty=\count424
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count422
+\c@smartand=\count425
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -536,8 +579,8 @@ Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count423
-\c@bbx:relatedtotal=\count424
+\c@bbx:relatedcount=\count426
+\c@bbx:relatedtotal=\count427
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -570,13 +613,13 @@ Package biblatex Info: ... and expl3
 Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 )) (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2021-02-22 v5.2l context-sensitive quotations (JAW)
-\csq@reset=\count425
-\csq@gtype=\count426
-\csq@glevel=\count427
-\csq@qlevel=\count428
-\csq@maxlvl=\count429
-\csq@tshold=\count430
-\csq@ltx@everypar=\toks27
+\csq@reset=\count428
+\csq@gtype=\count429
+\csq@glevel=\count430
+\csq@qlevel=\count431
+\csq@maxlvl=\count432
+\csq@tshold=\count433
+\csq@ltx@everypar=\toks29
  (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2021-02-22 v5.2l csquotes generic definitions (JAW)
 )
@@ -599,9 +642,9 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen187
-\Hy@linkcounter=\count431
-\Hy@pagecounter=\count432
+\@linkdim=\dimen257
+\Hy@linkcounter=\count434
+\Hy@pagecounter=\count435
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -613,7 +656,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count433
+\Hy@SavedSpaceFactor=\count436
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -626,17 +669,17 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count434
+\c@Hy@tempcnt=\count437
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen188
+\XeTeXLinkMargin=\dimen258
  (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count435
-\Field@Width=\dimen189
-\Fld@charsize=\dimen190
+\Fld@menulength=\count438
+\Field@Width=\dimen259
+\Fld@charsize=\dimen260
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -650,13 +693,13 @@ LaTeX Info: Redefining \pageref on input line 6150.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count436
-\c@Item=\count437
-\c@Hfootnote=\count438
+\Hy@abspage=\count439
+\c@Item=\count440
+\c@Hfootnote=\count441
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 101.
+(scrhack)             need that hack, on input line 102.
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
@@ -664,8 +707,8 @@ File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count439
-\c@bookmark@seq@number=\count440
+\Fld@listcount=\count442
+\c@bookmark@seq@number=\count443
  (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -675,54 +718,54 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip81
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 101.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 101.
-Package hyperref Info: Option `colorlinks' set `true' on input line 101.
-Package hyperref Info: Option `unicode' set `true' on input line 101.
-Package hyperref Info: Option `breaklinks' set `true' on input line 101.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 102.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 102.
+Package hyperref Info: Option `colorlinks' set `true' on input line 102.
+Package hyperref Info: Option `unicode' set `true' on input line 102.
+Package hyperref Info: Option `breaklinks' set `true' on input line 102.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 101.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 102.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 101.
-LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
  (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 101.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 102.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count441
-\scratchdimen=\dimen191
-\scratchbox=\box67
-\nofMPsegments=\count442
-\nofMParguments=\count443
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count444
-\MPscratchDim=\dimen192
-\MPnumerator=\count445
-\makeMPintoPDFobject=\count446
-\everyMPtoPDFconversion=\toks29
+\scratchcounter=\count444
+\scratchdimen=\dimen261
+\scratchbox=\box69
+\nofMPsegments=\count445
+\nofMParguments=\count446
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count447
+\MPscratchDim=\dimen262
+\MPnumerator=\count448
+\makeMPintoPDFobject=\count449
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -769,7 +812,7 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 101.
+(scrlayer)             \begin{document} on input line 102.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -786,9 +829,9 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 101.
-Package biblatex Info: Reference segment=0 on input line 101.
-Package hyperref Info: Link coloring ON on input line 101.
+Package biblatex Info: Reference section=0 on input line 102.
+Package biblatex Info: Reference segment=0 on input line 102.
+Package hyperref Info: Link coloring ON on input line 102.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -796,11 +839,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count447
+\c@section@level=\count450
 )
-LaTeX Info: Redefining \ref on input line 101.
-LaTeX Info: Redefining \pageref on input line 101.
-LaTeX Info: Redefining \nameref on input line 101.
+LaTeX Info: Redefining \ref on input line 102.
+LaTeX Info: Redefining \pageref on input line 102.
+LaTeX Info: Redefining \nameref on input line 102.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -808,53 +851,63 @@ LaTeX Info: Redefining \nameref on input line 101.
 <Images/logo.pdf, id=48, 500.87125pt x 193.72375pt>
 File: Images/logo.pdf Graphic file (type pdf)
 <use Images/logo.pdf>
-Package pdftex.def Info: Images/logo.pdf  used on input line 115.
+Package pdftex.def Info: Images/logo.pdf  used on input line 116.
 (pdftex.def)             Requested size: 125.2175pt x 48.43082pt.
 <Images/Logo-MEFT_Hor.png, id=49, 2364.835pt x 713.66624pt>
 File: Images/Logo-MEFT_Hor.png Graphic file (type png)
 <use Images/Logo-MEFT_Hor.png>
-Package pdftex.def Info: Images/Logo-MEFT_Hor.png  used on input line 122.
+Package pdftex.def Info: Images/Logo-MEFT_Hor.png  used on input line 123.
 (pdftex.def)             Requested size: 189.19066pt x 57.09445pt.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Images/logo.pdf> <./Images/Logo-MEFT_Hor.png>] (./Main_Text/Introduction.tex
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 1.
+<Images/Centra.jpg, id=52, 200.75pt x 200.75pt>
+File: Images/Centra.jpg Graphic file (type jpg)
+<use Images/Centra.jpg>
+Package pdftex.def Info: Images/Centra.jpg  used on input line 160.
+(pdftex.def)             Requested size: 90.33665pt x 90.33665pt.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 1.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 1.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 1.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 1.
+(Font)              scaled to size 11.40997pt on input line 160.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 1.
+(Font)              scaled to size 8.33606pt on input line 160.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 1.
+(Font)              scaled to size 6.25204pt on input line 160.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 1.
+(Font)              scaled to size 11.40997pt on input line 160.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 1.
+(Font)              scaled to size 8.33606pt on input line 160.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 1.
+(Font)              scaled to size 6.25204pt on input line 160.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 1.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
-<Images/Good_Speeds.png, id=69, 361.35pt x 214.401pt>
+<Images/Grit.png, id=53, 481.8pt x 196.93575pt>
+File: Images/Grit.png Graphic file (type png)
+<use Images/Grit.png>
+Package pdftex.def Info: Images/Grit.png  used on input line 164.
+(pdftex.def)             Requested size: 192.71658pt x 78.77289pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Images/logo.pdf> <./Images/Logo-MEFT_Hor.png> <./Images/Centra.jpg> <./Images/Grit.png>] (./Main_Text/Introduction.tex
+<Images/Good_Speeds.png, id=71, 361.35pt x 214.401pt>
 File: Images/Good_Speeds.png Graphic file (type png)
 <use Images/Good_Speeds.png>
 Package pdftex.def Info: Images/Good_Speeds.png  used on input line 37.
@@ -868,115 +921,134 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 7.91925pt on input line 38.
  [1 <./Images/Good_Speeds.png (PNG copy)>]
-<Images/Bad_Speeds.png, id=86, 361.35pt x 219.82124pt>
+<Images/Bad_Speeds.png, id=88, 361.35pt x 219.82124pt>
 File: Images/Bad_Speeds.png Graphic file (type png)
 <use Images/Bad_Speeds.png>
 Package pdftex.def Info: Images/Bad_Speeds.png  used on input line 62.
 (pdftex.def)             Requested size: 244.69366pt x 148.85593pt.
  [2 <./Images/Bad_Speeds.png (PNG copy)>]) (./Main_Text/Wave_Equation_1+1.tex [3]
-<Images/Wave_Equation_1+1-Solution.png, id=107, 338.4645pt x 264.38776pt>
+<Images/Wave_Equation_1+1-Solution.png, id=109, 338.4645pt x 264.38776pt>
 File: Images/Wave_Equation_1+1-Solution.png Graphic file (type png)
 <use Images/Wave_Equation_1+1-Solution.png>
 Package pdftex.def Info: Images/Wave_Equation_1+1-Solution.png  used on input line 48.
 (pdftex.def)             Requested size: 244.69366pt x 191.14166pt.
- [4 <./Images/Wave_Equation_1+1-Solution.png>]
-<Images/Wave_Equation_1+1-Norm.png, id=122, 342.68025pt x 261.97874pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Images/Wave_Equation_1+1-Norm.png, id=114, 342.68025pt x 261.97874pt>
 File: Images/Wave_Equation_1+1-Norm.png Graphic file (type png)
 <use Images/Wave_Equation_1+1-Norm.png>
 Package pdftex.def Info: Images/Wave_Equation_1+1-Norm.png  used on input line 59.
 (pdftex.def)             Requested size: 220.22281pt x 168.36137pt.
-<Images/Wave_Equation_1+1-Pointwise.png, id=123, 342.68025pt x 268.00125pt>
+<Images/Wave_Equation_1+1-Pointwise.png, id=115, 342.68025pt x 268.00125pt>
 File: Images/Wave_Equation_1+1-Pointwise.png Graphic file (type png)
 <use Images/Wave_Equation_1+1-Pointwise.png>
 Package pdftex.def Info: Images/Wave_Equation_1+1-Pointwise.png  used on input line 64.
 (pdftex.def)             Requested size: 220.22281pt x 172.23175pt.
-) (./Main_Text/Wave_Equation_3+1_Spherical.tex [5 <./Images/Wave_Equation_1+1-Norm.png> <./Images/Wave_Equation_1+1-Pointwise.png>]
-<Images/Wave_Equation_3+1_Spherical-Solution.png, id=137, 350.5095pt x 263.18324pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./Main_Text/Wave_Equation_3+1_Spherical.tex [4] [5 <./Images/Wave_Equation_1+1-Solution.png> <./Images/Wave_Equation_1+1-Norm.png> <./Images/Wave_Equation_1+1-Pointwise.png>]
+<Images/Wave_Equation_3+1_Spherical-Solution.png, id=140, 350.5095pt x 263.18324pt>
 File: Images/Wave_Equation_3+1_Spherical-Solution.png Graphic file (type png)
 <use Images/Wave_Equation_3+1_Spherical-Solution.png>
-Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Solution.png  used on input line 59.
+Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Solution.png  used on input line 66.
 (pdftex.def)             Requested size: 244.69366pt x 183.73306pt.
-<Images/Wave_Equation_3+1_Spherical-Norm.png, id=142, 355.3275pt x 262.581pt>
+<Images/Wave_Equation_3+1_Spherical-Norm.png, id=145, 355.3275pt x 262.581pt>
 File: Images/Wave_Equation_3+1_Spherical-Norm.png Graphic file (type png)
 <use Images/Wave_Equation_3+1_Spherical-Norm.png>
-Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Norm.png  used on input line 70.
+Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Norm.png  used on input line 77.
 (pdftex.def)             Requested size: 220.22281pt x 162.74643pt.
-<Images/Wave_Equation_3+1_Spherical-Pointwise.png, id=143, 358.33875pt x 267.399pt>
+<Images/Wave_Equation_3+1_Spherical-Pointwise.png, id=146, 358.33875pt x 267.399pt>
 File: Images/Wave_Equation_3+1_Spherical-Pointwise.png Graphic file (type png)
 <use Images/Wave_Equation_3+1_Spherical-Pointwise.png>
-Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Pointwise.png  used on input line 75.
+Package pdftex.def Info: Images/Wave_Equation_3+1_Spherical-Pointwise.png  used on input line 82.
 (pdftex.def)             Requested size: 220.22281pt x 164.3372pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./Main_Text/Cubic_Wave_Equation_3+1_Spherical.tex [6 <./Images/Wave_Equation_3+1_Spherical-Solution.png>]
-<Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png, id=158, 340.27126pt x 266.1945pt>
+<Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png, id=161, 340.27126pt x 266.1945pt>
 File: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png Graphic file (type png)
 <use Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png>
-Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png  used on input line 31.
+Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png  used on input line 34.
 (pdftex.def)             Requested size: 220.22281pt x 172.28107pt.
-<Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png, id=159, 336.65775pt x 262.581pt>
+<Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png, id=162, 336.65775pt x 262.581pt>
 File: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png Graphic file (type png)
 <use Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png>
-Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png  used on input line 36.
+Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png  used on input line 39.
 (pdftex.def)             Requested size: 220.22281pt x 171.76543pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png, id=163, 356.532pt x 264.99pt>
+<Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Norm.png, id=167, 462.528pt x 346.896pt>
+File: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Norm.png Graphic file (type png)
+<use Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Norm.png>
+Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Norm.png  used on input line 51.
+(pdftex.def)             Requested size: 220.22281pt x 165.16899pt.
+<Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Pointwise.png, id=168, 462.528pt x 346.896pt>
+File: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Pointwise.png Graphic file (type png)
+<use Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Pointwise.png>
+Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Pointwise.png  used on input line 56.
+(pdftex.def)             Requested size: 220.22281pt x 165.16899pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png, id=171, 356.532pt x 264.99pt>
 File: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png Graphic file (type png)
 <use Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png>
-Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png  used on input line 48.
+Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png  used on input line 66.
 (pdftex.def)             Requested size: 220.22281pt x 163.68558pt.
-<Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png, id=164, 355.92975pt x 271.0125pt>
+<Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png, id=172, 355.92975pt x 271.0125pt>
 File: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png Graphic file (type png)
 <use Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png>
-Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png  used on input line 53.
+Package pdftex.def Info: Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png  used on input line 71.
 (pdftex.def)             Requested size: 220.22281pt x 167.68277pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./Main_Text/Incoming_Waves.tex [7 <./Images/Wave_Equation_3+1_Spherical-Norm.png> <./Images/Wave_Equation_3+1_Spherical-Pointwise.png>] [8 <./Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png>]
-Overfull \hbox (17.09206pt too wide) detected at line 22
-[][][] \OT1/ppl/m/n/10.95 ,
+) (./Main_Text/Incoming_Waves.tex [7 <./Images/Wave_Equation_3+1_Spherical-Norm.png> <./Images/Wave_Equation_3+1_Spherical-Pointwise.png>] [8 <./Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Solution.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Solution.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Norm.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=1-Pointwise.png>]
+Overfull \hbox (11.31296pt too wide) detected at line 22
+[][][]
  []
 
-<Images/Incoming_IC.png, id=189, 719.68875pt x 418.56375pt>
+<Images/Incoming_IC.png, id=198, 719.68875pt x 418.56375pt>
 File: Images/Incoming_IC.png Graphic file (type png)
 <use Images/Incoming_IC.png>
 Package pdftex.def Info: Images/Incoming_IC.png  used on input line 30.
 (pdftex.def)             Requested size: 220.22281pt x 128.08008pt.
-<Images/Incoming_Error.png, id=190, 445.06274pt x 239.6955pt>
+<Images/Incoming_Error.png, id=199, 445.06274pt x 239.6955pt>
 File: Images/Incoming_Error.png Graphic file (type png)
 <use Images/Incoming_Error.png>
 Package pdftex.def Info: Images/Incoming_Error.png  used on input line 35.
 (pdftex.def)             Requested size: 220.22281pt x 118.60756pt.
-) (./Main_Text/Conclusions.tex) [9 <./Images/Incoming_IC.png> <./Images/Incoming_Error.png>]
+) [9 <./Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Norm.png> <./Images/Cubic_Wave_Equation_3+1_Spherical-A=10-Pointwise.png> <./Images/Incoming_IC.png> <./Images/Incoming_Error.png>] (./Main_Text/Conclusions.tex)
 
-LaTeX Warning: Empty bibliography on input line 219.
+LaTeX Warning: Empty bibliography on input line 231.
 
 [10] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1F16483FD91108DB8415ED425C97B988;2283.
+(rerunfilecheck)             Checksum: F5C30F4318CABB3991FD972718290460;2283.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29298 strings out of 478287
- 628794 string characters out of 5849288
- 1098822 words of memory out of 5000000
- 47038 multiletter control sequences out of 15000+600000
+ 30462 strings out of 478287
+ 650667 string characters out of 5849288
+ 1289829 words of memory out of 5000000
+ 48160 multiletter control sequences out of 15000+600000
  522399 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,21n,93p,1855b,1765s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (11 pages, 506101 bytes).
+Output written on main.pdf (11 pages, 629623 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 60 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 200 compressed objects within 2 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
