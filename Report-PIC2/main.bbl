@@ -16,5 +16,258 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}\enddatalist
+\datalist[entry]{none/global//global/global}
+  \entry{hilditch2016evolutionhyperboloidaldatadual}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=HD}{%
+         family={Hilditch},
+         familyi={H\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Harms},
+         familyi={H\bibinitperiod},
+         given={Enno},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bugner},
+         familyi={B\bibinitperiod},
+         given={Marcus},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=RH}{%
+         family={Rueter},
+         familyi={R\bibinitperiod},
+         given={Hannes},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=BB}{%
+         family={Bruegmann},
+         familyi={B\bibinitperiod},
+         given={Bernd},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HD+1}
+    \strng{fullhash}{HDHEBMRHBB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 1609.08949
+    \endverb
+    \field{title}{The evolution of hyperboloidal data with the dual foliation
+  formalism: Mathematical analysis and wave equation tests}
+    \verb{url}
+    \verb https://arxiv.org/abs/1609.08949
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Zengino_lu_2011}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ZA}{%
+         family={Zenginoğlu},
+         familyi={Z\bibinitperiod},
+         given={Anıl},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{ZA1}
+    \strng{fullhash}{ZA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.jcp.2010.12.016
+    \endverb
+    \field{issn}{0021-9991}
+    \field{number}{6}
+    \field{pages}{2286–2302}
+    \field{title}{Hyperboloidal layers for hyperbolic equations on unbounded
+  domains}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.jcp.2010.12.016
+    \endverb
+    \field{volume}{230}
+    \field{journaltitle}{Journal of Computational Physics}
+    \field{month}{03}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Ficalho_2023}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=FF}{%
+         family={Ficalho},
+         familyi={F\bibinitperiod},
+         given={Filipe},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FF1}
+    \strng{fullhash}{FF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Available at
+  \url{https://ulisboa-my.sharepoint.com/:b:/g/personal/ist199933_tecnico_ulisboa_pt/EWrk5DmaLeRLmczdoGGSitYB46y_dfQVd4tsFxDF29MwmA?e=1r0FVY}}
+    \field{title}{Numerical Evolutions of Spacetime}
+    \list{location}{1}{%
+      {Lisbon, Portugal}%
+    }
+    \list{institution}{1}{%
+      {Instituto Superior Técnico}%
+    }
+    \field{type}{1st Cycle Integrated Project in Engineering Physics}
+    \field{month}{06}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Pretorius_2002}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=PF}{%
+         family={Pretorius},
+         familyi={P\bibinitperiod},
+         given={Franz},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PF1}
+    \strng{fullhash}{PF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Available at
+  \url{http://laplace.physics.ubc.ca/Members/matt/Doc/Theses/Phd/pretorius.pdf}}
+    \field{title}{Numerical Simulations of Gravitational Collapse}
+    \list{location}{1}{%
+      {Vancouver, Canada}%
+    }
+    \list{institution}{1}{%
+      {University of British Columbia}%
+    }
+    \field{type}{PhD thesis}
+    \field{month}{08}
+    \field{year}{2002}
+  \endentry
+
+  \entry{Gautam_2021}{article}{}
+    \name{author}{4}{}{%
+      {{hash=GS}{%
+         family={Gautam},
+         familyi={G\bibinitperiod},
+         given={Shalabh},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=VVA}{%
+         family={Vañó-Viñuales},
+         familyi={V\bibinithyphendelim V\bibinitperiod},
+         given={Alex},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={Hilditch},
+         familyi={H\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bose},
+         familyi={B\bibinitperiod},
+         given={Sukanta},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society (APS)}%
+    }
+    \strng{namehash}{GS+1}
+    \strng{fullhash}{GSVVAHDBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1103/physrevd.103.084045
+    \endverb
+    \field{issn}{2470-0029}
+    \field{number}{8}
+    \field{title}{Summation by parts and truncation error matching on
+  hyperboloidal slices}
+    \verb{url}
+    \verb http://dx.doi.org/10.1103/PhysRevD.103.084045
+    \endverb
+    \field{volume}{103}
+    \field{journaltitle}{Physical Review D}
+    \field{month}{04}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Evans_1984}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=ECR}{%
+         family={Evans},
+         familyi={E\bibinitperiod},
+         given={Charles\bibnamedelima Ross},
+         giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ECR1}
+    \strng{fullhash}{ECR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Available at
+  \url{https://users.physics.unc.edu/~evans/cr_evans_thesis_1984.pdf}}
+    \field{title}{Simulation of Axisymmetric Gravitational Collapse}
+    \list{location}{1}{%
+      {Austin, USA}%
+    }
+    \list{institution}{1}{%
+      {University of Texas}%
+    }
+    \field{type}{PhD thesis}
+    \field{month}{08}
+    \field{year}{1984}
+  \endentry
+
+  \entry{Valiente_Kroon_2024}{article}{}
+    \name{author}{2}{}{%
+      {{hash=VJA}{%
+         family={Valiente Kroon},
+         familyi={V\bibinitperiod},
+         given={Juan\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=GDSLJ}{%
+         family={Gomes Da\bibnamedelima Silva},
+         familyi={G\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+         given={Lidia\bibnamedelima J.},
+         giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Springer Science}%
+      {Business Media LLC}%
+    }
+    \strng{namehash}{VJAGDSLJ1}
+    \strng{fullhash}{VJAGDSLJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/s10714-024-03272-2
+    \endverb
+    \field{issn}{1572-9532}
+    \field{number}{7}
+    \field{title}{The d’Alembert solution in hyperboloidal foliations}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s10714-024-03272-2
+    \endverb
+    \field{volume}{56}
+    \field{journaltitle}{General Relativity and Gravitation}
+    \field{month}{07}
+    \field{year}{2024}
+  \endentry
+\enddatalist
 \endinput

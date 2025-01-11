@@ -1,6 +1,6 @@
 When studying gravitational waves, we must be mindful that gravitational wave sources (like black hole mergers, neutron stars, etc.) are billions of light years away from Earth. From the point of view of an observer on Earth, this distance is so vast that it can be approximated as being at infinity. This distance, however, is not sufficiently far away to require accounting for the cosmological constant, allowing us to model spacetime as asymptotically flat. Thus, we are interested in studying the behavior of the gravitational fields at null infinity, $\mathscr{I}$.
 
-To do so, we must perform a conformal compactification of the spacetime, which brings $\mathscr{I}$ to a finite distance on our computational grid. This is done by working in the hyperboloidal coordinate system.
+To do so, we may perform a conformal compactification of the spacetime, which brings $\mathscr{I}$ to a finite distance on our computational grid. This is done by working in the hyperboloidal coordinate system.
 
 \subsection{Hyperboloidal Coordinates}
 
@@ -12,7 +12,7 @@ The hyperboloidal coordinate system, as previously mentioned, maps our previousl
     \end{array} \; 
 \end{equation}
 %
-where $H(R)$ is called the height function and $\Omega(r)$ is called the compress function, which give rize to the Jacobian matrix:
+where $H(R)$ is called the height function and $\Omega(r)$ is called the compress function \cite{hilditch2016evolutionhyperboloidaldatadual,Zengino_lu_2011}, which give rize to the Jacobian matrix:
 %
 \begin{equation}
     \left(J^{Hyp}\right)_{\alpha'}^{\ \ \beta} = 
@@ -30,7 +30,7 @@ where $H'(r)$ denotes the derivative of the height function with respect to $R$ 
     L(r) \equiv \Omega(r) - r \, \partial_r \Omega(r) \; .
 \end{equation}
 
-This coordinate system is advantageous because it allows us to do the desired compactification while maintaining the characteristic speed of outgoing waves finite. Additionally, we can choose the height and compress functions so that the outgoing light speed is constant, which we can observe in figure \ref{fig:Good_Speeds} for a specific choice of the height and compress functions. In exchange, this coordinate system makes incoming waves hard to resolve. 
+This coordinate system is advantageous because it allows us to do the desired compactification while maintaining the characteristic speed of outgoing waves finite. Additionally, we can choose the height and compress functions so that the outgoing light speed is constant, which we can observe in figure \ref{fig:Good_Speeds} for a specific choice of the height and compress functions \cite{hilditch2016evolutionhyperboloidaldatadual}. In contrast, this coordinate system makes incoming waves hard to resolve. 
 
 \begin{figure}[h]
     \centering
@@ -66,7 +66,7 @@ For this choice of functions, we still have that the incoming light speed decrea
 
 \subsection{Computational Setup}
 
-This work is a continuation of my previous work on numerical relativity. As such, the framework used here is the same as the one used there (described in \cite{}), with the addition of truncation error matching for the derivatives, interpolation at the boundaries, and the Evans Method for regularization at the origin.
+This work is a continuation of my previous work on numerical relativity. As such, the framework used here is the same as the one used there (described in \cite{Ficalho_2023}), with the addition of truncation error matching for the derivatives, interpolation at the boundaries, and the Evans Method for regularization at the origin.
 
 \subsubsection{Truncation Error Matching}
 
@@ -78,7 +78,7 @@ In our framework, to approximate the first derivative of a field $\psi$ at an in
     \psi'_i = \frac{\psi_{i+1} - \psi_{i-1}}{2h} - \frac{h^2}{6} \psi'''_i + ...\; ,
 \end{equation}
 %
-where $\psi_{i+1}$ and $\psi_{i-1}$ are the values of the field $\psi$ at the points $i+1$ and $i-1$ respectively, and $h$ is the grid spacing.
+where $\psi_{i+1}$ and $\psi_{i-1}$ are the values of the field $\psi$ at the points $i+1$ and $i-1$ respectively, and $h$ is the grid spacing. \cite{Pretorius_2002,Gautam_2021}
 
 To match this leading order term of the error at the left and right boundary points, respectively, we use
 %
@@ -102,7 +102,7 @@ Since we are interested in evolving the fields at null infinity, we must choose 
 where $\psi_i$ is the value of the field at the ghost point $i$, and $\psi_{i-1}$, $\psi_{i-2}$, $\psi_{i-3}$ and $\psi_{i-4}$ are the values of the field at the points $i-1$, $i-2$, $i-3$ and $i-4$ respectively.
 
 \subsubsection{Evans Method}
-When dealing with operators like the Laplacian in spherical coordinates, we find some formal singularities we must remove for our code to work. To remove those singularities, we can apply the Evans Method. This method involves rewriting the singular terms as a different differential operator, called the Evans operator, which we can evaluate at the grid points. We define this operator as
+When dealing with operators like the Laplacian in spherical coordinates, we find some formal singularities, like terms where the coefficients are inversely proportional to the radial coordinate, that we must remove for our code to work. To remove those singularities, we can apply the Evans Method. This method involves rewriting the singular terms as a different differential operator, called the Evans operator, which we can evaluate at the grid points. We define this operator as
 %
 \begin{equation}
     \partial_r \psi + \frac{p}{r}\psi = (p+1) \frac{d(r^p \psi)}{dr^{p+1}}\;,
@@ -114,4 +114,4 @@ where $p$ is a constant. This operator can be expressed in terms of the grid poi
     (p+1) \frac{d(r^p \psi)}{dr^{p+1}}=(\tilde{D}\psi)_i = (p+1)\frac{r^p_{i+1}\psi_{i+1}-r^p_{i-1}\psi_{i-1}}{r^{p+1}_{i+1}-r^{p+1}_{i-1}}\;,
 \end{equation}
 %
-where the subscripts $i+1$ and $i-1$ denote the grid points $i+1$ and $i-1$ respectively.
+where the subscripts $i+1$ and $i-1$ denote the grid points $i+1$ and $i-1$ respectively. \cite{Evans_1984}

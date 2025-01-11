@@ -46,13 +46,15 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{mathrsfs}
 \usepackage{subcaption}
 \usepackage{adjustbox}
+\usepackage{tikz}
 
 \usepackage{mathpazo} % Use the Palatino font by default
 
 %\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
-\usepackage[backend=bibtex,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the number citation style
+\usepackage[backend=bibtex,style=numeric,natbib=true,sorting=none]{biblatex} % Use the bibtex backend with the number citation style
 
 \addbibresource{example.bib} % The filename of the bibliography
+
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
@@ -164,6 +166,7 @@ headsepline, % Uncomment to get a line under the header
         \adjustbox{valign=c}{\includegraphics[scale=0.4]{Images/Grit.png}}
     \end{subfigure}
 \end{figure}
+\addtocounter{figure}{-1}
 
 \vfill
 {\small \today}\\[4cm] % Date

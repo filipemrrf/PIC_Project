@@ -3,7 +3,7 @@ Let us start by considering the wave equation in 1+1 dimensions:
 \begin{equation}
     \Box \psi \equiv - \partial_T^2 \psi + \partial_X^2  \psi = 0 \;.
 \end{equation}
-
+%
 From my previous work on the subject \cite{}, we concluded that we should use systems of equations that are first order both in space and time since the second order in space and first order in time scheme created problems for us in that same work. Thus, we should perform a first-order reduction of the wave equation before proceeding. Defining $\Pi \equiv -\partial_T \psi$, we obtain
 %
 \begin{equation}
@@ -41,7 +41,7 @@ We can now solve this system of equations by applying truncation error matching 
     \end{array} \; ,
     \label{eq:compact_wave_equation-2nd_order_initial_conditions}
 \end{equation}
-with $A = 1$ and $C = 100$, we obtain the evolution present in figure \ref{fig:compact_wave_equation-2nd_order}. In that evolution, it is noticeable that after the wave propagates out of the computational domain, there is a negative displacement that does not disperse as one would naively think would happen. Even though this result is counterintuitive, it was proven correct in \cite{}.
+with $A = 1$ and $C = 100$, we obtain the evolution present in figure \ref{fig:compact_wave_equation-2nd_order}. In that evolution, it is noticeable that after the wave propagates out of the computational domain, there is a negative displacement that does not disperse as one would naively think would happen. Even though this result is counterintuitive, it was proven correct in \cite{Valiente_Kroon_2024}.
 
 \begin{figure}[h]
     \centering
